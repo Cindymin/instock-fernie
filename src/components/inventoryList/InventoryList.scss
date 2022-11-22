@@ -32,7 +32,14 @@
         flex: 0 0 50%;
       }
     }
-
+    @include bk.large {
+      flex-direction: row;
+      align-items: baseline;
+      border: none;
+      & > :nth-child(1) {
+        flex: 0 0 50%;
+      }
+    }
     &-form {
       margin-top: 1.25rem;
       display: flex;
@@ -40,6 +47,9 @@
       margin-left: auto;
       margin-right: auto;
       @include bk.medium {
+        margin-right: 0;
+      }
+      @include bk.large {
         margin-right: 0;
       }
     }
@@ -65,14 +75,24 @@
           width: 185px;
           height: 38px;
         }
+
+        @include bk.large {
+          width: 274px;
+          height: 38px;
+        }
       }
       &__img {
         position: absolute;
         left: 17.5rem;
-        top: 5.4rem;
+        top: 4.4rem;
         @include bk.medium {
           top: 3.2rem;
           left: 32rem;
+        }
+
+        @include bk.large {
+          top: 3.2rem;
+          left: 48rem;
         }
       }
     }
@@ -91,6 +111,10 @@
         height: 36px;
         border: 1px solid cl.$primaryMedium;
         @include bk.medium {
+          width: 128px;
+          height: 38px;
+        }
+        @include bk.large {
           width: 128px;
           height: 38px;
         }
@@ -113,6 +137,19 @@
         color: #5c667e;
       }
     }
+    @include bk.large {
+      &::after {
+        position: absolute;
+        background-color: rgba(247, 248, 249, 0.7);
+        z-index: 1;
+        content: "";
+        top: 0.75rem;
+        width: 63.75rem;
+        height: 2.5rem;
+        left: 0px;
+        color: #5c667e;
+      }
+    }
 
     &-labels {
       @include bk.small {
@@ -121,7 +158,7 @@
         color: cl.$secondraryDark;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: 1.5rem;
+        padding: 1.5rem;
 
         & > :nth-child(1) {
           order: 1;
@@ -142,7 +179,7 @@
       }
       @include bk.medium {
         display: flex;
-        margin: 1rem;
+        padding: 1rem;
         border-bottom: 1px solid cl.$secondaryLight;
 
         & > :nth-child(1) {
@@ -166,6 +203,33 @@
           margin-left: 2rem;
         }
       }
+      @include bk.large {
+        display: flex;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid cl.$secondaryLight;
+
+        & > :nth-child(1) {
+          display: inline-flex;
+          flex: 0 0 25%;
+
+          justify-content: space-between;
+          width: 100%;
+          margin-right: 6rem;
+        }
+        & > :nth-child(2) {
+          display: flex;
+          flex: 0 0 42%;
+          justify-content: space-between;
+          width: 100%;
+        }
+        & > :nth-child(3) {
+          display: flex;
+          margin-top: 0.25rem;
+          flex: 0 0 15%;
+          margin-left: 6rem;
+          font-size: 0.75rem;
+        }
+      }
 
       &-c {
         display: flex;
@@ -174,6 +238,10 @@
         }
         &__horizental {
           @include bk.medium {
+            display: flex;
+            flex-direction: column;
+          }
+          @include bk.large {
             display: flex;
             flex-direction: column;
           }
@@ -199,6 +267,10 @@
             margin-top: 1rem;
             font-size: 0.75rem;
           }
+          @include bk.large {
+            margin-top: 2.5rem;
+            font-size: 0.75rem;
+          }
         }
       }
     }
@@ -212,6 +284,10 @@
           padding-bottom: 1rem;
           font-size: 0.75rem;
         }
+        @include bk.large {
+          padding-bottom: 2.5rem;
+          font-size: 0.75rem;
+        }
       }
     }
     &-text {
@@ -222,6 +298,9 @@
       color: cl.$primaryDark;
       line-height: 1.25rem;
       margin-bottom: 1.5rem;
+      @include bk.large {
+        padding-bottom: 0rem;
+      }
       &--blue {
         color: cl.$primaryMedium;
         font-weight: 600;
