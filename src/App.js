@@ -1,7 +1,7 @@
-import "./App.css";
-import Home from "./components/pages/Home";
-import Warehouse from "./components/pages/Warehouse";
-import Inventory from "./components/pages/Inventory";
+import "./App.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Warehouse from "./components/pages/warehouse/Warehouse";
+import Inventory from "./components/pages/inventory/Inventory";
 
 function App() {
   return (
@@ -9,9 +9,8 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/warehouse" element={<Warehouses />} />
-            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/warehouse" element={<Warehouse />} />
+            <Route path="/" element={<Inventory />} />
           </Routes>
         </BrowserRouter>
       </div>
