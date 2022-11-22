@@ -24,6 +24,14 @@
     flex-direction: column;
     padding: 1.5rem 1rem;
     border-bottom: 1px solid cl.$secondaryLight;
+    @include bk.medium {
+      flex-direction: row;
+      align-items: baseline;
+      border: none;
+      & > :nth-child(1) {
+        flex: 0 0 50%;
+      }
+    }
 
     &-form {
       margin-top: 1.25rem;
@@ -31,6 +39,9 @@
       align-items: center;
       margin-left: auto;
       margin-right: auto;
+      @include bk.medium {
+        margin-right: 0;
+      }
     }
     &-title {
       margin-left: 0;
@@ -39,6 +50,8 @@
       }
     }
     &-search {
+      margin-top: 0.25rem;
+
       &__bar {
         background: cl.$primaryLight;
         border: 1px solid cl.$secondaryLight;
@@ -47,14 +60,26 @@
         height: 36px;
         position: relative;
         padding-left: 1rem;
+
+        @include bk.medium {
+          width: 185px;
+          height: 38px;
+        }
       }
       &__img {
         position: absolute;
         left: 17.5rem;
         top: 5.4rem;
+        @include bk.medium {
+          top: 3.2rem;
+          left: 32rem;
+        }
       }
     }
     &-btn {
+      @include bk.medium {
+        justify-content: right;
+      }
       &--blue {
         color: cl.$primaryLight;
         font-size: 0.8125rem;
@@ -65,43 +90,100 @@
         width: 295px;
         height: 36px;
         border: 1px solid cl.$primaryMedium;
+        @include bk.medium {
+          width: 128px;
+          height: 38px;
+        }
       }
     }
   }
   &-bottom {
-    &-labels {
-      display: flex;
-      font-size: 0.6875rem;
-      color: cl.$secondraryDark;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 1.5rem;
+    position: relative;
 
-      & > :nth-child(1) {
-        order: 1;
-        flex: 0 0 55%;
+    @include bk.medium {
+      &::after {
+        position: absolute;
+        background-color: rgba(247, 248, 249, 0.7);
+        z-index: 1;
+        content: "";
+        top: 0.75rem;
+        width: 44rem;
+        height: 2.5rem;
+        left: 0px;
+        color: #5c667e;
       }
-      & > :nth-child(2) {
-        order: 2;
-        flex: 0 0 45%;
+    }
+
+    &-labels {
+      @include bk.small {
+        display: flex;
+        font-size: 0.6875rem;
+        color: cl.$secondraryDark;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 1.5rem;
+
+        & > :nth-child(1) {
+          order: 1;
+          flex: 0 0 55%;
+        }
+        & > :nth-child(2) {
+          order: 2;
+          flex: 0 0 45%;
+        }
+        & > :nth-child(3) {
+          order: 3;
+          flex: 100%;
+        }
+        & > :nth-child(4) {
+          order: 4;
+          flex: 100%;
+        }
       }
-      & > :nth-child(3) {
-        order: 3;
-        flex: 100%;
-      }
-      & > :nth-child(4) {
-        order: 4;
-        flex: 100%;
+      @include bk.medium {
+        display: flex;
+        margin: 1rem;
+        border-bottom: 1px solid cl.$secondaryLight;
+
+        & > :nth-child(1) {
+          display: inline-flex;
+          flex: 0 0 35%;
+
+          justify-content: space-between;
+          width: 100%;
+          margin-right: 3rem;
+        }
+        & > :nth-child(2) {
+          display: flex;
+          flex: 0 0 42%;
+          justify-content: space-between;
+          width: 100%;
+        }
+        & > :nth-child(3) {
+          display: flex;
+          margin-top: 0.25rem;
+          flex: 0 0 10%;
+          margin-left: 2rem;
+        }
       }
 
       &-c {
         display: flex;
-
+        @include bk.medium {
+          font-size: 0.75rem;
+        }
+        &__horizental {
+          @include bk.medium {
+            display: flex;
+            flex-direction: column;
+          }
+        }
         &__text {
-          visibility: visible;
+          visibility: hidden;
           display: none;
         }
       }
+
       &-icons {
         display: flex;
         justify-content: space-between;
@@ -113,6 +195,10 @@
           display: flex;
           width: 1.5rem;
           height: 1.5rem;
+          @include bk.medium {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+          }
         }
       }
     }
@@ -122,6 +208,10 @@
       &-wrapper {
         margin-bottom: 0.25rem;
         margin-top: 0.25rem;
+        @include bk.medium {
+          padding-bottom: 1rem;
+          font-size: 0.75rem;
+        }
       }
     }
     &-text {

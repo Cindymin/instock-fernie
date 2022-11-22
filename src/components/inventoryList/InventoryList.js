@@ -32,64 +32,73 @@ export default function InventoryList() {
       <section className="invList-bottom">
         <div className="invList-bottom-labels">
           <div classNAme="invList-bottom-labels-a">
-            <div className="invList-bottom-title-wrapper">
-              <span classNAme="invList-bottom-title">INVENTORY ITEM</span>
+            <div classname="invList-bottom-labels-a__horizental">
+              <div className="invList-bottom-title-wrapper">
+                <span classNAme="invList-bottom-title">INVENTORY ITEM</span>
+              </div>
+              <div className="invList-bottom-item">
+                <span className="invList-bottom-item invList-bottom-item--blue">
+                  Television 〉
+                </span>
+              </div>
             </div>
-            <div className="invList-bottom-item">
-              <span className="invList-bottom-item invList-bottom-item--blue">
-                Television 〉
-              </span>
-            </div>
-
-            <div className="invList-bottom-title-wrapper">
-              <span classNAme="invList-bottom-title">CATEGORY</span>
-            </div>
-            <div className="invList-bottom-item">
-              <span className="invList-bottom-item">Electronics</span>
+            <div classname="invList-bottom-labels-a__horizental">
+              <div className="invList-bottom-title-wrapper">
+                <span classNAme="invList-bottom-title">CATEGORY</span>
+              </div>
+              <div className="invList-bottom-item">
+                <span className="invList-bottom-item">Electronics</span>
+              </div>
             </div>
           </div>
           <div classNAme="invList-bottom-labels-b">
-            <div className="invList-bottom-title-wrapper">
-              <span classNAme="invList-bottom-title">STATUS</span>
+            <div classname="invList-bottom-labels-b__horizental">
+              <div className="invList-bottom-title-wrapper">
+                <span classNAme="invList-bottom-title">STATUS</span>
+              </div>
+              <div className="invList-bottom-item">
+                <span className="invList-bottom-item--inStock">IN STOCK</span>
+              </div>
             </div>
-            <div className="invList-bottom-item">
-              <span className="invList-bottom-item invList-bottom-item--inStock">
-                IN STOCK
-              </span>
+
+            <div classname="invList-bottom-labels-b__horizental">
+              <div className="invList-bottom-title-wrapper">
+                <span classNAme="invList-bottom-title">QTY</span>
+              </div>
+              <div className="invList-bottom-item">
+                <span className="invList-bottom-item">500</span>
+              </div>
             </div>
-            <div className="invList-bottom-title-wrapper">
-              <span classNAme="invList-bottom-title">QTY</span>
-            </div>
-            <div className="invList-bottom-item">
-              <span className="invList-bottom-item">500</span>
-            </div>
-            <div className="invList-bottom-title-wrapper">
-              <span classNAme="invList-bottom-title">WAREHOUSE</span>
-            </div>
-            <div className="invList-bottom-item">
-              <span className="invList-bottom-item">Manhattan</span>
+
+            <div classname="invList-bottom-labels-b__horizental">
+              <div className="invList-bottom-title-wrapper">
+                <span classNAme="invList-bottom-title">WAREHOUSE</span>
+              </div>
+              <div className="invList-bottom-item">
+                <span className="invList-bottom-item">Manhattan</span>
+              </div>
             </div>
           </div>
           <div className="invList-bottom-labels-c">
-            <div classNAme="invList-bottom-labels-c__text">
-              <span classNAme="invList-bottom-labels-c__text">ACTIONS</span>
-            </div>
-          </div>
-          <div className="invList-bottom-labels-icons-wrapper">
-            <div className="invList-bottom-labels-icons">
-              <div className="invList-bottom-labels__action">
-                <img
-                  src={deleteIcon}
-                  alt="trash-bin-icon"
-                  className="invList-bottom-labels__action-img"
-                />
+            <div classname="invList-bottom-labels-c__horizental">
+              <div classNAme="invList-bottom-labels-c__text">
+                <span classNAme="invList-bottom-labels-c__text">ACTIONS</span>
               </div>
-              <div className="nvList-bottom-labels__action">
-                <img
-                  src={editIcon}
-                  alt="pencil-icon"
-                  className="invList-bottom-labels__action-img"
-                />
+              <div className="invList-bottom-labels-icons">
+                <div className="invList-bottom-labels__action">
+                  <img
+                    src={deleteIcon}
+                    alt="trash-bin-icon"
+                    className="invList-bottom-labels__action-img"
+                  />
+                </div>
+                <div className="nvList-bottom-labels__action">
+                  <img
+                    src={editIcon}
+                    alt="pencil-icon"
+                    className="invList-bottom-labels__action-img"
+                  />
+                </div>
               </div>
             </div>
           </div>
