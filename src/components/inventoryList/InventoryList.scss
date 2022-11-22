@@ -1,0 +1,151 @@
+@use "../../styles/partials/colors" as cl;
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/breakpoints" as bk;
+@use "../../styles/partials/global";
+
+.invList {
+  display: flex;
+  flex-direction: column;
+  width: 21.4375rem;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: cl.$primaryLight;
+  @include bk.medium {
+    width: 44rem;
+    height: 37.8125rem;
+  }
+  @include bk.large {
+    width: 63.75rem;
+    height: 37.8125rem;
+  }
+
+  &-top {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid cl.$secondaryLight;
+
+    &-form {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &-title {
+      margin-left: 0;
+      &__text {
+        color: cl.$primaryDark;
+      }
+    }
+    &-search {
+      &__bar {
+        background: cl.$primaryLight;
+        border: 1px solid cl.$secondaryLight;
+        border-radius: 20px;
+        width: 295px;
+        height: 36px;
+        position: relative;
+        padding-left: 1rem;
+      }
+      &__img {
+        position: absolute;
+        left: 17.5rem;
+        top: 5.4rem;
+      }
+    }
+    &-btn {
+      &--blue {
+        color: cl.$primaryLight;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        line-height: 20px;
+        background: cl.$primaryMedium;
+        border-radius: 20px;
+        width: 295px;
+        height: 36px;
+        border: 1px solid cl.$primaryMedium;
+      }
+    }
+  }
+  &-bottom {
+    &-labels {
+      display: flex;
+      font-size: 0.6875rem;
+      color: cl.$secondraryDark;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 1.5rem;
+
+      & > :nth-child(1) {
+        order: 1;
+        flex: 0 0 55%;
+      }
+      & > :nth-child(2) {
+        order: 2;
+        flex: 0 0 45%;
+      }
+      & > :nth-child(3) {
+        order: 3;
+        flex: 100%;
+      }
+      & > :nth-child(4) {
+        order: 4;
+        flex: 100%;
+      }
+
+      &-c {
+        display: flex;
+
+        &__text {
+          visibility: visible;
+          display: none;
+        }
+      }
+      &-icons {
+        display: flex;
+        justify-content: space-between;
+      }
+      &__action {
+        display: flex;
+
+        &-img {
+          display: flex;
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+
+    &-title {
+      display: flex;
+      &-wrapper {
+        margin-bottom: 0.25rem;
+        margin-top: 0.25rem;
+      }
+    }
+    &-text {
+      margin: 1.5rem;
+    }
+    &-item {
+      font-size: 0.8125rem;
+      color: cl.$primaryDark;
+      line-height: 1.25rem;
+      margin-bottom: 1.5rem;
+      &--blue {
+        color: cl.$primaryMedium;
+        font-weight: 600;
+        font-size: 0.8125rem;
+      }
+      &--inStock {
+        color: cl.$inStock;
+        background: rgba(21, 132, 99, 0.07);
+        border-radius: 20px;
+        width: 61px;
+        height: 24px;
+        padding: 4px 8px;
+        font-weight: 600;
+      }
+    }
+  }
+}

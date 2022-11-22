@@ -1,15 +1,19 @@
 import React from "react";
 import "./InventoryList.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
+import editIcon from "../../assets/icons/edit-24px.svg";
 
 export default function InventoryList() {
   return (
     <article className="invList">
       <section className="invList-top">
         <div className="invList-top-title">
-          <h2 className="invList-top-title__text">Inventory</h2>
+          <h2 className="invList-top-title invList-top-title__text">
+            Inventory
+          </h2>
         </div>
-        <div className="invList-top-search">
+        <div className="invList-top-form invList-top-search">
           <input
             type="text"
             placeholder="Search..."
@@ -21,56 +25,76 @@ export default function InventoryList() {
             className="invList-top-search__img"
           />
         </div>
-        <div className="invList-top-btn">
+        <div className="invList-top-form invList-top-btn">
           <button className="invList-top-btn--blue">+ Add New Item</button>
         </div>
       </section>
       <section className="invList-bottom">
         <div className="invList-bottom-labels">
-          <div classNAme="invList-bottom-title">
-            <span classNAme="invList-bottom-title">INVENTORY ITEM</span>
-          </div>
-          <div classNAme="invList-bottom-title">
-            <span classNAme="invList-bottom-title">CATEGORY</span>
-          </div>
-          <div classNAme="invList-bottom-title">
-            <span classNAme="invList-bottom-title">STATUS</span>
-          </div>
-          <div classNAme="invList-bottom-title">
-            <span classNAme="invList-bottom-title">QTY</span>
-          </div>
-          <div classNAme="invList-bottom-title">
-            <span classNAme="invList-bottom-title">WAREHOUSE</span>
-          </div>
-          <div classNAme="invList-bottom-title">
-            <span classNAme="invList-bottom-title">ACTIONS</span>
-          </div>
-        </div>
+          <div classNAme="invList-bottom-labels-a">
+            <div className="invList-bottom-title-wrapper">
+              <span classNAme="invList-bottom-title">INVENTORY ITEM</span>
+            </div>
+            <div className="invList-bottom-item">
+              <span className="invList-bottom-item invList-bottom-item--blue">
+                Television 〉
+              </span>
+            </div>
 
-        <div className="invList-bottom-text">
-          <div className="invList-bottom-item">
-            <span className="invList-bottom-item">Television</span>
+            <div className="invList-bottom-title-wrapper">
+              <span classNAme="invList-bottom-title">CATEGORY</span>
+            </div>
+            <div className="invList-bottom-item">
+              <span className="invList-bottom-item">Electronics</span>
+            </div>
           </div>
-          <div className="invList-bottom-item">
-            <span className="invList-bottom-item">Electronics</span>
+          <div classNAme="invList-bottom-labels-b">
+            <div className="invList-bottom-title-wrapper">
+              <span classNAme="invList-bottom-title">STATUS</span>
+            </div>
+            <div className="invList-bottom-item">
+              <span className="invList-bottom-item invList-bottom-item--inStock">
+                IN STOCK
+              </span>
+            </div>
+            <div className="invList-bottom-title-wrapper">
+              <span classNAme="invList-bottom-title">QTY</span>
+            </div>
+            <div className="invList-bottom-item">
+              <span className="invList-bottom-item">500</span>
+            </div>
+            <div className="invList-bottom-title-wrapper">
+              <span classNAme="invList-bottom-title">WAREHOUSE</span>
+            </div>
+            <div className="invList-bottom-item">
+              <span className="invList-bottom-item">Manhattan</span>
+            </div>
           </div>
-          <div className="invList-bottom-item">
-            <span className="invList-bottom-item">IN STOCK</span>
+          <div className="invList-bottom-labels-c">
+            <div classNAme="invList-bottom-labels-c__text">
+              <span classNAme="invList-bottom-labels-c__text">ACTIONS</span>
+            </div>
           </div>
-          <div className="invList-bottom-item">
-            <span className="invList-bottom-item">500</span>
-          </div>
-          <div className="invList-bottom-item">
-            <span className="invList-bottom-item">Manhattan</span>
-          </div>
-          <div className="invList-bottom-item">
-            <div className="invList-bottom-item-btn"></div>
+          <div className="invList-bottom-labels-icons-wrapper">
+            <div className="invList-bottom-labels-icons">
+              <div className="invList-bottom-labels__action">
+                <img
+                  src={deleteIcon}
+                  alt="trash-bin-icon"
+                  className="invList-bottom-labels__action-img"
+                />
+              </div>
+              <div className="nvList-bottom-labels__action">
+                <img
+                  src={editIcon}
+                  alt="pencil-icon"
+                  className="invList-bottom-labels__action-img"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <div>
-        <span>© InStock Inc. All Rights Reserved.</span>
-      </div>
     </article>
   );
 }
