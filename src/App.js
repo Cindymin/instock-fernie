@@ -5,16 +5,15 @@ import Inventory from "./components/pages/inventory/Inventory";
 
 function App() {
   return (
-    <>
-      <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/warehouse" element={<Warehouse />} />
-            <Route path="/" element={<Inventory />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Warehouse />} />
+          <Route path="/warehouse" element={<Warehouse />} />
+          <Route path="/inventory" element={<Inventory />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
