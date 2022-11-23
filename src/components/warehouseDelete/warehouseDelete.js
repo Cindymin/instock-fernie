@@ -1,4 +1,4 @@
-import "./DeleteWarehouse.scss";
+import "./WarehouseDelete.scss";
 import React from "react";
 import deleteIcon from "../../assets/icons/close-24px.svg";
 
