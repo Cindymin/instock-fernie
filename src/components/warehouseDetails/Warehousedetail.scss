@@ -24,6 +24,9 @@ body {
     background: #ffffff;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
+    position: absolute;
+    top: 9rem;
+    left: 2.5rem;
 
     &__nameContainer {
       display: flex;
@@ -40,7 +43,7 @@ body {
       &-name {
         width: 145px;
         height: 36px;
-        font-family: "TitilliumWeb-semiBold";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 600;
         font-size: 28px;
@@ -69,7 +72,7 @@ body {
       }
 
       &-tag {
-        font-family: "TitilliumWeb-semiBold";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 600;
         color: #5c667e;
@@ -79,7 +82,7 @@ body {
       }
 
       &-text {
-        font-family: "TitilliumWeb-regular";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 400;
         font-size: 13px;
@@ -132,7 +135,7 @@ body {
     }
 
     &__item-info-tag {
-      font-family: "TitilliumWeb-semiBold";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 600;
       color: #5c667e;
@@ -146,7 +149,7 @@ body {
     }
 
     &__item-info-name {
-      font-family: "TitilliumWeb-semiBold";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 600;
       font-size: 13px;
@@ -170,7 +173,7 @@ body {
       height: 24px;
       background: rgba(21, 132, 99, 0.07);
       border-radius: 20px;
-      font-family: "TitilliumWeb-semiBold";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 600;
       font-size: 11px;
@@ -181,7 +184,7 @@ body {
     }
 
     &__item-info-category {
-      font-family: "TitilliumWeb-regular";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 400;
       font-size: 13px;
@@ -190,7 +193,7 @@ body {
     }
 
     &__item-info-num {
-      font-family: "TitilliumWeb-regular";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 400;
       font-size: 13px;
@@ -236,7 +239,7 @@ body {
       &-name {
         width: 145px;
         height: 36px;
-        font-family: "TitilliumWeb-semiBold";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 600;
         font-size: 28px;
@@ -269,7 +272,7 @@ body {
       }
 
       &-tag {
-        font-family: "TitilliumWeb-semiBold";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 600;
         color: #5c667e;
@@ -280,7 +283,7 @@ body {
       }
 
       &-text {
-        font-family: "TitilliumWeb-regular";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 400;
         font-size: 13px;
@@ -334,7 +337,7 @@ body {
         }
 
         &-text {
-          font-family: "TitilliumWeb-semiBold";
+          font-family: "TitilliumWeb";
           font-style: normal;
           font-weight: 600;
           color: #5c667e;
@@ -362,7 +365,7 @@ body {
     }
 
     &__item-info-name {
-      font-family: "TitilliumWeb-semiBold";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 600;
       font-size: 13px;
@@ -384,7 +387,7 @@ body {
       height: 24px;
       background: rgba(21, 132, 99, 0.07);
       border-radius: 20px;
-      font-family: "TitilliumWeb-semiBold";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 600;
       font-size: 11px;
@@ -396,7 +399,7 @@ body {
     }
 
     &__item-info-category {
-      font-family: "TitilliumWeb-regular";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 400;
       font-size: 13px;
@@ -407,7 +410,7 @@ body {
     }
 
     &__item-info-num {
-      font-family: "TitilliumWeb-regular";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 400;
       font-size: 13px;
@@ -460,7 +463,7 @@ body {
       &-name {
         width: 145px;
         height: 36px;
-        font-family: "TitilliumWeb-semiBold";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 600;
         font-size: 28px;
@@ -493,7 +496,7 @@ body {
       }
 
       &-tag {
-        font-family: "TitilliumWeb-semiBold";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 600;
         color: #5c667e;
@@ -504,7 +507,7 @@ body {
       }
 
       &-text {
-        font-family: "TitilliumWeb-regular";
+        font-family: "TitilliumWeb";
         font-style: normal;
         font-weight: 400;
         font-size: 13px;
@@ -558,7 +561,7 @@ body {
         }
 
         &-text {
-          font-family: "TitilliumWeb-semiBold";
+          font-family: "TitilliumWeb";
           font-style: normal;
           font-weight: 600;
           color: #5c667e;
@@ -586,7 +589,7 @@ body {
     }
 
     &__item-info-name {
-      font-family: "TitilliumWeb-semiBold";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 600;
       font-size: 13px;
@@ -608,7 +611,7 @@ body {
       height: 24px;
       background: rgba(21, 132, 99, 0.07);
       border-radius: 20px;
-      font-family: "TitilliumWeb-semiBold";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 600;
       font-size: 11px;
@@ -620,7 +623,7 @@ body {
     }
 
     &__item-info-category {
-      font-family: "TitilliumWeb-regular";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 400;
       font-size: 13px;
@@ -631,7 +634,7 @@ body {
     }
 
     &__item-info-num {
-      font-family: "TitilliumWeb-regular";
+      font-family: "TitilliumWeb";
       font-style: normal;
       font-weight: 400;
       font-size: 13px;

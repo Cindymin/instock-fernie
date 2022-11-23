@@ -1,6 +1,16 @@
 import React from "react";
-import InventoryList from "../../inventoryList/InventoryList";
+import Header from "../../header/Header";
+import Footer from "../../footer/Footer";
+import WarehouseDetails from "../../warehouseDetails/WarehouseDetails";
 
-export default function Warehouse() {
-  return <InventoryList />;
+function Warehouse() {
+  return (
+    <>
+      <Header />
+      <WarehouseDetails className="content" />
+      <Footer />
+    </>
+  );
 }
+
+export default Warehouse;
