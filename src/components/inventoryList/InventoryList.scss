@@ -1,0 +1,357 @@
+@use "../../styles/partials/colors" as cl;
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/breakpoints" as bk;
+@use "../../styles/partials/global";
+
+.invList {
+  display: flex;
+  flex-direction: column;
+  width: 21.4375rem;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: cl.$primaryLight;
+  @include bk.medium {
+    width: 44rem;
+    height: 37.8125rem;
+  }
+  @include bk.large {
+    width: 63.75rem;
+    height: 37.8125rem;
+  }
+
+  &-top {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid cl.$secondaryLight;
+    @include bk.medium {
+      flex-direction: row;
+      align-items: baseline;
+      border: none;
+      & > :nth-child(1) {
+        flex: 0 0 50%;
+      }
+    }
+    @include bk.large {
+      flex-direction: row;
+      align-items: baseline;
+      border: none;
+      & > :nth-child(1) {
+        flex: 0 0 50%;
+      }
+    }
+    &-form {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      @include bk.medium {
+        margin-right: 0;
+      }
+      @include bk.large {
+        margin-right: 0;
+      }
+    }
+    &-title {
+      margin-left: 0;
+      &-img {
+        background-image: url("../../assets//icons/sort-24px.svg");
+        width: 100%;
+      }
+      &__text {
+        color: cl.$primaryDark;
+      }
+    }
+    &-search {
+      margin-top: 0.25rem;
+
+      &__bar {
+        background: cl.$primaryLight;
+        border: 1px solid cl.$secondaryLight;
+        border-radius: 20px;
+        width: 295px;
+        height: 36px;
+        position: relative;
+        padding-left: 1rem;
+
+        @include bk.medium {
+          width: 185px;
+          height: 38px;
+        }
+
+        @include bk.large {
+          width: 274px;
+          height: 38px;
+        }
+      }
+      &__img {
+        position: absolute;
+        left: 17.5rem;
+        top: 4.4rem;
+
+        @include bk.medium {
+          top: 3.2rem;
+          left: 32rem;
+        }
+
+        @include bk.large {
+          top: 3.2rem;
+          left: 48rem;
+        }
+      }
+    }
+    &-btn {
+      @include bk.medium {
+        justify-content: right;
+        display: flex;
+      }
+      @include bk.large {
+        margin-left: 0.75rem;
+      }
+      &--blue {
+        color: cl.$primaryLight;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        line-height: 20px;
+        background: cl.$primaryMedium;
+        border-radius: 20px;
+        width: 295px;
+        height: 36px;
+        border: 1px solid cl.$primaryMedium;
+        @include bk.medium {
+          width: 128px;
+          height: 38px;
+        }
+        @include bk.large {
+          width: 128px;
+          height: 38px;
+        }
+      }
+    }
+  }
+  &-bottom {
+    &-labels {
+      @include bk.small {
+        display: flex;
+        font-size: 0.6875rem;
+        color: cl.$secondraryDark;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 1.5rem;
+
+        & > :nth-child(1) {
+          order: 1;
+          flex: 0 0 55%;
+        }
+        & > :nth-child(2) {
+          order: 2;
+          flex: 0 0 45%;
+        }
+        & > :nth-child(3) {
+          order: 3;
+          flex: 0 0 100%;
+        }
+        & > :nth-child(4) {
+          order: 4;
+          flex: 0 0 100%;
+        }
+      }
+      @include bk.medium {
+        display: flex;
+        padding: 1rem;
+        border-bottom: 1px solid cl.$secondaryLight;
+
+        & > :nth-child(1) {
+          display: inline-flex;
+          flex: 0 0 35%;
+          justify-content: space-between;
+          width: 100%;
+          margin-right: 3rem;
+        }
+        & > :nth-child(2) {
+          display: flex;
+          flex: 0 0 42%;
+          justify-content: space-between;
+          width: 100%;
+        }
+        & > :nth-child(3) {
+          display: flex;
+          margin-top: 0.25rem;
+          flex: 0 0 10%;
+          margin-left: 2rem;
+        }
+      }
+      @include bk.large {
+        display: flex;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid cl.$secondaryLight;
+
+        & > :nth-child(1) {
+          display: inline-flex;
+          flex: 0 0 25%;
+
+          justify-content: space-between;
+          width: 100%;
+          margin-right: 6rem;
+        }
+        & > :nth-child(2) {
+          display: flex;
+          flex: 0 0 42%;
+          justify-content: space-between;
+          width: 100%;
+        }
+        & > :nth-child(3) {
+          display: flex;
+          margin-top: 0.25rem;
+          flex: 0 0 15%;
+          margin-left: 6rem;
+          font-size: 0.75rem;
+        }
+      }
+
+      &-c {
+        display: flex;
+        @include bk.medium {
+          font-size: 0.75rem;
+        }
+        &__horizental {
+          @include bk.medium {
+            display: flex;
+            flex-direction: column;
+          }
+          @include bk.large {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+        &__text {
+          visibility: hidden;
+          display: none;
+          @include bk.medium {
+            visibility: visible;
+            display: flex;
+          }
+          @include bk.large {
+            visibility: visible;
+            display: flex;
+          }
+        }
+        &__after {
+          position: relative;
+          @include bk.medium {
+            &::after {
+              position: absolute;
+              background-color: rgba(247, 248, 249, 0.7);
+              z-index: 1;
+              content: "";
+              opacity: 4px;
+              top: -0.5rem;
+              width: 44rem;
+              height: 2.5rem;
+              left: -38.25rem;
+            }
+          }
+          @include bk.large {
+            &::after {
+              position: absolute;
+              background-color: rgba(247, 248, 249, 0.7);
+              z-index: 1;
+              content: "";
+              top: -0.5rem;
+              width: 63.75rem;
+              height: 2.5rem;
+              left: -54rem;
+              color: #5c667e;
+            }
+          }
+        }
+      }
+
+      &-icons {
+        display: flex;
+        justify-content: space-between;
+        @include bk.small {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      &__action {
+        display: flex;
+
+        &-img {
+          display: flex;
+          width: 1.5rem;
+          height: 1.5rem;
+          &--right {
+            margin-left: 15rem;
+            @include bk.medium {
+              margin-left: 0;
+            }
+            @include bk.large {
+              margin-left: 0;
+            }
+          }
+          @include bk.medium {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+          }
+          @include bk.large {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+
+    &-title {
+      display: flex;
+
+      &__img {
+        height: 16px;
+        padding-top: 0.25rem;
+      }
+
+      &-wrapper {
+        margin-bottom: 0.25rem;
+        margin-top: 0.25rem;
+        display: flex;
+
+        @include bk.medium {
+          padding-bottom: 1rem;
+          font-size: 0.75rem;
+        }
+        @include bk.large {
+          padding-bottom: 1.5rem;
+          font-size: 0.75rem;
+        }
+      }
+    }
+    &-text {
+      margin: 1.5rem;
+    }
+    &-item {
+      font-size: 0.8125rem;
+      color: cl.$primaryDark;
+      line-height: 1.25rem;
+      margin-bottom: 1.5rem;
+      @include bk.large {
+        padding-bottom: 0rem;
+      }
+      &--blue {
+        color: cl.$primaryMedium;
+        font-weight: 600;
+        font-size: 0.8125rem;
+      }
+      &--inStock {
+        color: cl.$inStock;
+        background: rgba(21, 132, 99, 0.07);
+        border-radius: 20px;
+        width: 61px;
+        height: 24px;
+        padding: 4px 8px;
+        font-weight: 600;
+      }
+    }
+  }
+}

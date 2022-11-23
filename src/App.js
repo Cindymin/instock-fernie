@@ -1,8 +1,7 @@
-import React from "react";
+
 import "./App.css";
-import Home from "./components/pages/Home";
-import Warehouse from "./components/pages/Warehouse";
-import Inventory from "./components/pages/Inventory";
+import Warehouse from "./components/pages/warehouse/Warehouse";
+import Inventory from "./components/pages/inventory/Inventory";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+              <Route path="/" exact element={<Warehouse />} />
             <Route path="/warehouse" element={<Warehouse />} />
             <Route path="/inventory" element={<Inventory />} />
           </Routes>
