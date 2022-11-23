@@ -55,6 +55,10 @@
     }
     &-title {
       margin-left: 0;
+      &-img {
+        background-image: url("../../assets//icons/sort-24px.svg");
+        width: 100%;
+      }
       &__text {
         color: cl.$primaryDark;
       }
@@ -85,6 +89,7 @@
         position: absolute;
         left: 17.5rem;
         top: 4.4rem;
+
         @include bk.medium {
           top: 3.2rem;
           left: 32rem;
@@ -99,6 +104,10 @@
     &-btn {
       @include bk.medium {
         justify-content: right;
+        display: flex;
+      }
+      @include bk.large {
+        margin-left: 0.75rem;
       }
       &--blue {
         color: cl.$primaryLight;
@@ -122,35 +131,6 @@
     }
   }
   &-bottom {
-    position: relative;
-
-    @include bk.medium {
-      &::after {
-        position: absolute;
-        background-color: rgba(247, 248, 249, 0.7);
-        z-index: 1;
-        content: "";
-        top: 0.75rem;
-        width: 44rem;
-        height: 2.5rem;
-        left: 0px;
-        color: #5c667e;
-      }
-    }
-    @include bk.large {
-      &::after {
-        position: absolute;
-        background-color: rgba(247, 248, 249, 0.7);
-        z-index: 1;
-        content: "";
-        top: 0.75rem;
-        width: 63.75rem;
-        height: 2.5rem;
-        left: 0px;
-        color: #5c667e;
-      }
-    }
-
     &-labels {
       @include bk.small {
         display: flex;
@@ -170,11 +150,11 @@
         }
         & > :nth-child(3) {
           order: 3;
-          flex: 100%;
+          flex: 0 0 100%;
         }
         & > :nth-child(4) {
           order: 4;
-          flex: 100%;
+          flex: 0 0 100%;
         }
       }
       @include bk.medium {
@@ -185,7 +165,6 @@
         & > :nth-child(1) {
           display: inline-flex;
           flex: 0 0 35%;
-
           justify-content: space-between;
           width: 100%;
           margin-right: 3rem;
@@ -249,12 +228,53 @@
         &__text {
           visibility: hidden;
           display: none;
+          @include bk.medium {
+            visibility: visible;
+            display: flex;
+          }
+          @include bk.large {
+            visibility: visible;
+            display: flex;
+          }
+        }
+        &__after {
+          position: relative;
+          @include bk.medium {
+            &::after {
+              position: absolute;
+              background-color: rgba(247, 248, 249, 0.7);
+              z-index: 1;
+              content: "";
+              opacity: 4px;
+              top: -0.5rem;
+              width: 44rem;
+              height: 2.5rem;
+              left: -38.25rem;
+            }
+          }
+          @include bk.large {
+            &::after {
+              position: absolute;
+              background-color: rgba(247, 248, 249, 0.7);
+              z-index: 1;
+              content: "";
+              top: -0.5rem;
+              width: 63.75rem;
+              height: 2.5rem;
+              left: -54rem;
+              color: #5c667e;
+            }
+          }
         }
       }
 
       &-icons {
         display: flex;
         justify-content: space-between;
+        @include bk.small {
+          display: flex;
+          justify-content: space-between;
+        }
       }
       &__action {
         display: flex;
@@ -263,12 +283,21 @@
           display: flex;
           width: 1.5rem;
           height: 1.5rem;
+          &--right {
+            margin-left: 15rem;
+            @include bk.medium {
+              margin-left: 0;
+            }
+            @include bk.large {
+              margin-left: 0;
+            }
+          }
           @include bk.medium {
             margin-top: 1rem;
             font-size: 0.75rem;
           }
           @include bk.large {
-            margin-top: 2.5rem;
+            margin-top: 1.5rem;
             font-size: 0.75rem;
           }
         }
@@ -277,15 +306,23 @@
 
     &-title {
       display: flex;
+
+      &__img {
+        height: 16px;
+        padding-top: 0.25rem;
+      }
+
       &-wrapper {
         margin-bottom: 0.25rem;
         margin-top: 0.25rem;
+        display: flex;
+
         @include bk.medium {
           padding-bottom: 1rem;
           font-size: 0.75rem;
         }
         @include bk.large {
-          padding-bottom: 2.5rem;
+          padding-bottom: 1.5rem;
           font-size: 0.75rem;
         }
       }

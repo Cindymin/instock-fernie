@@ -3,6 +3,8 @@ import "./InventoryList.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import sortIcon from "../../assets/icons/sort-24px.svg";
+import less from "../../assets/icons/chevron_right-24px.svg";
 
 export default function InventoryList() {
   return (
@@ -35,44 +37,74 @@ export default function InventoryList() {
             <div classname="invList-bottom-labels-a__horizental">
               <div className="invList-bottom-title-wrapper">
                 <span classNAme="invList-bottom-title">INVENTORY ITEM</span>
+                <img
+                  src={sortIcon}
+                  alt="sort-icon"
+                  className="invList-bottom-title__img"
+                />
               </div>
               <div className="invList-bottom-item">
                 <span className="invList-bottom-item invList-bottom-item--blue">
-                  Television 〉
+                  Television
+                  <img
+                    src={less}
+                    alt="sort-icon"
+                    className="invList-bottom-title__img"
+                  />
                 </span>
               </div>
             </div>
             <div classname="invList-bottom-labels-a__horizental">
               <div className="invList-bottom-title-wrapper">
-                <span classNAme="invList-bottom-title">CATEGORY</span>
+                <span className="invList-bottom-title">CATEGORY</span>
+                <img
+                  src={sortIcon}
+                  alt="sort-icon"
+                  className="invList-bottom-title__img"
+                />
               </div>
               <div className="invList-bottom-item">
                 <span className="invList-bottom-item">Electronics</span>
               </div>
             </div>
           </div>
-          <div classNAme="invList-bottom-labels-b">
-            <div classname="invList-bottom-labels-b__horizental">
+          <div className="invList-bottom-labels-b">
+            <div className="invList-bottom-labels-b__horizental">
               <div className="invList-bottom-title-wrapper">
-                <span classNAme="invList-bottom-title">STATUS</span>
+                <span className="invList-bottom-title">STATUS</span>
+                <img
+                  src={sortIcon}
+                  alt="sort-icon"
+                  className="invList-bottom-title__img"
+                />
               </div>
               <div className="invList-bottom-item">
                 <span className="invList-bottom-item--inStock">IN STOCK</span>
               </div>
             </div>
 
-            <div classname="invList-bottom-labels-b__horizental">
+            <div className="invList-bottom-labels-b__horizental">
               <div className="invList-bottom-title-wrapper">
-                <span classNAme="invList-bottom-title">QTY</span>
+                <span className="invList-bottom-title">QTY</span>
+                <img
+                  src={sortIcon}
+                  alt="sort-icon"
+                  className="invList-bottom-title__img"
+                />
               </div>
               <div className="invList-bottom-item">
                 <span className="invList-bottom-item">500</span>
               </div>
             </div>
 
-            <div classname="invList-bottom-labels-b__horizental">
+            <div className="invList-bottom-labels-b__horizental">
               <div className="invList-bottom-title-wrapper">
-                <span classNAme="invList-bottom-title">WAREHOUSE</span>
+                <span className="invList-bottom-title">WAREHOUSE</span>
+                <img
+                  src={sortIcon}
+                  alt="sort-icon"
+                  className="invList-bottom-title__img"
+                />
               </div>
               <div className="invList-bottom-item">
                 <span className="invList-bottom-item">Manhattan</span>
@@ -80,9 +112,17 @@ export default function InventoryList() {
             </div>
           </div>
           <div className="invList-bottom-labels-c">
-            <div classname="invList-bottom-labels-c__horizental">
-              <div classNAme="invList-bottom-labels-c__text">
-                <span classNAme="invList-bottom-labels-c__text">ACTIONS</span>
+            <div className="invList-bottom-labels-c__horizental">
+              <div className="invList-bottom-labels-c__text">
+                <span className="invList-bottom-labels-c__text invList-bottom-labels-c__after ">
+                  ACTIONS
+                </span>
+
+                <img
+                  src={sortIcon}
+                  alt="sort-icon"
+                  className="invList-bottom-title__img"
+                />
               </div>
               <div className="invList-bottom-labels-icons">
                 <div className="invList-bottom-labels__action">
@@ -96,7 +136,7 @@ export default function InventoryList() {
                   <img
                     src={editIcon}
                     alt="pencil-icon"
-                    className="invList-bottom-labels__action-img"
+                    className="invList-bottom-labels__action-img invList-bottom-labels__action-img--right"
                   />
                 </div>
               </div>
