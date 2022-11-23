@@ -1,5 +1,12 @@
 import React from "react";
+import WarehouseDetails from "../warehouseDetails /WarehouseDetails";
 
-export default function Warehouse() {
-  return <div>Warehouse</div>;
+function Warehouse() {
+
+  return (
+
+    <WarehouseDetails />)
+ 
 }
+
+export default Warehouse;
