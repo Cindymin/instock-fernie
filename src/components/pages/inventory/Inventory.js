@@ -1,10 +1,14 @@
 import React from "react";
 import InventoryList from "../../inventoryList/InventoryList";
-import DeletePage from "../../warehouseDelete/WarehouseDelete";
+import Header from "../../header/Header";
+import Footer from "../../footer/Footer";
+
 export default function Inventory() {
   return (
     <>
-      <DeletePage />
+      <Header />
+      <InventoryList />
+      <Footer />
     </>
   );
 }
