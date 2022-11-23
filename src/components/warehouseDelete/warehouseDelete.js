@@ -8,26 +8,22 @@ export default function warehouseDelete() {
       <div className="warehouseDelete__icon-wrapper">
         <img
           className="warehouseDelete__icon"
-          src={deleteIcon}
+          src="{deleteIcon}"
           alt="delete-icon"
         />
       </div>
-      <div className="warehouseDelete__title-wrapper">
+      <div className="warehouseDelete__title">
         <h1 className="warehouseDelete__title">Delete Washington warehouse?</h1>
       </div>
-      <div className="warehouseDelete__text-wrapper">
-        <p className="warehouseDelete__text">
+      <div>
+        <p>
           Please confirm that you’d like to delete the Washington from the list
           of warehouses. You won’t be able to undo this action.
         </p>
       </div>
-      <div className="warehouseDelete__btn-wrapper">
-        <button className="warehouseDelete__btn warehouseDelete__btn warehouseDelete__btn--cancel">
-          Cancel
-        </button>
-        <button className="warehouseDelete__btn warehouseDelete__btn--delete">
-          Delete
-        </button>
+      <div>
+        <button>Cancel</button>
+        <button>Delete</button>
       </div>
     </section>
   );
