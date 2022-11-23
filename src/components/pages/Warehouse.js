@@ -1,13 +1,12 @@
 import React from "react";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import WarehouseDetails from "../warehouseDetails /WarehouseDetails";
 
-export default function Warehouse() {
+function Warehouse() {
+
   return (
-    <div>
-      <Header></Header>
 
-      <Footer></Footer>
-    </div>
-  );
+    <WarehouseDetails />)
+ 
 }
+
+export default Warehouse;
