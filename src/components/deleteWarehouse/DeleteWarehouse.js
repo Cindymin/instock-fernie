@@ -3,6 +3,9 @@ import React from "react";
 import deleteIcon from "../../assets/icons/close-24px.svg";
 
 export default function warehouseDelete() {
+
+
+  
   return (
     <section className="warehouseDelete">
       <div className="warehouseDelete__icon-wrapper">
