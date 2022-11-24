@@ -24,9 +24,9 @@ body {
     background: #ffffff;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
-    position: absolute;
-    top: 9rem;
-    left: 2.5rem;
+    // position: absolute;
+    // top: 9rem;
+    // left: 2.5rem;
 
     &__nameContainer {
       display: flex;
@@ -50,13 +50,17 @@ body {
         line-height: 36px;
       }
 
-      &-editButton {
+      &-edit {
         width: 36px;
         height: 36px;
         background: #2e66e6;
         border-radius: 20px;
         border-color: transparent;
-        background-image: url();
+        position: relative;
+
+        &-text{
+          visibility: hidden;
+        }
       }
     }
 
@@ -207,10 +211,20 @@ body {
       padding-bottom: 0.5rem;
     }
   }
+
   .warehouseDetail__item-info-Tablet {
     visibility: hidden;
     height: 0;
     width: 0;
+  }
+
+  .warehouseDetail__nameContainer-editImage {
+    fill: white;
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -246,13 +260,24 @@ body {
         line-height: 36px;
       }
 
-      &-editButton {
+      &-edit {
         width: 81px;
         height: 38px;
         background: #2e66e6;
         border-radius: 20px;
         border-color: transparent;
-        background-image: url();
+        text-align: center;
+        position: relative;
+
+        &-text {
+          color: #ffffff;
+          font-family: "TitilliumWeb";
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 22px;
+          position: absolute;
+          top: 6px;
+        }
       }
     }
 
@@ -435,6 +460,15 @@ body {
 
   .warehouseDetail__item-bar-wrap.quantity {
     margin-right: 8%;
+  }
+
+  .warehouseDetail__nameContainer-editImage {
+    fill: white;
+    position: absolute;
+    top: 5px;
+    left: 14px;
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -470,13 +504,24 @@ body {
         line-height: 36px;
       }
 
-      &-editButton {
+      &-edit {
         width: 81px;
         height: 38px;
         background: #2e66e6;
         border-radius: 20px;
         border-color: transparent;
-        background-image: url();
+        text-align: center;
+        position: relative;
+
+        &-text {
+          color: #ffffff;
+          font-family: "TitilliumWeb";
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 22px;
+          position: absolute;
+          top: 6px;
+        }
       }
     }
 
@@ -659,5 +704,14 @@ body {
 
   .warehouseDetail__item-bar-wrap.quantity {
     margin-right: 8%;
+  }
+
+  .warehouseDetail__nameContainer-editImage {
+    fill: white;
+    position: absolute;
+    top: 5px;
+    left: 14px;
+    width: 22px;
+    height: 22px;
   }
 }
