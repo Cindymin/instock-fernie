@@ -5,11 +5,11 @@ import Warehouse from "./components/pages/warehouse/Warehouse";
 import EditWarehouse from "./components/editwarehouse/EditWarehouse";
 import DeleteWarehouse from "./components/deleteWarehouse/DeleteWarehouse";
 import Inventory from "./components/pages/inventory/Inventory";
+import DeleteInventory from "./components/delteInventory/DeleteInventory";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
 import EditWarehouse from "./components/editwarehouse/EditWarehouse";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -28,11 +28,10 @@ function App() {
              {/*<Route path="/warehouse/delete" element={<DeleteWarehouse />} />
           <Route path="/warehouse/edit" element={<EditWarehouse />} />*/}
           <Route path="/inventory" element={<Inventory />} />
+          <Route path="/delete-inventory" element={<DeleteInventory />} />
         </Routes>
         <Footer />
       </BrowserRouter>
-
-
       </div>
     </>
   );
