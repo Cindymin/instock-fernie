@@ -6,9 +6,10 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import less from "../../assets/icons/chevron_right-24px.svg";
 
-export default function InventoryList() {
+const InventoryList = (props) => {
+  const items = props.inventory;
   return (
-    <article className="invList">
+    <form className="invList">
       <section className="invList-top">
         <div className="invList-top-title">
           <h2 className="invList-top-title invList-top-title__text">
@@ -31,119 +32,129 @@ export default function InventoryList() {
           <button className="invList-top-btn--blue">+ Add New Item</button>
         </div>
       </section>
-      <section className="invList-bottom">
-        <div className="invList-bottom-labels">
-          <div classNAme="invList-bottom-labels-a">
-            <div classname="invList-bottom-labels-a__horizental">
-              <div className="invList-bottom-title-wrapper">
-                <span classNAme="invList-bottom-title">INVENTORY ITEM</span>
+
+      <div className="invList__item">
+        <div className="invList__item-bar">
+          <div className="invList__item-bar-wrap">
+            <span class="invList__item-bar-text">INVENTORY ITEM</span>
+            <img class="invList__item-bar-icon" src={sortIcon} alt="" />
+          </div>
+
+          <div className="invList__item-bar-wrap">
+            <span className="invList__item-bar-text">CATEGORY</span>
+            <img class="invList__item-bar-icon" src={sortIcon} alt="" />
+          </div>
+
+          <div className="invList__item-bar-wrap status">
+            <span className="invList__item-bar-text">STATUS</span>
+            <img class="invList__item-bar-icon" src={sortIcon} alt="" />
+          </div>
+
+          <div className="invList__item-bar-wrap  quantity">
+            <span className="invList__item-bar-text">QTY</span>
+            <img class="invList__item-bar-icon" src={sortIcon} alt="" />
+          </div>
+
+          <div className="invList__item-bar-wrap  warehouse">
+            <span className="invList__item-bar-text">WAREHOUSE</span>
+            <img class="invList__item-bar-icon" src={sortIcon} alt="" />
+          </div>
+
+          <span className="invList__item-bar-text">ACTIONS</span>
+        </div>
+        {items &&
+          items.map((item) => (
+            <div
+              className="invList__item-info-Tablet
+            "
+            >
+              <div className="invList__item-info-nameWrap">
+                <span className="invList__item-info-name">
+                  {item.item_name}
+                </span>
                 <img
-                  src={sortIcon}
-                  alt="sort-icon"
-                  className="invList-bottom-title__img"
+                  className="invList__item-info-image"
+                  src={less}
+                  alt="arrowRight"
                 />
               </div>
-              <div className="invList-bottom-item">
-                <span className="invList-bottom-item invList-bottom-item--blue">
-                  Television
-                  <img
-                    src={less}
-                    alt="sort-icon"
-                    className="invList-bottom-title__img"
-                  />
-                </span>
+              <span className="invList__item-info-category">
+                {item.category}
+              </span>
+              <span className="invList__item-info-status">{item.status}</span>
+              <span className="invList__item-info-num">{item.quantity}</span>
+              <span className="invList__item-info-warehouse">warehouse</span>
+              <div className="invList__item-info-actions">
+                <img
+                  className="invList__item-info-actions-imge"
+                  src={deleteIcon}
+                  alt="delete"
+                />
+                <img
+                  className="invList__item-info-actions-imge"
+                  src={editIcon}
+                  alt="edit"
+                />
               </div>
             </div>
-            <div classname="invList-bottom-labels-a__horizental">
-              <div className="invList-bottom-title-wrapper">
-                <span className="invList-bottom-title">CATEGORY</span>
+          ))}
+
+        <div className="invList__item-info">
+          <div className="invList__item-info-wrap">
+            <div className="invList__item-info-contanier">
+              <span class="invList__item-info-tag">INVENTORY ITEM</span>
+              <div className="invList__item-info-nameWrap">
+                <span className="invList__item-info-name">Television</span>
                 <img
-                  src={sortIcon}
-                  alt="sort-icon"
-                  className="invList-bottom-title__img"
+                  className="invList__item-info-image"
+                  src={less}
+                  alt="arrowRight"
                 />
               </div>
-              <div className="invList-bottom-item">
-                <span className="invList-bottom-item">Electronics</span>
-              </div>
+            </div>
+
+            <div className="invList__item-info-contanier">
+              <span class="invList__item-info-tag">STATUS</span>
+              <span className="invList__item-info-status">IN STOCK</span>
             </div>
           </div>
-          <div className="invList-bottom-labels-b">
-            <div className="invList-bottom-labels-b__horizental">
-              <div className="invList-bottom-title-wrapper">
-                <span className="invList-bottom-title">STATUS</span>
-                <img
-                  src={sortIcon}
-                  alt="sort-icon"
-                  className="invList-bottom-title__img"
-                />
-              </div>
-              <div className="invList-bottom-item">
-                <span className="invList-bottom-item--inStock">IN STOCK</span>
-              </div>
+
+          <div className="invList__item-info-wrap">
+            <div className="invList__item-info-contanier">
+              <span class="invList__item-info-tag">CATEGORY</span>
+
+              <span className="invList__item-info-category">Electronics</span>
             </div>
 
-            <div className="invList-bottom-labels-b__horizental">
-              <div className="invList-bottom-title-wrapper">
-                <span className="invList-bottom-title">QTY</span>
-                <img
-                  src={sortIcon}
-                  alt="sort-icon"
-                  className="invList-bottom-title__img"
-                />
-              </div>
-              <div className="invList-bottom-item">
-                <span className="invList-bottom-item">500</span>
-              </div>
-            </div>
-
-            <div className="invList-bottom-labels-b__horizental">
-              <div className="invList-bottom-title-wrapper">
-                <span className="invList-bottom-title">WAREHOUSE</span>
-                <img
-                  src={sortIcon}
-                  alt="sort-icon"
-                  className="invList-bottom-title__img"
-                />
-              </div>
-              <div className="invList-bottom-item">
-                <span className="invList-bottom-item">Manhattan</span>
-              </div>
+            <div className="invList__item-info-contanier">
+              <span class="invList__item-info-tag">QTY</span>
+              <span className="invList__item-info-num">500</span>
             </div>
           </div>
-          <div className="invList-bottom-labels-c">
-            <div className="invList-bottom-labels-c__horizental">
-              <div className="invList-bottom-labels-c__text">
-                <span className="invList-bottom-labels-c__text invList-bottom-labels-c__after ">
-                  ACTIONS
-                </span>
 
-                <img
-                  src={sortIcon}
-                  alt="sort-icon"
-                  className="invList-bottom-title__img"
-                />
-              </div>
-              <div className="invList-bottom-labels-icons">
-                <div className="invList-bottom-labels__action">
-                  <img
-                    src={deleteIcon}
-                    alt="trash-bin-icon"
-                    className="invList-bottom-labels__action-img"
-                  />
-                </div>
-                <div className="nvList-bottom-labels__action">
-                  <img
-                    src={editIcon}
-                    alt="pencil-icon"
-                    className="invList-bottom-labels__action-img invList-bottom-labels__action-img--right"
-                  />
-                </div>
-              </div>
+          <div className="invList__item-info-wrap">
+            <div className="invList__item-info-contanier"></div>
+            <div className="invList__item-info-contanier">
+              <span class="invList__item-info-tag">WAREHOUSE</span>
+              <span className="invList__item-info-num">Manhatten</span>
             </div>
+          </div>
+          <div className="invList__item-info-actions">
+            <img
+              className="invList__item-info-actions-imge"
+              src={deleteIcon}
+              alt="delete"
+            />
+            <img
+              className="invList__item-info-actions-imge"
+              src={editIcon}
+              alt="edit"
+            />
           </div>
         </div>
-      </section>
-    </article>
+      </div>
+    </form>
   );
-}
+};
+
+export default InventoryList;
