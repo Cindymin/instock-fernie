@@ -1,0 +1,99 @@
+@use "../../styles/partials/breakpoints" as bk;
+@use "../../styles/partials/colors" as cl;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/global" as *;
+
+.item {
+  display: flex;
+  //   &Form {
+  //   }
+  &-top {
+    display: flex;
+    flex-direction: row;
+    // &__backIcon {
+    // }
+
+    &__title {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 36px;
+      color: #13182c;
+    }
+    &__edit {
+      border-radius: 20px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      &Icon {
+        color: white;
+      }
+    }
+  }
+  &-bottom {
+    display: flex;
+    flex-direction: column;
+    @include bk.medium {
+      flex-direction: row;
+    }
+    @include bk.large {
+      flex-direction: row;
+    }
+    &__title {
+      width: 95px;
+      height: 16px;
+
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 16px;
+
+      color: #5c667e;
+    }
+    // &__left {
+    //   &__description {
+    //     &Title {
+    //     }
+    //     &Text {
+    //     }
+    //   }
+    // }
+    &__right {
+      display: flex;
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+      //   &__category {
+      //     &Title {
+      //     }
+      //     &Text {
+      //     }
+      //   }
+      &__upper {
+        display: flex;
+        flex-direction: row;
+      }
+      &__bottom {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    // &__status {
+    //   &Title {
+    //   }
+    //   &Text {
+    //   }
+    // }
+    // &__qty {
+    //   &Title {
+    //   }
+    //   &Text {
+    //   }
+    // }
+    // &__warehouse {
+    //   &Title {
+    //   }
+    //   &Text {
+    //   }
+    // }
+  }
+}

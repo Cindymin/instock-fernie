@@ -17,7 +17,6 @@ const WarehouseDetails = ({ warehouses, warehouseInventory }) => {
   } = warehouses;
 
   console.log(warehouseInventory);
- 
 
   return (
     <>
@@ -50,7 +49,6 @@ const WarehouseDetails = ({ warehouses, warehouseInventory }) => {
                 />
               </svg>
               <span className="warehouseDetail__nameContainer-edit-text">
-                {" "}
                 Edit
               </span>
             </div>
@@ -156,9 +154,7 @@ const WarehouseDetails = ({ warehouses, warehouseInventory }) => {
 
           {warehouseInventory.map((inventory) => {
             return (
-              <div 
-              key = {inventory.id}
-              className="warehouseDetail__item-info">
+              <div key={inventory.id} className="warehouseDetail__item-info">
                 <div className="warehouseDetail__item-info-wrap">
                   <div className="warehouseDetail__item-info-contanier">
                     <span class="warehouseDetail__item-info-tag">
@@ -216,7 +212,6 @@ const WarehouseDetails = ({ warehouses, warehouseInventory }) => {
               </div>
             );
           })}
-
         </div>
       </form>
     </>

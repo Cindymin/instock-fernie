@@ -4,6 +4,7 @@ import Footer from "../../footer/Footer";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import DeleteInventory from "../../delteInventory/DeleteInventory";
+import InventoryDetails from "../../inventoryDetails/InventoryDetails";
 
 export default function Inventory() {
   const [inventory, setInventory] = useState([]);
@@ -25,9 +26,8 @@ export default function Inventory() {
 
   return (
     <>
-      <Header />
-      <InventoryList inventory={inventory} />
-      <Footer />
+      {/* <InventoryList inventory={inventory} /> */}
+      <InventoryDetails item={inventory} />
     </>
   );
 }
