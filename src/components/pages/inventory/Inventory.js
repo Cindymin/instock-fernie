@@ -25,9 +25,7 @@ export default function Inventory() {
 
   return (
     <>
-      <Header />
       <InventoryList inventory={inventory} />
-      <Footer />
     </>
   );
 }
