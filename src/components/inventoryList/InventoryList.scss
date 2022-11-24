@@ -248,6 +248,7 @@
       flex-direction: column;
       width: 140px;
       align-items: flex-start;
+      margin-bottom: 1rem;
     }
 
     &__item-info-tag {
@@ -258,6 +259,7 @@
       text-transform: uppercase;
       font-size: 11px;
       line-height: 16px;
+      margin-bottom: 0.5rem;
     }
 
     &__item-info-nameWrap {
@@ -282,21 +284,28 @@
 
     &__item-info-status {
       display: flex;
-      flex-direction: row;
       align-items: center;
-      padding: 4px 8px;
-      width: 66px;
       height: 24px;
-      background: rgba(21, 132, 99, 0.07);
-      border-radius: 20px;
-      font-family: "TitilliumWeb";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 11px;
-      line-height: 16px;
-      text-transform: uppercase;
-      color: #158463;
-      text-align: center;
+
+      &--inStock {
+        color: cl.$inStock;
+        background: rgba(21, 132, 99, 0.07);
+        border-radius: 20px;
+        color: #158463;
+        padding: 4px 8px;
+        font-weight: 600;
+        font-size: 12px;
+      }
+      &--outOfStock {
+        background: rgba(201, 69, 21, 0.07);
+        border-radius: 20px;
+        font-family: "Titilliumweb";
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        color: #c94515;
+        padding: 4px 8px;
+      }
     }
 
     &__item-info-category {
@@ -445,18 +454,27 @@
       padding: 4px 8px;
       width: 17%;
       height: 24px;
-      background: rgba(21, 132, 99, 0.07);
-      border-radius: 20px;
-      font-family: "TitilliumWeb";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 11px;
-      line-height: 16px;
-      text-transform: uppercase;
-      color: #158463;
-      text-align: center;
-    }
 
+      &--inStock {
+        color: cl.$inStock;
+        background: rgba(21, 132, 99, 0.07);
+        border-radius: 20px;
+        color: #158463;
+        padding: 4px 8px;
+        font-weight: 600;
+        font-size: 12px;
+      }
+      &--outOfStock {
+        background: rgba(201, 69, 21, 0.07);
+        border-radius: 20px;
+        font-family: "Titilliumweb";
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        color: #c94515;
+        padding: 4px 8px;
+      }
+    }
     &__item-info-category {
       font-family: "TitilliumWeb";
       font-style: normal;
@@ -688,20 +706,31 @@
     &__item-info-image {
       width: 20px;
     }
-
     &__item-info-status {
       display: flex;
-      position: relative;
-      flex-direction: row;
       align-items: center;
-      padding: 4px 8px;
-      width: 18%;
       height: 24px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 11px;
-      line-height: 16px;
-      text-align: center;
+      width: 18%;
+
+      &--inStock {
+        color: cl.$inStock;
+        background: rgba(21, 132, 99, 0.07);
+        border-radius: 20px;
+        color: #158463;
+        padding: 4px 8px;
+        font-weight: 600;
+        font-size: 12px;
+      }
+      &--outOfStock {
+        background: rgba(201, 69, 21, 0.07);
+        border-radius: 20px;
+        font-family: "Titilliumweb";
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        color: #c94515;
+        padding: 4px 8px;
+      }
     }
 
     &__item-info-category {

@@ -103,10 +103,23 @@ const InventoryList = (props) => {
                 {item.category}
               </span>
 
-              <span className="invList__item-info-status">{item.status}</span>
+              {item.status === "In Stock" && (
+                <div className="invList__item-info-status">
+                  <span className="invList__item-info-status--inStock">
+                    In Stock
+                  </span>
+                </div>
+              )}
+              {item.status === "Out of Stock" && (
+                <div className="invList__item-info-status">
+                  <span className="invList__item-info-status--outOfStock">
+                    Out of Stock
+                  </span>
+                </div>
+              )}
 
               <span className="invList__item-info-num">{item.quantity}</span>
-              <span className="invList__item-info-warehouse">warehouse</span>
+              <span className="invList__item-info-warehouse">tabeletsize</span>
               <div className="invList__item-info-actions">
                 <Link to="/delete-inventory">
                   <img
@@ -124,59 +137,83 @@ const InventoryList = (props) => {
             </div>
           ))}
 
-        <div className="invList__item-info">
-          <div className="invList__item-info-wrap">
-            <div className="invList__item-info-contanier">
-              <span class="invList__item-info-tag">INVENTORY ITEM</span>
-              <div className="invList__item-info-nameWrap">
-                <span className="invList__item-info-name">Television</span>
-                <img
-                  className="invList__item-info-image"
-                  src={less}
-                  alt="arrowRight"
-                />
-              </div>
-            </div>
+        {items &&
+          items.map((item) => (
+            <>
+              <div className="invList__item-info">
+                <div className="invList__item-info-wrap" key={item.id}>
+                  <div className="invList__item-info-contanier">
+                    <span class="invList__item-info-tag">INVENTORY ITEM</span>
+                    <div className="invList__item-info-nameWrap">
+                      <span className="invList__item-info-name">
+                        {item.item_name}
+                      </span>
+                      <img
+                        className="invList__item-info-image"
+                        src={less}
+                        alt="arrowRight"
+                      />
+                    </div>
+                  </div>
 
-            <div className="invList__item-info-contanier">
-              <span class="invList__item-info-tag">STATUS</span>
-              <span className="invList__item-info-status">IN STOCK</span>
-            </div>
-          </div>
+                  <div className="invList__item-info-contanier">
+                    <span class="invList__item-info-tag">STATUS</span>
+                    {item.status === "In Stock" && (
+                      <div className="invList__item-info-status">
+                        <span className="invList__item-info-status--inStock">
+                          In Stock
+                        </span>
+                      </div>
+                    )}
+                    {item.status === "Out of Stock" && (
+                      <div className="invList__item-info-status">
+                        <span className="invList__item-info-status--outOfStock">
+                          Out of Stock
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
 
-          <div className="invList__item-info-wrap">
-            <div className="invList__item-info-contanier">
-              <span class="invList__item-info-tag">CATEGORY</span>
+                <div className="invList__item-info-wrap">
+                  <div className="invList__item-info-contanier">
+                    <span class="invList__item-info-tag">CATEGORY</span>
 
-              <span className="invList__item-info-category">Electronics</span>
-            </div>
+                    <span className="invList__item-info-category">
+                      {item.category}
+                    </span>
+                  </div>
 
-            <div className="invList__item-info-contanier">
-              <span class="invList__item-info-tag">QTY</span>
-              <span className="invList__item-info-num">500</span>
-            </div>
-          </div>
+                  <div className="invList__item-info-contanier">
+                    <span class="invList__item-info-tag">QTY</span>
+                    <span className="invList__item-info-num">
+                      {item.quantity}
+                    </span>
+                  </div>
+                </div>
 
-          <div className="invList__item-info-wrap">
-            <div className="invList__item-info-contanier"></div>
-            <div className="invList__item-info-contanier">
-              <span class="invList__item-info-tag">WAREHOUSE</span>
-              <span className="invList__item-info-num">Manhatten</span>
-            </div>
-          </div>
-          <div className="invList__item-info-actions">
-            <img
-              className="invList__item-info-actions-imge"
-              src={deleteIcon}
-              alt="delete"
-            />
-            <img
-              className="invList__item-info-actions-imge"
-              src={editIcon}
-              alt="edit"
-            />
-          </div>
-        </div>
+                <div className="invList__item-info-wrap">
+                  <div className="invList__item-info-contanier"></div>
+                  <div className="invList__item-info-contanier">
+                    <span class="invList__item-info-tag">mobile</span>
+                    <span className="invList__item-info-num">Manhatten</span>
+                  </div>
+                </div>
+                <div className="invList__item-info-actions">
+                  <img
+                    className="invList__item-info-actions-imge"
+                    src={deleteIcon}
+                    alt="delete"
+                  />
+                  <img
+                    className="invList__item-info-actions-imge"
+                    src={editIcon}
+                    alt="edit"
+                  />
+                </div>
+              </div>{" "}
+            </>
+          ))}
       </div>
     </form>
   );
