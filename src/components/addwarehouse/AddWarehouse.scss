@@ -1,16 +1,23 @@
+
+
+
+
+
+
 @use "../../styles/partials/colors" as colors;
 @use "../../styles/partials/breakpoints" as breakpoints;
 @use "../../styles/partials/fonts";
 
 
 @include breakpoints.small {
-  .form {
+  .addform {
     font-family: "TitilliumWeb";
     display: flex;
     flex-direction: column;
     margin: 0 auto;
 
     &__title {
+      padding:2rem 2.1rem 2rem 3.5rem;
       font-size: 1.75rem;
       font-weight: 600;
       line-height: 2.25rem;
@@ -28,6 +35,8 @@
       line-height: 1.75rem;
       font-weight: 600;
       color: colors.$primaryDark;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
     &__container {
       display: flex;
@@ -49,6 +58,7 @@
       border: 1px solid colors.$secondaryLight;
       margin-top: 4px;
       margin-bottom: 1rem;
+      padding-left: 0.8rem;
     }
     &__warehousedetails {
       padding-left: 1.5rem;
@@ -97,13 +107,16 @@
 }
 
 @include breakpoints.medium {
-  .form {
+  .addform {
     font-family: "TitilliumWeb";
     display: flex;
     flex-direction: column;
     margin: 0 auto;
 
     &__title {
+      padding-top: 2rem;
+      padding-bottom: 1.5rem;
+      padding-left: 6rem;
       font-size: 2rem;
       font-weight: 600;
       line-height: 2.5rem;
@@ -113,14 +126,15 @@
       background-image: url("../../assets/icons/arrow_back-24px.svg");
       background-repeat: no-repeat;
       background-size: 2rem;
-      background-position: left 3.5rem center;
-      margin-bottom: 1rem;
+      background-position: left 3.5rem bottom 1.6rem;
     }
     &__content {
       display: flex;
       flex-direction: row;
     }
     &__subtitle {
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
       font-size: 1.5rem;
       line-height: 2rem;
       font-weight: 600;
@@ -146,6 +160,8 @@
       border: 1px solid colors.$secondaryLight;
       margin-top: 4px;
       margin-bottom: 1.4rem;
+      padding-left: 0.8rem;
+
     }
     &__warehousedetails {
         width: 50%;
@@ -203,13 +219,16 @@
   }
 }
 @include breakpoints.large {
-  .form {
+  .addform {
     font-family: "TitilliumWeb";
     display: flex;
     flex-direction: column;
     margin: 0 auto;
 
     &__title {
+      padding-top: 2rem;
+      padding-left: 4.5rem;
+    padding-bottom: 1.2rem;
       font-size: 2rem;
       font-weight: 600;
       line-height: 2.5rem;
@@ -219,7 +238,7 @@
       background-image: url("../../assets/icons/arrow_back-24px.svg");
       background-repeat: no-repeat;
       background-size: 2rem;
-      background-position: left 2.5rem center;
+      background-position: left 2rem bottom 1.4rem;
       margin-bottom: 1rem;
     }
     &__content {
@@ -227,6 +246,7 @@
       flex-direction: row;
     }
     &__subtitle {
+      margin-top:0.5rem;
       font-size: 1.5rem;
       line-height: 2rem;
       font-weight: 600;
@@ -237,6 +257,7 @@
       flex-direction: column;
     }
     &__detail {
+      margin-top: 1.8rem;
       display: flex;
       flex-direction: column;
     }
@@ -252,6 +273,8 @@
       border: 1px solid colors.$secondaryLight;
       margin-top: 4px;
       margin-bottom: 1.4rem;
+      padding-left: 0.8rem;
+
     }
     &__warehousedetails {
         width: 50%;
