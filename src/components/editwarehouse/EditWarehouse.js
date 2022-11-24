@@ -7,7 +7,7 @@ function EditWarehouse() {
   return (
     <form className="form">
       <div className="form__title">
-        <p>Edit Warehouse</p>
+        <p className="form__title-text">Edit Warehouse</p>
       </div>
 
       <div className="form__content">

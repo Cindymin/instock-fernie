@@ -1,7 +1,7 @@
-@use "../../styles/partials/colors" as cl;
-@use "../../styles/partials/fonts";
 @use "../../styles/partials/breakpoints" as bk;
-@use "../../styles/partials/global";
+@use "../../styles/partials/colors" as cl;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/global" as *;
 
 .invList {
   display: flex;
@@ -9,7 +9,8 @@
   width: 21.4375rem;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
-  background-color: cl.$primaryLight;
+  background-color: #ffffff;
+
   @include bk.medium {
     width: 44rem;
     height: 37.8125rem;
@@ -88,11 +89,10 @@
       &__img {
         position: absolute;
         left: 17.5rem;
-        top: 4.4rem;
-
         @include bk.medium {
           top: 3.2rem;
           left: 32rem;
+          top: 4.4rem;
         }
 
         @include bk.large {
@@ -130,228 +130,601 @@
       }
     }
   }
-  &-bottom {
-    &-labels {
-      @include bk.small {
-        display: flex;
-        font-size: 0.6875rem;
-        color: cl.$secondraryDark;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 1.5rem;
+}
 
-        & > :nth-child(1) {
-          order: 1;
-          flex: 0 0 55%;
-        }
-        & > :nth-child(2) {
-          order: 2;
-          flex: 0 0 45%;
-        }
-        & > :nth-child(3) {
-          order: 3;
-          flex: 0 0 100%;
-        }
-        & > :nth-child(4) {
-          order: 4;
-          flex: 0 0 100%;
-        }
-      }
-      @include bk.medium {
-        display: flex;
-        padding: 1rem;
-        border-bottom: 1px solid cl.$secondaryLight;
+// for mobile
 
-        & > :nth-child(1) {
-          display: inline-flex;
-          flex: 0 0 35%;
-          justify-content: space-between;
-          width: 100%;
-          margin-right: 3rem;
-        }
-        & > :nth-child(2) {
-          display: flex;
-          flex: 0 0 42%;
-          justify-content: space-between;
-          width: 100%;
-        }
-        & > :nth-child(3) {
-          display: flex;
-          margin-top: 0.25rem;
-          flex: 0 0 10%;
-          margin-left: 2rem;
-        }
-      }
-      @include bk.large {
-        display: flex;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid cl.$secondaryLight;
+@include bk.small {
+  .invList {
+    margin: 0 1rem;
+    background: #ffffff;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+    position: absolute;
+    top: 9rem;
+    left: 2.5rem;
 
-        & > :nth-child(1) {
-          display: inline-flex;
-          flex: 0 0 25%;
-
-          justify-content: space-between;
-          width: 100%;
-          margin-right: 6rem;
-        }
-        & > :nth-child(2) {
-          display: flex;
-          flex: 0 0 42%;
-          justify-content: space-between;
-          width: 100%;
-        }
-        & > :nth-child(3) {
-          display: flex;
-          margin-top: 0.25rem;
-          flex: 0 0 15%;
-          margin-left: 6rem;
-          font-size: 0.75rem;
-        }
-      }
-
-      &-c {
-        display: flex;
-        @include bk.medium {
-          font-size: 0.75rem;
-        }
-        &__horizental {
-          @include bk.medium {
-            display: flex;
-            flex-direction: column;
-          }
-          @include bk.large {
-            display: flex;
-            flex-direction: column;
-          }
-        }
-        &__text {
-          visibility: hidden;
-          display: none;
-          @include bk.medium {
-            visibility: visible;
-            display: flex;
-          }
-          @include bk.large {
-            visibility: visible;
-            display: flex;
-          }
-        }
-        &__after {
-          position: relative;
-          @include bk.medium {
-            &::after {
-              position: absolute;
-              background-color: rgba(247, 248, 249, 0.7);
-              z-index: 1;
-              content: "";
-              opacity: 4px;
-              top: -0.5rem;
-              width: 44rem;
-              height: 2.5rem;
-              left: -38.25rem;
-            }
-          }
-          @include bk.large {
-            &::after {
-              position: absolute;
-              background-color: rgba(247, 248, 249, 0.7);
-              z-index: 1;
-              content: "";
-              top: -0.5rem;
-              width: 63.75rem;
-              height: 2.5rem;
-              left: -54rem;
-              color: #5c667e;
-            }
-          }
-        }
-      }
-
-      &-icons {
-        display: flex;
-        justify-content: space-between;
-        @include bk.small {
-          display: flex;
-          justify-content: space-between;
-        }
-      }
-      &__action {
-        display: flex;
-
-        &-img {
-          display: flex;
-          width: 1.5rem;
-          height: 1.5rem;
-          &--right {
-            margin-left: 15rem;
-            @include bk.medium {
-              margin-left: 0;
-            }
-            @include bk.large {
-              margin-left: 0;
-            }
-          }
-          @include bk.medium {
-            margin-top: 1rem;
-            font-size: 0.75rem;
-          }
-          @include bk.large {
-            margin-top: 1.5rem;
-            font-size: 0.75rem;
-          }
-        }
-      }
-    }
-
-    &-title {
+    &__nameContainer {
       display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid #bdc5d5;
 
-      &__img {
+      &-arrow {
+        width: 16px;
         height: 16px;
-        padding-top: 0.25rem;
+        margin-right: 0.625rem;
       }
 
-      &-wrapper {
-        margin-bottom: 0.25rem;
-        margin-top: 0.25rem;
-        display: flex;
-
-        @include bk.medium {
-          padding-bottom: 1rem;
-          font-size: 0.75rem;
-        }
-        @include bk.large {
-          padding-bottom: 1.5rem;
-          font-size: 0.75rem;
-        }
-      }
-    }
-    &-text {
-      margin: 1.5rem;
-    }
-    &-item {
-      font-size: 0.8125rem;
-      color: cl.$primaryDark;
-      line-height: 1.25rem;
-      margin-bottom: 1.5rem;
-      @include bk.large {
-        padding-bottom: 0rem;
-      }
-      &--blue {
-        color: cl.$primaryMedium;
+      &-name {
+        width: 145px;
+        height: 36px;
+        font-family: "TitilliumWeb";
+        font-style: normal;
         font-weight: 600;
-        font-size: 0.8125rem;
+        font-size: 28px;
+        line-height: 36px;
       }
-      &--inStock {
-        color: cl.$inStock;
-        background: rgba(21, 132, 99, 0.07);
+
+      &-editButton {
+        width: 36px;
+        height: 36px;
+        background: #2e66e6;
         border-radius: 20px;
-        width: 61px;
-        height: 24px;
-        padding: 4px 8px;
-        font-weight: 600;
+        border-color: transparent;
+        background-image: url();
       }
+    }
+
+    &__info {
+      padding: 1rem 1rem;
+      border-bottom: 1px solid #bdc5d5;
+
+      &-address {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 1.5rem;
+      }
+
+      &-tag {
+        font-family: "TitilliumWeb";
+        font-style: normal;
+        font-weight: 600;
+        color: #5c667e;
+        text-transform: uppercase;
+        font-size: 11px;
+        line-height: 16px;
+      }
+
+      &-text {
+        font-family: "TitilliumWeb";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        color: #13182c;
+      }
+
+      &-contanct {
+        display: flex;
+        justify-content: space-between;
+
+        &-nameWrap {
+          display: flex;
+          flex-direction: column;
+          width: 140px;
+          align-items: flex-start;
+        }
+
+        &-detailWrap {
+          display: flex;
+          flex-direction: column;
+          width: 140px;
+          align-items: flex-start;
+        }
+      }
+    }
+
+    &__item {
+      padding: 1rem 1rem;
+      border-bottom: 1px solid #bdc5d5;
+
+      &-bar {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+      }
+    }
+
+    &__item-info-wrap {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+    }
+
+    &__item-info-contanier {
+      display: flex;
+      flex-direction: column;
+      width: 140px;
+      align-items: flex-start;
+    }
+
+    &__item-info-tag {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 600;
+      color: #5c667e;
+      text-transform: uppercase;
+      font-size: 11px;
+      line-height: 16px;
+    }
+
+    &__item-info-nameWrap {
+      position: relative;
+    }
+
+    &__item-info-name {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 20px;
+      color: #2e66e6;
+    }
+
+    &__item-info-image {
+      width: 20px;
+      position: absolute;
+      top: 1px;
+      right: -29px;
+    }
+
+    &__item-info-status {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 4px 8px;
+      width: 66px;
+      height: 24px;
+      background: rgba(21, 132, 99, 0.07);
+      border-radius: 20px;
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 16px;
+      text-transform: uppercase;
+      color: #158463;
+      text-align: center;
+    }
+
+    &__item-info-category {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      color: #13182c;
+    }
+
+    &__item-info-num {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      color: #13182c;
+    }
+
+    &__item-info-actions {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 0.5rem;
     }
   }
+  .invList__item-info-Tablet {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+}
+
+// for tablet
+
+@include bk.medium {
+  .invList {
+    margin: 0 2rem;
+
+    background: #ffffff;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+
+    &__nameContainer {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 1.5rem;
+      border-bottom: 1px solid #bdc5d5;
+
+      &-arrow {
+        width: 16px;
+        height: 16px;
+        margin-right: 0.625rem;
+      }
+
+      &-name {
+        width: 145px;
+        height: 36px;
+        font-family: "TitilliumWeb";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 36px;
+      }
+
+      &-editButton {
+        width: 81px;
+        height: 38px;
+        background: #2e66e6;
+        border-radius: 20px;
+        border-color: transparent;
+        background-image: url();
+      }
+    }
+
+    &__item {
+      border-bottom: 1px solid #bdc5d5;
+
+      &-bar {
+        padding: 1rem 1.5rem;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        background: rgba(247, 248, 249, 0.7);
+
+        &-wrap {
+          position: relative;
+          text-align: left;
+          margin-right: 4.5rem;
+        }
+
+        &-icon {
+          width: 16.12px;
+          height: 12px;
+          position: absolute;
+          top: 7px;
+        }
+
+        &-text {
+          font-family: "TitilliumWeb";
+          font-style: normal;
+          font-weight: 600;
+          color: #5c667e;
+          text-transform: uppercase;
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+
+      &-info {
+        visibility: hidden;
+        height: 0;
+      }
+
+      &-info-Tablet {
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid cl.$secondaryLight;
+      }
+    }
+
+    &__item-info-nameWrap {
+      display: flex;
+      width: 25%;
+    }
+
+    &__item-info-name {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 20px;
+      color: #2e66e6;
+      padding-right: 4px;
+    }
+
+    &__item-info-image {
+      width: 20px;
+    }
+
+    &__item-info-status {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 4px 8px;
+      width: 17%;
+      height: 24px;
+      background: rgba(21, 132, 99, 0.07);
+      border-radius: 20px;
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 16px;
+      text-transform: uppercase;
+      color: #158463;
+      text-align: center;
+    }
+
+    &__item-info-category {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      color: #13182c;
+      width: 18%;
+      text-align: left;
+    }
+
+    &__item-info-num {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      color: #13182c;
+      width: 11%;
+      text-align: left;
+    }
+
+    &__item-info-warehouse {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      color: #13182c;
+      width: 18%;
+      text-align: left;
+    }
+
+    &__item-info-actions {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 0.5rem;
+      width: 9%;
+    }
+  }
+
+  .invList__item-bar-wrap.status {
+    margin-right: 4rem;
+  }
+
+  .invList__item-bar-wrap.quantity {
+    margin-right: 3.25rem;
+  }
+  .invList__item-bar-wrap.warehouse {
+    margin-right: 3rem;
+  }
+}
+
+// for desktop
+
+@include bk.large {
+  .invList {
+    margin: 0 8.125rem;
+    padding: 0 1.5rem;
+    background: #ffffff;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+
+    &__nameContainer {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 1.5rem;
+      border-bottom: 1px solid #bdc5d5;
+
+      &-arrow {
+        width: 16px;
+        height: 16px;
+        margin-right: 0.625rem;
+      }
+
+      &-name {
+        width: 145px;
+        height: 36px;
+        font-family: "TitilliumWeb";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 36px;
+      }
+
+      &-editButton {
+        width: 81px;
+        height: 38px;
+        background: #2e66e6;
+        border-radius: 20px;
+        border-color: transparent;
+        background-image: url();
+      }
+    }
+
+    &__info {
+      padding: 1.5rem 1.5rem;
+      border-bottom: 1px solid #bdc5d5;
+      display: flex;
+      justify-content: flex-start;
+
+      &-address {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 150px;
+        text-align: left;
+        margin-right: 17%;
+      }
+
+      &-tag {
+        font-family: "TitilliumWeb";
+        font-style: normal;
+        font-weight: 600;
+        color: #5c667e;
+        text-transform: uppercase;
+        font-size: 11px;
+        line-height: 16px;
+        padding-bottom: 4px;
+      }
+
+      &-text {
+        font-family: "TitilliumWeb";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        color: #13182c;
+      }
+
+      &-contanct {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 7%;
+        border-left: 1px solid #bdc5d5;
+
+        &-nameWrap {
+          display: flex;
+          flex-direction: column;
+          width: 140px;
+          align-items: flex-start;
+        }
+
+        &-detailWrap {
+          display: flex;
+          flex-direction: column;
+          width: 140px;
+          align-items: flex-start;
+        }
+      }
+    }
+
+    &__item {
+      border-bottom: 1px solid #bdc5d5;
+
+      &-bar {
+        padding: 1rem 1.5rem;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        background: rgba(247, 248, 249, 0.7);
+
+        &-wrap {
+          position: relative;
+          text-align: left;
+        }
+
+        &-icon {
+          width: 16.12px;
+          height: 12px;
+          position: absolute;
+          top: 5px;
+        }
+
+        &-text {
+          font-weight: 600;
+          color: #5c667e;
+          font-size: 12px;
+          line-height: 18px;
+          display: flex;
+          margin-right: 6rem;
+        }
+      }
+
+      &-info {
+        visibility: hidden;
+        height: 0;
+      }
+
+      &-info-Tablet {
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__item-info-nameWrap {
+      display: flex;
+      width: 21%;
+    }
+
+    &__item-info-name {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 20px;
+      color: #2e66e6;
+      padding-right: 4px;
+    }
+
+    &__item-info-image {
+      width: 20px;
+    }
+
+    &__item-info-status {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 4px 8px;
+      width: 68px;
+      height: 24px;
+      background: rgba(21, 132, 99, 0.07);
+      border-radius: 20px;
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 16px;
+      text-transform: uppercase;
+      color: #158463;
+      text-align: center;
+      margin-right: 20%;
+    }
+
+    &__item-info-category {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      color: #13182c;
+      width: 19%;
+      text-align: left;
+    }
+
+    &__item-info-num {
+      font-family: "TitilliumWeb";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      color: #13182c;
+      width: 25%;
+      text-align: left;
+    }
+
+    &__item-info-actions {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 0.5rem;
+      width: 9%;
+    }
+  }
+
+  // .invList__item-bar-wrap.status {
+  // }
+
+  // .invList__item-bar-wrap.quantity {
+  // }
 }
