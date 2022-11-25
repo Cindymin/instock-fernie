@@ -24,9 +24,9 @@ export default function WarehouseList({ WHList }) {
      document.getElementById("background").style.backgroundColor = "transparent"
   }
 
-  // function ConfirmDelete(){
-  //   axios.delete
-  // }
+  function ConfirmDelete(){
+    axios.delete
+  }
 
   return (
     <>
@@ -80,11 +80,14 @@ export default function WarehouseList({ WHList }) {
                         <h3 className="list__item-info list__item-info--blue">
                           {warehouse.warehouse_name}
                         </h3>
-                        <img
-                          className="chevronRightIcon"
-                          src={chevronRight}
-                          alt="chevron right icon"
-                        />
+                        <Link to={"/warehouse/" + warehouse.id}>
+                          {" "}
+                          <img
+                            className="chevronRightIcon"
+                            src={chevronRight}
+                            alt="chevron right icon"
+                          />
+                        </Link>
                       </div>
                     </div>
                     <div className="list__item">
@@ -126,7 +129,7 @@ export default function WarehouseList({ WHList }) {
                     onClick={() => showDeleteConfirm(warehouse.warehouse_name)}
                   />
                   {/* </Link> */}
-                  <Link to="/edit-warehouse">
+                  <Link to={"/warehouse/" + warehouse.id + "/edit"}>
                     <img className="editIcon" src={editIcon} alt="edit icon" />
                   </Link>
                 </div>
@@ -139,11 +142,14 @@ export default function WarehouseList({ WHList }) {
                     <h3 className="list__item-info list__item-info--blue">
                       {warehouse.warehouse_name}
                     </h3>
-                    <img
-                      className="chevronRightIcon"
-                      src={chevronRight}
-                      alt="chevron right icon"
-                    />
+
+                    <Link to={"/warehouse/" + warehouse.id}>
+                      <img
+                        className="chevronRightIcon"
+                        src={chevronRight}
+                        alt="chevron right icon"
+                      />
+                    </Link>
                   </div>
                 </div>
                 <div className="list__item">
@@ -172,7 +178,7 @@ export default function WarehouseList({ WHList }) {
                     onClick={() => showDeleteConfirm(warehouse.warehouse_name)}
                   />
                   {/* </Link> */}
-                  <Link to="/edit-warehouse">
+                  <Link to={"/warehouse/" + warehouse.id + "/edit"}>
                     <img className="editIcon" src={editIcon} alt="edit icon" />
                   </Link>
                 </div>
