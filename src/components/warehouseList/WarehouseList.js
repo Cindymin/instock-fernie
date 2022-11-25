@@ -24,9 +24,9 @@ export default function WarehouseList({ WHList }) {
      document.getElementById("background").style.backgroundColor = "transparent"
   }
 
-  function ConfirmDelete(){
-    axios.delete
-  }
+  // function ConfirmDelete(){
+  //   axios.delete
+  // }
 
   return (
     <>
