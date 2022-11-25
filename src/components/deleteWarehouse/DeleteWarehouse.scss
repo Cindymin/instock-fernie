@@ -3,10 +3,27 @@
 @use "../../styles/partials/breakpoints" as bk;
 @use "../../styles/partials/global";
 
+.background {
+  position: relative;
+  background: #13182c;
+  opacity: 0.9;
+}
+
+.warehouselist {
+  background: #13182c;
+  opacity: 0.9;
+}
+
 .warehouseDelete {
+  position: absolute;
   padding: 1rem;
   width: 23.5rem;
   height: 41.6rem;
+  top: 34%;
+  left: 12%;
+  background-color: white;
+  display: none;
+
   &__icon {
     display: flex;
     flex-direction: column;
