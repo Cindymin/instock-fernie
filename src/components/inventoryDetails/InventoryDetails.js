@@ -4,13 +4,12 @@ import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import "./InventoryDetails.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import e from "cors";
 import { Link } from "react-router-dom";
 
 export default function InventoryDetails() {
   const { id } = useParams();
-
   const [itemDetails, setItemDetails] = useState([]);
+  const [warehouseName, setWarehouseName] = useState("");
 
   const getItemDetails = () => {
     axios
@@ -23,12 +22,29 @@ export default function InventoryDetails() {
         console.log(error);
       });
   };
+
+  const getWarehouseName = () => {
+    const url = `http://localhost:8080/warehouses/${warehouse_id}`;
+    axios
+      .get(url)
+      .then((res) => {
+        setWarehouseName(res.data.warehouseData[0].warehouse_name);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     getItemDetails();
   }, []);
+  useEffect(() => {
+    getWarehouseName();
+  }, [itemDetails]);
 
   const { item_name, category, description, status, quantity, warehouse_id } =
     itemDetails;
+
   return (
     <>
       <section className="item">
@@ -45,22 +61,24 @@ export default function InventoryDetails() {
             </Link>
 
             <h1 className="item-top__title">{item_name}</h1>
-            <div className="item-top__edit">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="item-top__editIcon"
-                  d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04V7.04Z"
-                  fill="#FFFFFF"
-                />
-              </svg>{" "}
-              <span className="item-top__editText">Edit</span>
-            </div>
+            <Link to={`/inventory/${id}`}>
+              <div className="item-top__edit">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    className="item-top__editIcon"
+                    d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04V7.04Z"
+                    fill="#FFFFFF"
+                  />
+                </svg>{" "}
+                <span className="item-top__editText">Edit</span>
+              </div>
+            </Link>
           </div>
           <div className="item-bottom">
             <div className="item-bottom__left">
@@ -118,7 +136,7 @@ export default function InventoryDetails() {
                     WAREHOUSE
                   </h3>
                   <span className="item-bottom__right__warehouseText">
-                    {warehouse_id}
+                    {warehouseName}
                   </span>
                 </div>
               </div>

@@ -90,6 +90,7 @@ const InventoryList = (props) => {
             <div
               className="invList__item-info-Tablet
             "
+              key={item.id}
             >
               <Link to={`/inventory/${item.id}`}>
                 <div className="invList__item-info-nameWrap">
@@ -123,7 +124,6 @@ const InventoryList = (props) => {
               )}
 
               <span className="invList__item-info-num">{item.quantity}</span>
-              <span className="invList__item-info-warehouse">tabeletsize</span>
               <div className="invList__item-info-actions">
                 <Link to="/delete-inventory">
                   <img
