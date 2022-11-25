@@ -4,7 +4,6 @@ import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import "./InventoryDetails.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import e from "cors";
 import { Link } from "react-router-dom";
 
 export default function InventoryDetails() {
