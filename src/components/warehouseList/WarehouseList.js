@@ -5,6 +5,7 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function WarehouseList({ WHList }) {
@@ -18,8 +19,13 @@ export default function WarehouseList({ WHList }) {
     document.getElementById("background").style.backgroundColor = "rgba(19,24,44,0.3)";
   }
 
+  function hideDeleteComponent(){
+     document.getElementById("warehouseDelete").style.display = "none";
+     document.getElementById("background").style.backgroundColor = "transparent"
+  }
+
   // function ConfirmDelete(){
-  //   axios.de
+  //   axios.delete
   // }
 
   return (
@@ -188,7 +194,7 @@ export default function WarehouseList({ WHList }) {
 
         <div className="warehouseDelete__title-wrapper">
           <h1 className="warehouseDelete__title">
-            Delete {warehouseToDelete} inventory?
+            Delete {warehouseToDelete} warehouse?
           </h1>
         </div>
         <div className="warehouseDelete__text-wrapper">
@@ -198,10 +204,16 @@ export default function WarehouseList({ WHList }) {
           </p>
         </div>
         <div className="warehouseDelete__btn-wrapper">
-          <button className="warehouseDelete__btn warehouseDelete__btn warehouseDelete__btn--cancel">
+          <button
+            className="warehouseDelete__btn warehouseDelete__btn warehouseDelete__btn--cancel"
+            onClick={() => hideDeleteComponent()}
+          >
             Cancel
           </button>
-          <button className="warehouseDelete__btn warehouseDelete__btn--delete">
+          <button
+            className="warehouseDelete__btn warehouseDelete__btn--delete"
+            onClick={() => hideDeleteComponent()}
+          >
             Delete
           </button>
         </div>
