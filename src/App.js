@@ -9,7 +9,11 @@ import Footer from "./components/footer/Footer";
 import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
 import EditWarehouse from "./components/editwarehouse/EditWarehouse";
 import AddWarehouse from "./components/addwarehouse/AddWarehouse";
+
+import EditInventory from "./components/editInventory/EditInventory";
+
 import DeleteWarehouse from "./components/deleteWarehouse/DeleteWarehouse";
+
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -29,12 +33,12 @@ function App() {
             <Route path="/warehouse/add" element={<AddWarehouse />} />
             <Route path="/warehouse/:id/delete" element={<DeleteWarehouse />} /> 
             <Route path="/warehouse/:id/edit" element={<EditWarehouse />} />
-
+            <Route path="/inventory/:id/edit" element={<EditInventory />} />
             {/* Inventory routes */}
             <Route path="/inventory" element={<Inventory />} />
             {/* <Route path="/inventory/:id" element={<InventoryDetails />} />
             <Route path="/inventory/add" element={<AddInventory />} />
-            <Route path="/inventory/:id/edit" element={<EditInventory />} /> */}
+             
             {/* <Route path="/inventory/:id/delete" element={<DeleteInventory />} />  */}
 
           </Routes>
