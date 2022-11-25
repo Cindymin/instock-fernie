@@ -9,8 +9,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-
-
 const GET_WAREHOUSE_URL = (id) => `http://localhost:8080/warehouses/${id}`;
 const GET_INVENTORY_URL = (id) =>
   ` http://localhost:8080/warehouses/${id}/inventories`;
@@ -70,7 +68,6 @@ const [warehouse, setWarehouse] = useState([]);
                 />
               </svg>
               <span className="warehouseDetail__nameContainer-edit-text">
-                {" "}
                 Edit
               </span>
             </div>

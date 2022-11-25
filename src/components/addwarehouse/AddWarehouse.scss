@@ -2,7 +2,6 @@
 @use "../../styles/partials/breakpoints" as breakpoints;
 @use "../../styles/partials/fonts";
 
-
 @include breakpoints.small {
   .addform {
     font-family: "TitilliumWeb";
@@ -11,7 +10,7 @@
     margin: 0 auto;
 
     &__title {
-      padding:2rem 2.1rem 2rem 3.5rem;
+      padding: 2rem 2.1rem 2rem 3.5rem;
       font-size: 1.75rem;
       font-weight: 600;
       line-height: 2.25rem;
@@ -155,10 +154,9 @@
       margin-top: 4px;
       margin-bottom: 1.4rem;
       padding-left: 0.8rem;
-
     }
     &__warehousedetails {
-        width: 50%;
+      width: 50%;
       padding-left: 2rem;
       padding-right: 2rem;
     }
@@ -167,7 +165,7 @@
     }
 
     &__contactdetails {
-        width:50%;
+      width: 50%;
       padding-left: 2rem;
       padding-right: 2rem;
       border-left: 1px solid colors.$secondaryLight;
@@ -183,7 +181,7 @@
     }
 
     &__btncancel {
-    margin-right: 1rem;
+      margin-right: 1rem;
       height: 2.375rem;
       width: 4.5rem;
       border-radius: 20px;
@@ -202,7 +200,7 @@
       border-radius: 20px;
       border: 1px solid colors.$secondaryLight;
       padding: 0.5rem 1rem;
-    line-height: 22px;
+      line-height: 22px;
       font-size: 14px;
       font-family: "TitilliumWeb";
       font-weight: 600;
@@ -222,7 +220,7 @@
     &__title {
       padding-top: 2rem;
       padding-left: 4.5rem;
-    padding-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
       font-size: 2rem;
       font-weight: 600;
       line-height: 2.5rem;
@@ -240,7 +238,7 @@
       flex-direction: row;
     }
     &__subtitle {
-      margin-top:0.5rem;
+      margin-top: 0.5rem;
       font-size: 1.5rem;
       line-height: 2rem;
       font-weight: 600;
@@ -268,10 +266,9 @@
       margin-top: 4px;
       margin-bottom: 1.4rem;
       padding-left: 0.8rem;
-
     }
     &__warehousedetails {
-        width: 50%;
+      width: 50%;
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
@@ -280,7 +277,7 @@
     }
 
     &__contactdetails {
-        width:50%;
+      width: 50%;
       padding-left: 2.5rem;
       padding-right: 2.5rem;
       border-left: 1px solid colors.$secondaryLight;
@@ -296,7 +293,7 @@
     }
 
     &__btncancel {
-    margin-right: 1rem;
+      margin-right: 1rem;
       height: 2.375rem;
       width: 4.5rem;
       border-radius: 20px;
@@ -315,7 +312,7 @@
       border-radius: 20px;
       border: 1px solid colors.$secondaryLight;
       padding: 0.5rem 1rem;
-    line-height: 22px;
+      line-height: 22px;
       font-size: 14px;
       font-family: "TitilliumWeb";
       font-weight: 600;

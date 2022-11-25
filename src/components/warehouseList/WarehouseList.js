@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 export default function WarehouseList({WHList}){
 
-
     return (
       <section className="warehouseList">
         <div className="warehouseList__header">
@@ -150,3 +149,4 @@ export default function WarehouseList({WHList}){
       </section>
     );
 }
+

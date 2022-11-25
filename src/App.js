@@ -3,6 +3,7 @@ import "./App.scss";
 // import components
 import Warehouse from "./components/pages/warehouse/Warehouse";
 import Inventory from "./components/pages/inventory/Inventory";
+import DeleteInventory from "./components/delteInventory/DeleteInventory";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
@@ -11,7 +12,6 @@ import AddWarehouse from "./components/addwarehouse/AddWarehouse";
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 
 function App() {
   
