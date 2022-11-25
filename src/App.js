@@ -10,6 +10,7 @@ import Footer from "./components/footer/Footer";
 import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import InventoryDetails from "./components/inventoryDetails/InventoryDetails";
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
             <Route path="/" exact element={<Warehouse />} />
             <Route path="/warehouse" element={<Warehouse />} />
             <Route path="/warehouse/:id" element={<WarehouseDetails />} />
-
             <Route path="/inventory" element={<Inventory />} />
+            <Route path="/inventory/:id" element={<InventoryDetails />} />
             <Route path="/delete-inventory" element={<DeleteInventory />} />
           </Routes>
           <Footer />
