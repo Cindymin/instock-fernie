@@ -70,7 +70,7 @@ return (
             </div>
             <div className="editInventoryForm__detail">
               <label className="editInventoryForm__label">Description</label>
-              <input className="editInventoryForm__input" defaultValue={invItem?.description}/>
+              <textarea className="editInventoryForm__input editInventoryForm__input-description" type="textarea" defaultValue={invItem?.description}/>
             </div>
             <div className="editInventoryForm__detail">
               <label className="editInventoryForm__label">Category</label>
@@ -85,7 +85,7 @@ return (
             
           </div>
         </div>
-        <hr className="editInventoryForm__hr"></hr>
+        
         <div className="editInventoryForm__itemavailability">
           <p className="editInventoryForm__subtitle">Item Availability</p>
           <div className="editInventoryForm__container">
@@ -93,16 +93,29 @@ return (
             <label className="editInventoryForm__label">Status</label>
             {invItem.status==="In Stock"?
             <>
-            <input className="editInventoryForm__input" type="radio" name="radio"  defaultChecked/>
-              <label className="editInventoryForm__label">In stock</label>
-              <input className="editInventoryForm__input" type="radio" name="radio" />
-              <label className="editInventoryForm__label">Out of stock</label>
+            <div className="editInventoryForm__input-radioContainer">
+            <div className="editInventoryForm__input-radioStock">
+            <input className="editInventoryForm__input-radio" type="radio" name="radio"  defaultChecked/>
+              <label className="editInventoryForm__label-radio">In stock</label>
+              </div>
+              <div className="editInventoryForm__input-radioStock">
+              <input className="editInventoryForm__input-radio" type="radio" name="radio" />
+              <label className="editInventoryForm__label-radio">Out of stock</label>
+              </div>
+              </div>
               </>
             :
-            <><input className="editInventoryForm__input" type="radio" name="radio" />
-            <label className="editInventoryForm__label">In stock</label>
-            <input className="editInventoryForm__input" type="radio" name="radio" defaultChecked/>
-            <label className="editInventoryForm__label">Out of stock</label>
+            <>
+            <div className="editInventoryForm__input-radioContainer">
+            <div className="editInventoryForm__input-radioStock">
+            <input className="editInventoryForm__input-radio" type="radio" name="radio" />
+            <label className="editInventoryForm__label-radio">In stock</label>
+            </div>
+            <div className="editInventoryForm__input-radioStock">
+            <input className="editInventoryForm__input-radio" type="radio" name="radio" defaultChecked/>
+            <label className="editInventoryForm__label-radio">Out of stock</label>
+            </div>
+            </div>
             </>}
               
             </div>
