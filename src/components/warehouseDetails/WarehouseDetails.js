@@ -38,9 +38,13 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
     fetchData();
   }, [id]);
 
+  // let the delete component pop up
   function showDeleteConfirm(name) {
-    document.getElementById("warehouseDelete").style.display = "block";
+    document.getElementById("delete").style.display = "block";
     setInventoryToDelete(name);
+
+     document.getElementById("App").style.backgroundColor =
+       "rgba(19,24,44,0.3)";
   }
 
 
@@ -259,13 +263,14 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
                 </div>
 
                 <div className="warehouseDetail__item-info-actions">
-                  <Link to={"/warehouse/" + id + "/delete"}>
+                  {/* <Link to={"/warehouse/" + id + "/delete"}> */}
                     <img
                       className="warehouseDetail__item-info-actions-imge"
                       src={trash}
                       alt="delete"
+                      onClick={() => showDeleteConfirm(inventory.item_name)}
                     />
-                  </Link>
+                  {/* </Link> */}
                   <Link to={"/warehouse/" + id + "/edit"}>
                     <img
                       className="warehouseDetail__item-info-actions-imge"
@@ -280,33 +285,24 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
         </div>
       </form>
 
-      <section className="warehouseDelete" id="warehouseDelete">
-        <div className="warehouseDelete__icon-wrapper">
-          <img
-            className="warehouseDelete__icon"
-            src={trash}
-            alt="delete-icon"
-          />
+      <section className="delete" id= "delete">
+        <div className="delete__icon-wrapper">
+          <img className="delete__icon" src={trash} alt="delete-icon" />
         </div>
-
-        <div className="warehouseDelete__title-wrapper">
-          <h1 className="warehouseDelete__title">
-            Delete {inventoryToDelete} inventory?
-          </h1>
+        <div className="delete__title-wrapper">
+          <h1 className="delete__title">Delete {inventoryToDelete} item?</h1>
         </div>
-        <div className="warehouseDelete__text-wrapper">
-          <p className="warehouseDelete__text">
-            Please confirm that you’d like to delete the Washington from the
-            list of warehouses. You won’t be able to undo this action.
+        <div className="delete__text-wrapper">
+          <p className="delete__text">
+            Please confirm that you’d like to delete {inventoryToDelete} from
+            the inventory list. You won’t be able to undo this action.
           </p>
         </div>
-        <div className="warehouseDelete__btn-wrapper">
-          <button className="warehouseDelete__btn warehouseDelete__btn warehouseDelete__btn--cancel">
+        <div className="delete__btn-wrapper">
+          <button className="delete__btn delete__btn delete__btn--cancel">
             Cancel
           </button>
-          <button className="warehouseDelete__btn warehouseDelete__btn--delete">
-            Delete
-          </button>
+          <button className="delete__btn delete__btn--delete">Delete</button>
         </div>
       </section>
     </>

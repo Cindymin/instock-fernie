@@ -5,17 +5,22 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 export default function WarehouseList({ WHList }) {
+
   const [warehouseToDelete, setwarehouseToDelete] = useState("");
 
   function showDeleteConfirm(name) {
     document.getElementById("warehouseDelete").style.display = "block";
     setwarehouseToDelete(name);
 
-    document.getElementById("background").style.backgroundColor = "#13182C";
-    document.getElementById("background").style.opacity = "0.7";
+    document.getElementById("background").style.backgroundColor = "rgba(19,24,44,0.3)";
   }
+
+  // function ConfirmDelete(){
+  //   axios.de
+  // }
 
   return (
     <>
