@@ -9,6 +9,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
+
 const GET_WAREHOUSE_URL = (id) => `http://localhost:8080/warehouses/${id}`;
 const GET_INVENTORY_URL = (id) =>
   ` http://localhost:8080/warehouses/${id}/inventories`;
@@ -18,23 +20,33 @@ const WarehouseDetails = () => {
 const { id } = useParams();
 const [warehouseInventory, setWarehouseInventory] = useState([]);
 const [warehouse, setWarehouse] = useState([]);
-
+const [inventoryToDelete, setInventoryToDelete] = useState("");
   
   useEffect(() => {
     const fetchData = async () => {
-      // get warehouseId data from API
+      // get warehouse data by ID from API
       console.log(id);
       const warehouse_data = await axios.get(GET_WAREHOUSE_URL(id));
       const warehouse = warehouse_data.data.warehouseData[0];
-      setWarehouse(warehouse)
+      setWarehouse(warehouse);
 
-      // get the warehouseInventory data from API
+      // get the warehouseInventory data by warehouse ID from API
       const { data } = await axios.get(GET_INVENTORY_URL(id));
-      console.log(data)
-      setWarehouseInventory(data.inventoriesData);
+      const inventoryData = data.inventoriesData;
+      setWarehouseInventory(inventoryData);
     };
     fetchData();
-  }, []);
+  }, [id]);
+
+  // let the delete component pop up
+  function showDeleteConfirm(name) {
+    document.getElementById("delete").style.display = "block";
+    setInventoryToDelete(name);
+
+     document.getElementById("App").style.backgroundColor =
+       "rgba(19,24,44,0.3)";
+  }
+
 
  
   return (
@@ -51,7 +63,7 @@ const [warehouse, setWarehouse] = useState([]);
               {warehouse.warehouse_name}
             </span>
           </div>
-          <Link to="/warehouse/edit">
+          <Link to={"/warehouse/" + id + "/edit"}>
             <div className="warehouseDetail__nameContainer-edit">
               <svg
                 className="warehouseDetail__nameContainer-editImage"
@@ -144,32 +156,53 @@ const [warehouse, setWarehouse] = useState([]);
                   <span className="warehouseDetail__item-info-name">
                     {inventory.item_name}
                   </span>
-                  <img
-                    className="warehouseDetail__item-info-image"
-                    src={arrowRight}
-                    alt="arrowRight"
-                  />
+                  <Link to={"/inventory/" + inventory.id}>
+                    <img
+                      className="warehouseDetail__item-info-image"
+                      src={arrowRight}
+                      alt="arrowRight"
+                    />
+                  </Link>
                 </div>
+
                 <span className="warehouseDetail__item-info-category">
                   {inventory.category}
                 </span>
-                <span className="warehouseDetail__item-info-status">
-                  {inventory.status}
-                </span>
+
+                {inventory.status === "In Stock" && (
+                  <div className="warehouseDetail__item-info-status-wrap">
+                    <span className="warehouseDetail__item-info-status">
+                      In Stock
+                    </span>
+                  </div>
+                )}
+                {inventory.status === "Out of Stock" && (
+                  <div className="warehouseDetail__item-info-status-wrap">
+                    <span className="warehouseDetail__item-info-statusTwo">
+                      Out of Stock
+                    </span>
+                  </div>
+                )}
+
                 <span className="warehouseDetail__item-info-num">
                   {inventory.quantity}
                 </span>
                 <div className="warehouseDetail__item-info-actions">
+                  {/* <Link to={"/warehouse/" + id + "/delete"}> */}
                   <img
                     className="warehouseDetail__item-info-actions-imge"
                     src={trash}
                     alt="delete"
+                    onClick={() => showDeleteConfirm(inventory.item_name)}
                   />
-                  <img
-                    className="warehouseDetail__item-info-actions-imge"
-                    src={edit}
-                    alt="edit"
-                  />
+                  {/* </Link> */}
+                  <Link to={"/warehouse/" + id + "/edit"}>
+                    <img
+                      className="warehouseDetail__item-info-actions-imge"
+                      src={edit}
+                      alt="edit"
+                    />
+                  </Link>
                 </div>
               </div>
             );
@@ -187,19 +220,28 @@ const [warehouse, setWarehouse] = useState([]);
                       <span className="warehouseDetail__item-info-name">
                         {inventory.item_name}
                       </span>
-                      <img
-                        className="warehouseDetail__item-info-image"
-                        src={arrowRight}
-                        alt="arrowRight"
-                      />
+                      <Link to={"/inventory/" + inventory.id}>
+                        <img
+                          className="warehouseDetail__item-info-image"
+                          src={arrowRight}
+                          alt="arrowRight"
+                        />
+                      </Link>
                     </div>
                   </div>
 
                   <div className="warehouseDetail__item-info-contanier">
                     <span class="warehouseDetail__item-info-tag">STATUS</span>
-                    <span className="warehouseDetail__item-info-status">
-                      {inventory.status}
-                    </span>
+                    {inventory.status === "In Stock" && (
+                      <span className="warehouseDetail__item-info-status">
+                        In Stock
+                      </span>
+                    )}
+                    {inventory.status === "Out of Stock" && (
+                      <span className="warehouseDetail__item-info-statusTwo">
+                        Out of Stock
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -221,22 +263,48 @@ const [warehouse, setWarehouse] = useState([]);
                 </div>
 
                 <div className="warehouseDetail__item-info-actions">
-                  <img
-                    className="warehouseDetail__item-info-actions-imge"
-                    src={trash}
-                    alt="delete"
-                  />
-                  <img
-                    className="warehouseDetail__item-info-actions-imge"
-                    src={edit}
-                    alt="edit"
-                  />
+                  {/* <Link to={"/warehouse/" + id + "/delete"}> */}
+                    <img
+                      className="warehouseDetail__item-info-actions-imge"
+                      src={trash}
+                      alt="delete"
+                      onClick={() => showDeleteConfirm(inventory.item_name)}
+                    />
+                  {/* </Link> */}
+                  <Link to={"/warehouse/" + id + "/edit"}>
+                    <img
+                      className="warehouseDetail__item-info-actions-imge"
+                      src={edit}
+                      alt="edit"
+                    />
+                  </Link>
                 </div>
               </div>
             );
           })}
         </div>
       </form>
+
+      <section className="delete" id= "delete">
+        <div className="delete__icon-wrapper">
+          <img className="delete__icon" src={trash} alt="delete-icon" />
+        </div>
+        <div className="delete__title-wrapper">
+          <h1 className="delete__title">Delete {inventoryToDelete} item?</h1>
+        </div>
+        <div className="delete__text-wrapper">
+          <p className="delete__text">
+            Please confirm that you’d like to delete {inventoryToDelete} from
+            the inventory list. You won’t be able to undo this action.
+          </p>
+        </div>
+        <div className="delete__btn-wrapper">
+          <button className="delete__btn delete__btn delete__btn--cancel">
+            Cancel
+          </button>
+          <button className="delete__btn delete__btn--delete">Delete</button>
+        </div>
+      </section>
     </>
   );
 };
