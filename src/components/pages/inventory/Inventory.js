@@ -28,9 +28,11 @@ export default function Inventory() {
   return (
     <>
 
-      {/* <InventoryList inventory={inventory} /> */}
       <EditInventory />
       <InventoryDetails item={inventory} />
+
+      <InventoryList inventory={inventory} />
+
     </>
   );
 }
