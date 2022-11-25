@@ -8,6 +8,8 @@ import less from "../../assets/icons/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 
 const InventoryList = (props) => {
+  const invt = props.item;
+
   const items = props.inventory;
   return (
     <form className="invList">
@@ -89,16 +91,18 @@ const InventoryList = (props) => {
               className="invList__item-info-Tablet
             "
             >
-              <div className="invList__item-info-nameWrap">
-                <span className="invList__item-info-name">
-                  {item.item_name}
-                </span>
-                <img
-                  className="invList__item-info-image"
-                  src={less}
-                  alt="arrowRight"
-                />
-              </div>
+              <Link to={`/inventory/${item.id}`}>
+                <div className="invList__item-info-nameWrap">
+                  <span className="invList__item-info-name">
+                    {item.item_name}
+                  </span>
+                  <img
+                    className="invList__item-info-image"
+                    src={less}
+                    alt="arrowRight"
+                  />
+                </div>
+              </Link>
               <span className="invList__item-info-category">
                 {item.category}
               </span>
@@ -144,16 +148,18 @@ const InventoryList = (props) => {
                 <div className="invList__item-info-wrap" key={item.id}>
                   <div className="invList__item-info-contanier">
                     <span class="invList__item-info-tag">INVENTORY ITEM</span>
-                    <div className="invList__item-info-nameWrap">
-                      <span className="invList__item-info-name">
-                        {item.item_name}
-                      </span>
-                      <img
-                        className="invList__item-info-image"
-                        src={less}
-                        alt="arrowRight"
-                      />
-                    </div>
+                    <Link to={`/inventory/${item.id}`}>
+                      <div className="invList__item-info-nameWrap">
+                        <span className="invList__item-info-name">
+                          {item.item_name}
+                        </span>
+                        <img
+                          className="invList__item-info-image"
+                          src={less}
+                          alt="arrowRight"
+                        />
+                      </div>
+                    </Link>
                   </div>
 
                   <div className="invList__item-info-contanier">
