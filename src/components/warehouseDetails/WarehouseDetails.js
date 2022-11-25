@@ -5,19 +5,38 @@ import trash from "../../assets/icons/delete_outline-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
 import "./Warehousedetail.scss";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const WarehouseDetails = ({ warehouses, warehouseInventory }) => {
-  const {
-    warehouse_name,
-    address,
-    contact_name,
-    contact_position,
-    contact_phone,
-    contact_email,
-  } = warehouses;
+const GET_WAREHOUSE_URL = (id) => `http://localhost:8080/warehouses/${id}`;
+const GET_INVENTORY_URL = (id) =>
+  ` http://localhost:8080/warehouses/${id}/inventories`;
 
-  console.log(warehouseInventory);
 
+const WarehouseDetails = () => {
+const { id } = useParams();
+const [warehouseInventory, setWarehouseInventory] = useState([]);
+const [warehouse, setWarehouse] = useState([]);
+
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      // get warehouseId data from API
+      console.log(id);
+      const warehouse_data = await axios.get(GET_WAREHOUSE_URL(id));
+      const warehouse = warehouse_data.data.warehouseData[0];
+      setWarehouse(warehouse)
+
+      // get the warehouseInventory data from API
+      const { data } = await axios.get(GET_INVENTORY_URL(id));
+      console.log(data)
+      setWarehouseInventory(data.inventoriesData);
+    };
+    fetchData();
+  }, []);
+
+ 
   return (
     <>
       <form className="warehouseDetail">
@@ -29,7 +48,7 @@ const WarehouseDetails = ({ warehouses, warehouseInventory }) => {
               alt="arrow"
             />
             <span className="warehouseDetail__nameContainer-name">
-              {warehouse_name}
+              {warehouse.warehouse_name}
             </span>
           </div>
           <Link to="/warehouse/edit">
@@ -60,15 +79,19 @@ const WarehouseDetails = ({ warehouses, warehouseInventory }) => {
             <span className="warehouseDetail__info-tag">
               WAREHOUSE ADDRESS:
             </span>
-            <span className="warehouseDetail__info-text">{address}</span>
+            <span className="warehouseDetail__info-text">
+              {warehouse.address}
+            </span>
           </div>
 
           <div className="warehouseDetail__info-contanct">
             <div className="warehouseDetail__info-contanct-nameWrap">
               <span className="warehouseDetail__info-tag">CONTACT NAME:</span>
-              <span className="warehouseDetail__info-text">{contact_name}</span>
               <span className="warehouseDetail__info-text">
-                {contact_position}
+                {warehouse.contact_name}
+              </span>
+              <span className="warehouseDetail__info-text">
+                {warehouse.contact_position}
               </span>
             </div>
             <div className="warehouseDetail__info-contanct-detailWrap">
@@ -76,10 +99,10 @@ const WarehouseDetails = ({ warehouses, warehouseInventory }) => {
                 CONTACT INFORMATION:
               </span>
               <span className="warehouseDetail__info-text">
-                {contact_phone}
+                {warehouse.contact_phone}
               </span>
               <span className="warehouseDetail__info-text">
-                {contact_email}
+                {warehouse.contact_email}
               </span>
             </div>
           </div>
