@@ -1,4 +1,3 @@
-import React from "react";
 import "./InventoryList.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
@@ -6,11 +5,30 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import less from "../../assets/icons/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const InventoryList = (props) => {
-  const invt = props.item;
-
+  const [warehouseName, setWarehouseName] = useState("");
   const items = props.inventory;
+  console.log(items);
+
+  const getwarehouseName = (id) => {
+    axios
+      .get(`http://localhost:8080/warehouses/${id}`)
+
+      .then((res) => {
+        const warehouseItemArray = res.data["warehouseData"];
+        warehouseItemArray?.map((warehouseItem) => {
+          setWarehouseName(warehouseItem.warehouse_name);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    return warehouseName;
+  };
+
   return (
     <form className="invList">
       <section className="invList-top">
@@ -86,14 +104,14 @@ const InventoryList = (props) => {
           <span className="invList__item-bar-text">ACTIONS</span>
         </div>
         {items &&
-          items.map((item) => (
+          items.slice(0, 7).map((item) => (
             <div
               className="invList__item-info-Tablet
             "
               key={item.id}
             >
-              <Link to={`/inventory/${item.id}`}>
-                <div className="invList__item-info-nameWrap">
+              <div className="invList__item-info-nameWrap">
+                <Link to={`/inventory/${item.id}`}>
                   <span className="invList__item-info-name">
                     {item.item_name}
                   </span>
@@ -101,9 +119,10 @@ const InventoryList = (props) => {
                     className="invList__item-info-image"
                     src={less}
                     alt="arrowRight"
-                  />
-                </div>
-              </Link>
+                  />{" "}
+                </Link>
+              </div>
+
               <span className="invList__item-info-category">
                 {item.category}
               </span>
@@ -124,6 +143,10 @@ const InventoryList = (props) => {
               )}
 
               <span className="invList__item-info-num">{item.quantity}</span>
+
+              <span className="invList__item-info-warehouse">
+                {item.warehouse_id}
+              </span>
               <div className="invList__item-info-actions">
                 <Link to="/delete-inventory">
                   <img
@@ -144,14 +167,14 @@ const InventoryList = (props) => {
           ))}
 
         {items &&
-          items.map((item) => (
+          items.slice(0, 7).map((item) => (
             <>
               <div className="invList__item-info">
                 <div className="invList__item-info-wrap" key={item.id}>
                   <div className="invList__item-info-contanier">
                     <span class="invList__item-info-tag">INVENTORY ITEM</span>
-                    <Link to={`/inventory/${item.id}`}>
-                      <div className="invList__item-info-nameWrap">
+                    <div className="invList__item-info-nameWrap">
+                      <Link to={`/inventory/${item.id}`}>
                         <span className="invList__item-info-name">
                           {item.item_name}
                         </span>
@@ -159,9 +182,9 @@ const InventoryList = (props) => {
                           className="invList__item-info-image"
                           src={less}
                           alt="arrowRight"
-                        />
-                      </div>
-                    </Link>
+                        />{" "}
+                      </Link>
+                    </div>
                   </div>
 
                   <div className="invList__item-info-contanier">
@@ -203,8 +226,10 @@ const InventoryList = (props) => {
                 <div className="invList__item-info-wrap">
                   <div className="invList__item-info-contanier"></div>
                   <div className="invList__item-info-contanier">
-                    <span class="invList__item-info-tag">mobile</span>
-                    <span className="invList__item-info-num">Manhatten</span>
+                    <span class="invList__item-info-tag">WAREHOUSE</span>
+                    <span className="invList__item-info-num">
+                      {item.warehouse_id}
+                    </span>
                   </div>
                 </div>
                 <div className="invList__item-info-actions">
@@ -223,7 +248,7 @@ const InventoryList = (props) => {
                     />
                   </Link>
                 </div>
-              </div>{" "}
+              </div>
             </>
           ))}
       </div>

@@ -227,8 +227,11 @@
     }
 
     &__item {
-      padding: 1rem 1rem;
       border-bottom: 1px solid #bdc5d5;
+      &-info {
+        border-bottom: 1px solid #bdc5d5;
+        padding: 2rem 1rem 0 1rem;
+      }
 
       &-bar {
         visibility: hidden;
@@ -329,7 +332,7 @@
     &__item-info-actions {
       display: flex;
       justify-content: space-between;
-      padding-bottom: 0.5rem;
+      padding-bottom: 2rem;
     }
   }
   .invList__item-info-Tablet {
@@ -445,6 +448,7 @@
 
     &__item-info-image {
       width: 20px;
+      vertical-align: middle;
     }
 
     &__item-info-status {
@@ -705,6 +709,7 @@
 
     &__item-info-image {
       width: 20px;
+      vertical-align: middle;
     }
     &__item-info-status {
       display: flex;
@@ -788,4 +793,7 @@
       margin-right: 1.5rem;
     }
   }
+}
+a {
+  text-decoration: none;
 }

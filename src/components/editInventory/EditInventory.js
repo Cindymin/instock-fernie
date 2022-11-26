@@ -1,10 +1,11 @@
 import "./EditInventory.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function EditInventory() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [inventoryItem, setInventoryItem] = useState([]);
   const [whId, setWhID] = useState([]);
@@ -82,6 +83,7 @@ export default function EditInventory() {
         });
     };
     updateData();
+    navigate("/inventory");
   };
 
   return (
