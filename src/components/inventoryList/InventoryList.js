@@ -12,6 +12,7 @@ import axios from "axios";
 
 const InventoryList = (props) => {
   const invt = props.item;
+   const items = props.inventory;
 
   const [inventoryToDelete, setInventoryToDelete] = useState("");
   const [inventoryIdToDelete, setInventoryIdToDelete] = useState("");
@@ -38,7 +39,8 @@ const InventoryList = (props) => {
     window.location = "http://localhost:8080/inventory";
   }
 
-  const items = props.inventory;
+ 
+
   return (
     <>
       <form className="invList">
