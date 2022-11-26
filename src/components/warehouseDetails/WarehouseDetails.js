@@ -152,7 +152,8 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
             </div>
 
             <div className="warehouseDetail__item-bar-wrap  quantity">
-              <span className="warehouseDetail__item-bar-text">QUANTITY</span>
+              <span className="warehouseDetail__item-bar-textTable">QUANTITY</span>
+              <span className="warehouseDetail__item-bar-textDesk">QTY</span>
               <img class="warehouseDetail__item-bar-icon" src={sort} alt="" />
             </div>
 
