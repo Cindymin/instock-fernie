@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import e from "cors";
 
 export default function EditInventory() {
   const { id } = useParams();
@@ -14,6 +13,7 @@ export default function EditInventory() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("");
+  const [qty, setQty] = useState("");
   const [warehouse, setWarehouse] = useState("");
 
   const getInventoryItem = () => {
@@ -24,6 +24,11 @@ export default function EditInventory() {
         invtItemArray?.map((invtItem) => {
           setWhID(invtItem.warehouse_id);
           setInventoryItem(res.data);
+          setItem(res.data.inventoriesData[0].item_name);
+          setCategory(res.data.inventoriesData[0].category);
+          setDescription(res.data.inventoriesData[0].description);
+          setStatus(res.data.inventoriesData[0].status);
+          setQty(res.data.inventoriesData[0].quantity);
         });
       })
 
@@ -63,7 +68,9 @@ export default function EditInventory() {
       description: description,
       category: category,
       status: status,
+      quantity: qty,
     };
+    console.log(editData);
     const updateData = () => {
       axios
         .put(`http://localhost:8080/inventories/${id}`, editData)
