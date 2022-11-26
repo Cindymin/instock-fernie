@@ -20,7 +20,7 @@ select{
     display:none;
 }
 
-.editInventoryForm{
+.addInventoryForm{
     font-family:TitilliumWeb;
     display: flex;
     flex-direction: column;
@@ -109,7 +109,7 @@ select{
 
     &__btncancel {
       height: 2.25rem;
-      width: 8.6rem;
+      width: 8.688rem;
       border-radius: 1.25rem;
       border: 1px solid $secondaryLight;
       padding: 0.5rem 3.188rem;
@@ -120,10 +120,10 @@ select{
     }
     &__btnsave {
       height: 2.25rem;
-      width: 8.6rem;
+      width: 8.688rem;
       border-radius: 1.25rem;
       border: 1px solid $secondaryLight;
-      padding: 0.5rem 3.188rem;
+      padding: 0.5rem 2.188rem;
       font-size: 0.813rem;
       font-family: "TitilliumWeb";
       font-weight: 600;
@@ -139,7 +139,7 @@ select{
 
 
 @include breakpoint.medium {
-    .editInventoryForm {
+    .addInventoryForm {
       display: flex;
       flex-direction: column;
       margin: 0 auto;
@@ -246,7 +246,7 @@ select{
       }
       &__btnsave {
         height: 2.375rem;
-        width: 4.5rem;
+        width: 6.125rem;
         border-radius: 1.25rem;
         border: 1px solid $secondaryLight;
         padding: 0.5rem 1rem;
@@ -263,7 +263,7 @@ select{
 
 
   @include breakpoint.large{
-    .editInventoryForm {
+    .addInventoryForm {
       display: flex;
       flex-direction: column;
       margin: 0 auto;
@@ -370,7 +370,7 @@ select{
       }
       &__btnsave {
         height: 2.375rem;
-        width: 3.82rem;
+        width: 6.125rem;
         border-radius: 20px;
         border: 1px solid $secondaryLight;
         padding: 0.5rem 1rem;

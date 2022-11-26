@@ -1,8 +1,20 @@
 import axios from "axios";
 import "./AddWarehouse.scss";
+import { useState } from "react";
 
 function AddWarehouse() {
+
+  const [validated, setValidated] = useState(false);
+
   const handleSubmit = (event) => {
+const form=event.currentTarget
+if (form.checkValidity()===false){
+  event.preventDefault()
+  event.stopPropagation()
+}
+setValidated(true)
+
+
     event.preventDefault();
     const newWarehouse = {
       warehouse_name: event.target.warehousename.value,
@@ -20,10 +32,16 @@ function AddWarehouse() {
       .then((response) => console.log(response.data));
     window.location = "/";
     event.target.reset();
+
+     
+
   };
 
+
+
+
   return (
-    <form className="addform" onSubmit={handleSubmit}>
+    <form className="addform" noValidate Validated={validated} onSubmit={handleSubmit}>
       <div className="addform__title">
         <p>Add New Warehouse</p>
       </div>
@@ -37,7 +55,7 @@ function AddWarehouse() {
               <input
                 className="addform__input"
                 placeholder="Warehouse Name"
-                name="warehousename"></input>
+                name="warehousename" type="text" feedbackValid="saysomething" required ></input>
             </div>
             <div className="addform__detail">
               <label className="addform__label">Street Address</label>
