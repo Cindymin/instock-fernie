@@ -9,11 +9,10 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
 const InventoryList = (props) => {
-   const items = props.inventory;
+  const items = props.inventory;
   const [warehouse, setWarehouse] = useState([]);
-   const [inventoryToDelete, setInventoryToDelete] = useState("");
+  const [inventoryToDelete, setInventoryToDelete] = useState("");
   const [inventoryIdToDelete, setInventoryIdToDelete] = useState("");
 
   useEffect(() => {
@@ -37,8 +36,8 @@ const InventoryList = (props) => {
       .map((x) => x.warehouse_name);
     return result;
   };
-  
-   // let the delete component pop up
+
+  // let the delete component pop up
   function showDeleteConfirm(name, id) {
     document.getElementById("delete").style.display = "block";
     document.getElementById("background").style.display = "block";
@@ -51,59 +50,55 @@ const InventoryList = (props) => {
     document.getElementById("delete").style.display = "none";
     document.getElementById("background").style.display = "none";
   }
-  
-   // click delete icon
+
+  // click delete icon
   function ConfirmDelete() {
     axios
       .delete(`http://localhost:8080/inventories/${inventoryIdToDelete}`)
       .then((response) => console.log(response.data));
     window.location = "http://localhost:8080/inventory";
   }
-  
 
   return (
-  <>
-    <form className="invList">
-      <section className="invList-top">
-        <div className="invList-top-title">
-          <h2 className="invList-top-title invList-top-title__text">
-            Inventory
-          </h2>
-        </div>
-        <div className="invList-top-form invList-top-search">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="invList-top-search__bar"
-          />
-          <img
-            src={searchIcon}
-            alt="searchIcon"
-            className="invList-top-search__img"
-          />
-        </div>
+    <>
+      <form className="invList">
+        <section className="invList-top">
+          <div className="invList-top-title">
+            <h2 className="invList-top-title invList-top-title__text">
+              Inventory
+            </h2>
+          </div>
+          <div className="invList-top-form invList-top-search">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="invList-top-search__bar"
+            />
+            <img
+              src={searchIcon}
+              alt="searchIcon"
+              className="invList-top-search__img"
+            />
+          </div>
 
-        <div className="invList-top-form invList-top-btn">
-          <Link to="/inventory/add">
-            <button className="invList-top-btn--blue">+ Add New Item</button>
-          </Link>
-        </div>
-      </section>
-
-
+          <div className="invList-top-form invList-top-btn">
+            <Link to="/inventory/add">
+              <button className="invList-top-btn--blue">+ Add New Item</button>
+            </Link>
+          </div>
+        </section>
         <div className="invList__item">
           <div className="invList__item-bar">
             <div className="invList__item-bar-wrap">
               <span class="invList__item-bar-text title-inv">
                 INVENTORY ITEM
-                  </span>
+              </span>
               <img
                 class="invList__item-bar-icon invList__item-bar-icon__inventory"
                 src={sortIcon}
                 alt="sort-icon"
               />
             </div>
-
             <div className="invList__item-bar-wrap">
               <span className="invList__item-bar-text title-cat">CATEGORY</span>
               <img
@@ -112,8 +107,7 @@ const InventoryList = (props) => {
                 alt="sort-icon"
               />
             </div>
-            
-              <div className="invList__item-bar-wrap status">
+            <div className="invList__item-bar-wrap status">
               <span className="invList__item-bar-text title-sta">STATUS</span>
               <img
                 class="invList__item-bar-icon invList__item-bar-icon__status"
@@ -121,8 +115,7 @@ const InventoryList = (props) => {
                 alt="sort"
               />
             </div>
-            
-             <div className="invList__item-bar-wrap  quantity">
+            <div className="invList__item-bar-wrap  quantity">
               <span className="invList__item-bar-text title-qty">QTY</span>
               <img
                 class="invList__item-bar-icon invList__item-bar-icon__qty"
@@ -130,8 +123,7 @@ const InventoryList = (props) => {
                 alt="sort"
               />
             </div>
-
-            <div className="invList__item-bar-wrap  warehouse">
+            <div className="invList__item-bar-wrap warehouse">
               <span className="invList__item-bar-text title-ware">
                 WAREHOUSE
               </span>
@@ -140,79 +132,77 @@ const InventoryList = (props) => {
                 src={sortIcon}
                 alt="sort"
               />
-            </div>      
-                
-          <span className="invList__item-bar-text">ACTIONS</span>
-        </div>
-        
-        {items &&
-          items.slice(0, 8).map((item) => (
-            <div
-              className="invList__item-info-Tablet
-            "
-              key={item.id}
-            >
-              <div className="invList__item-info-nameWrap">
-                <Link to={`/inventory/${item.id}`}>
-                  <span className="invList__item-info-name">
-                    {item.item_name}
-                  </span>
-                  <img
-                    className="invList__item-info-image"
-                    src={less}
-                    alt="arrowRight"
-                  />
-                </Link>
-              </div>
+            </div>
+            <span className="invList__item-bar-text">ACTIONS</span>
+          </div>
 
-              <span className="invList__item-info-category">
-                {item.category}
-                   </span>
-                   
-                    {item.status === "In Stock" && (
+          {items &&
+            items.slice(0, 8).map((item) => (
+              <div
+                className="invList__item-info-Tablet
+            "
+                key={item.id}
+              >
+                <div className="invList__item-info-nameWrap">
+                  <Link to={`/inventory/${item.id}`}>
+                    <span className="invList__item-info-name">
+                      {item.item_name}
+                    </span>
+                    <img
+                      className="invList__item-info-image"
+                      src={less}
+                      alt="arrowRight"
+                    />
+                  </Link>
+                </div>
+
+                <span className="invList__item-info-category">
+                  {item.category}
+                </span>
+
+                {item.status === "In Stock" && (
                   <div className="invList__item-info-status">
                     <span className="invList__item-info-status--inStock">
                       In Stock
                     </span>
                   </div>
-                   )}
-                  
-                   {item.status === "Out of Stock" && (
-                        <div className="invList__item-info-status">
-                          <span className="invList__item-info-status--outOfStock">
-                            Out of Stock
-                          </span>
-                        </div>
-                      )}
-                      
-                      <span className="invList__item-info-num">{item.quantity}</span>
+                )}
 
-              <span className="invList__item-info-warehouse">
-                {found(item.warehouse_id)}
-              </span>
-              
-              <div className="invList__item-info-actions">
-                <img
-                  className="invList__item-info-actions-imge"
-                  src={deleteIcon}
-                  alt="delete"
-                  onClick={() => showDeleteConfirm(item.item_name, item.id)}
-                />
-                
-                <Link to={`/inventory/${item.id}/edit`}>
+                {item.status === "Out of Stock" && (
+                  <div className="invList__item-info-status">
+                    <span className="invList__item-info-status--outOfStock">
+                      Out of Stock
+                    </span>
+                  </div>
+                )}
+
+                <span className="invList__item-info-num">{item.quantity}</span>
+
+                <span className="invList__item-info-warehouse">
+                  {found(item.warehouse_id)}
+                </span>
+
+                <div className="invList__item-info-actions">
                   <img
                     className="invList__item-info-actions-imge"
-                    src={editIcon}
-                    alt="edit"
+                    src={deleteIcon}
+                    alt="delete"
+                    onClick={() => showDeleteConfirm(item.item_name, item.id)}
                   />
-                </Link>
+
+                  <Link to={`/inventory/${item.id}/edit`}>
+                    <img
+                      className="invList__item-info-actions-imge"
+                      src={editIcon}
+                      alt="edit"
+                    />
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
-          
-           {items &&
-          items.slice(0, 8).map((item) => (
-            <>
+            ))}
+
+          {items &&
+            items.slice(0, 8).map((item) => (
               <div className="invList__item-info">
                 <div className="invList__item-info-wrap" key={item.id}>
                   <div className="invList__item-info-contanier">
@@ -231,61 +221,60 @@ const InventoryList = (props) => {
                     </div>
                   </div>
 
-  <div className="invList__item-info-contanier">
-                      <span class="invList__item-info-tag">STATUS</span>
-                      {item.status === "In Stock" && (
-                        <div className="invList__item-info-status">
-                          <span className="invList__item-info-status--inStock">
-                            In Stock
-                          </span>
-                        </div>
-                      )}
-                      
-                       {item.status === "Out of Stock" && (
-                  <div className="invList__item-info-status">
-                    <span className="invList__item-info-status--outOfStock">
-                      Out of Stock
-  </span>
-                        </div>
-                      )}
-  </div>
-    </div>
-    
-      <div className="invList__item-info-wrap">
-                    <div className="invList__item-info-contanier">
-                      <span class="invList__item-info-tag">CATEGORY</span>
+                  <div className="invList__item-info-contanier">
+                    <span class="invList__item-info-tag">STATUS</span>
+                    {item.status === "In Stock" && (
+                      <div className="invList__item-info-status">
+                        <span className="invList__item-info-status--inStock">
+                          In Stock
+                        </span>
+                      </div>
+                    )}
+                    {item.status === "Out of Stock" && (
+                      <div className="invList__item-info-status">
+                        <span className="invList__item-info-status--outOfStock">
+                          Out of Stock
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
 
-                      <span className="invList__item-info-category">
-                        {item.category}
-                      </span>
-                    </div>
+                <div className="invList__item-info-wrap">
+                  <div className="invList__item-info-contanier">
+                    <span class="invList__item-info-tag">CATEGORY</span>
 
-                    <div className="invList__item-info-contanier">
-                      <span class="invList__item-info-tag">QTY</span>
-                      <span className="invList__item-info-num">
-                        {item.quantity}
-                      </span>
-                    </div>
-                  </div>  
-                  
-                   <div className="invList__item-info-wrap">
+                    <span className="invList__item-info-category">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <div className="invList__item-info-contanier">
+                    <span class="invList__item-info-tag">QTY</span>
+                    <span className="invList__item-info-num">
+                      {item.quantity}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="invList__item-info-wrap">
                   <div className="invList__item-info-contanier"></div>
                   <div className="invList__item-info-contanier">
                     <span class="invList__item-info-tag">WAREHOUSE</span>
                     <span className="invList__item-info-num">
                       {found(item.warehouse_id)}
- </span>
-                    </div>
-                  </div>  
-                  
-                    <div className="invList__item-info-actions">
+                    </span>
+                  </div>
+                </div>
+
+                <div className="invList__item-info-actions">
                   <img
                     className="invList__item-info-actions-imge"
                     src={deleteIcon}
                     alt="delete"
                     onClick={() => showDeleteConfirm(item.item_name, item.id)}
                   />
-                   <Link to={`/inventory/${item.id}/edit`}>
+                  <Link to={`/inventory/${item.id}/edit`}>
                     <img
                       className="invList__item-info-actions-imge"
                       src={editIcon}
@@ -294,11 +283,11 @@ const InventoryList = (props) => {
                   </Link>
                 </div>
               </div>
-          ))}
-      </div>     
-    </form>
-    
-     <section id="background" className="background">
+            ))}
+        </div>
+      </form>
+
+      <section id="background" className="background">
         <section className="delete" id="delete">
           <div className="delete__icon-wrapper">
             <img
@@ -333,13 +322,8 @@ const InventoryList = (props) => {
           </div>
         </section>
       </section>
-       </>
- );
+    </>
+  );
 };
-            
+
 export default InventoryList;
-
-
-
-
-      
