@@ -14,7 +14,6 @@ export default function Inventory() {
     axios
       .get("http://localhost:8080/inventories")
       .then((res) => {
-        console.log(res.data);
         setInventory(res.data);
       })
       .catch((error) => {
@@ -27,9 +26,7 @@ export default function Inventory() {
 
   return (
     <>
-
       <InventoryList inventory={inventory} />
-
     </>
   );
 }

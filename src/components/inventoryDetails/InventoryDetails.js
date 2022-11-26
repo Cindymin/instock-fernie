@@ -33,6 +33,7 @@ export default function InventoryDetails() {
       .catch((error) => {
         console.log(error);
       });
+    // });
   };
 
   useEffect(() => {
@@ -61,7 +62,7 @@ export default function InventoryDetails() {
             </Link>
 
             <h1 className="item-top__title">{item_name}</h1>
-            <Link to={`/inventory/${id}`}>
+            <Link to={`/inventory/${id}/edit`}>
               <div className="item-top__edit">
                 <svg
                   width="24"
