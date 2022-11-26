@@ -26,7 +26,6 @@ function App() {
             <Route path="/warehouse" element={<Warehouse />} />
             <Route path="/warehouse/:id" element={<WarehouseDetails />} />
             <Route path="/warehouse/add" element={<AddWarehouse />} />
-            <Route path="/warehouse/:id/delete" element={<DeleteWarehouse />} />
             <Route path="/warehouse/:id/edit" element={<EditWarehouse />} />
 
             {/* Inventory routes */}
@@ -34,7 +33,9 @@ function App() {
             <Route path="/inventory/:id" element={<InventoryDetails />} />
             <Route path="/inventory/:id/edit" element={<EditInventory />} />
             {/* <Route path="/inventory/add" element={<AddInventory />} />
-            <Route path="/inventory/:id/delete" element={<DeleteInventory />} /> */}
+            <Route path="/inventory/:id/edit" element={<EditInventory />} /> */}
+
+
           </Routes>
           <Footer />
         </BrowserRouter>
