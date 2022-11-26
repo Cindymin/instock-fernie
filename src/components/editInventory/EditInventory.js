@@ -15,7 +15,7 @@ export default function EditInventory() {
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("");
   const [qty, setQty] = useState("");
-  const [warehouse, setWarehouse] = useState("");
+  const [convertedWhId, setConvertedWhId] = useState("");
 
   const getInventoryItem = () => {
     axios
@@ -64,7 +64,7 @@ export default function EditInventory() {
 
     const editData = {
       id: id,
-      warehouse_id: whId,
+      warehouse_id: convertedWhId,
       item_name: item,
       description: description,
       category: category,
@@ -83,9 +83,30 @@ export default function EditInventory() {
     navigate("/inventory");
   };
 
+  const convertNameToId = (e) => {
+    const name = e;
+    const getWarehouseData = () => {
+      axios
+        .get(`http://localhost:8080/warehouses/`)
+        .then((res) => {
+          const result = res.data
+            .filter((info) => info.warehouse_name === name)
+            .map((x) => x.id);
+          return result;
+        })
+        .then((result) => {
+          setConvertedWhId(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      return convertedWhId;
+    };
+    getWarehouseData();
+  };
+
   return (
     <>
-      <div className="sample"> {warehouseName}</div>
       <form
         className="editInventoryForm"
         onSubmit={(e) => {
@@ -272,7 +293,7 @@ export default function EditInventory() {
                           className="editInventoryForm__select"
                           defaultValue={warehouseName}
                           onChange={(e) => {
-                            setWarehouse(e.target.value);
+                            convertNameToId(e.target.value);
                           }}
                         >
                           <option value="Manhattan">Manhattan</option>
