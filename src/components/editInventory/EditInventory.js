@@ -61,7 +61,7 @@ export default function EditInventory() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e);
+
     const editData = {
       id: id,
       warehouse_id: whId,
@@ -71,13 +71,10 @@ export default function EditInventory() {
       status: status,
       quantity: qty,
     };
-    console.log(editData);
+
     const updateData = () => {
       axios
         .put(`http://localhost:8080/inventories/${id}`, editData)
-        .then((res) => {
-          console.log(res);
-        })
         .catch((error) => {
           console.log(error);
         });

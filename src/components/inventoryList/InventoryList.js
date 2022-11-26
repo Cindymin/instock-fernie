@@ -9,24 +9,29 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const InventoryList = (props) => {
-  const [warehouseName, setWarehouseName] = useState("");
+  const [warehouse, setWarehouse] = useState([]);
   const items = props.inventory;
-  console.log(items);
 
-  const getwarehouseName = (id) => {
-    axios
-      .get(`http://localhost:8080/warehouses/${id}`)
-
-      .then((res) => {
-        const warehouseItemArray = res.data["warehouseData"];
-        warehouseItemArray?.map((warehouseItem) => {
-          setWarehouseName(warehouseItem.warehouse_name);
+  useEffect(() => {
+    const getWarehouseDetail = () => {
+      axios
+        .get(`http://localhost:8080/warehouses/`)
+        .then((res) => {
+          setWarehouse(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    return warehouseName;
+      return warehouse;
+    };
+    getWarehouseDetail();
+  }, []);
+
+  const found = (id) => {
+    const result = warehouse
+      .filter((item) => item.id === id)
+      .map((x) => x.warehouse_name);
+    return result;
   };
 
   return (
@@ -104,7 +109,7 @@ const InventoryList = (props) => {
           <span className="invList__item-bar-text">ACTIONS</span>
         </div>
         {items &&
-          items.slice(0, 7).map((item) => (
+          items.slice(0, 8).map((item) => (
             <div
               className="invList__item-info-Tablet
             "
@@ -145,7 +150,7 @@ const InventoryList = (props) => {
               <span className="invList__item-info-num">{item.quantity}</span>
 
               <span className="invList__item-info-warehouse">
-                {item.warehouse_id}
+                {found(item.warehouse_id)}
               </span>
               <div className="invList__item-info-actions">
                 <Link to="/delete-inventory">
@@ -167,7 +172,7 @@ const InventoryList = (props) => {
           ))}
 
         {items &&
-          items.slice(0, 7).map((item) => (
+          items.slice(0, 8).map((item) => (
             <>
               <div className="invList__item-info">
                 <div className="invList__item-info-wrap" key={item.id}>
@@ -228,7 +233,7 @@ const InventoryList = (props) => {
                   <div className="invList__item-info-contanier">
                     <span class="invList__item-info-tag">WAREHOUSE</span>
                     <span className="invList__item-info-num">
-                      {item.warehouse_id}
+                      {found(item.warehouse_id)}
                     </span>
                   </div>
                 </div>
