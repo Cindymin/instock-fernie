@@ -13,7 +13,7 @@ function EditWarehouse() {
           <div className="form__container">
             <div className="form__detail">
               <label className="form__label">Warehouse Name</label>
-              <input className="form__input" placeholder=""></input>
+              <input  className="form__input" placeholder=""></input>
             </div>
             <div className="form__detail">
               <label className="form__label">Street Address</label>

@@ -33,6 +33,7 @@ export default function InventoryDetails() {
       .catch((error) => {
         console.log(error);
       });
+    // });
   };
 
   useEffect(() => {

@@ -1,0 +1,113 @@
+@use "../../styles/partials/breakpoints" as breakpoint;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+
+.sample{
+    display:none;
+}
+
+@include breakpoint.small{
+.editInventoryForm{
+    font-family:TitilliumWeb;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    &__title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 2.25rem;
+      color: $primaryDark;
+      padding:2rem 3.5rem 1.5rem;
+      border-bottom: 1px solid $secondaryLight;
+      background-image: url("../../assets/icons/arrow_back-24px.svg");
+      background-repeat: no-repeat;
+      background-size: 1.5rem;
+      background-position: left 1.75rem center;
+    }
+
+    &__subtitle {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      font-weight: 600;
+      color: $primaryDark;
+      margin-bottom: 1.5rem;
+    }
+    &__itemdetails{
+        padding: 1rem 1.5rem;
+    }
+    &__itemavailability{
+        padding: 1rem 1.5rem;
+    }
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+    &__detail {
+      display: flex;
+      flex-direction: column;
+    }
+    &__label {
+      font-weight: 600;
+      font-size: 0.813rem;
+      line-height: 1.25rem;
+    }
+    &__input {
+      width: 100%;
+      height: 2.25rem;
+      border-radius: 20px;
+      border: 1px solid $secondaryLight;
+      margin-top: 4px;
+      margin-bottom: 1rem;
+      padding-left: 0.8rem;
+    }
+    &__warehousedetails {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    &__hr {
+      border: 0.5px solid $secondaryLight;
+    }
+    &__contactdetails {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    &__btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 4.25rem;
+      background-color: $backgroundLight;
+    }
+
+    &__btncancel {
+      height: 2.25rem;
+      width: 8.6rem;
+      border-radius: 20px;
+      border: 1px solid $secondaryLight;
+      padding: 8px 51px;
+      font-size: 13px;
+      font-family: "TitilliumWeb";
+      font-weight: 600;
+      background-color: $primaryLight;
+    }
+    &__btnsave {
+      height: 2.25rem;
+      width: 8.6rem;
+      border-radius: 20px;
+      border: 1px solid $secondaryLight;
+      padding: 8px 51px;
+      font-size: 13px;
+      font-family: "TitilliumWeb";
+      font-weight: 600;
+      color:$primaryLight;
+      background-color:$primaryMedium;
+      opacity: 1;
+    }
+
+
+
+
+}
+}
+
