@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import InventoryDetails from "./components/inventoryDetails/InventoryDetails";
 import DeleteWarehouse from "./components/deleteWarehouse/DeleteWarehouse";
 import EditInventory from "./components/editInventory/EditInventory";
+import AddInventory from "./components/addInventory/AddInventory";
 
 function App() {
   return (
@@ -32,8 +33,7 @@ function App() {
             <Route path="/inventory" element={<Inventory />} />
             <Route path="/inventory/:id" element={<InventoryDetails />} />
             <Route path="/inventory/:id/edit" element={<EditInventory />} />
-            {/* <Route path="/inventory/add" element={<AddInventory />} />
-            <Route path="/inventory/:id/edit" element={<EditInventory />} /> */}
+            <Route path="/inventory/add" element={<AddInventory />} />
             <Route path="/inventory/:id/delete" element={<DeleteInventory />} />
           </Routes>
           <Footer />
