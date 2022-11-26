@@ -1,9 +1,6 @@
 import "./EditWarehouse.scss";
 
 function EditWarehouse() {
-
-
-
   return (
     <form className="form">
       <div className="form__title">
