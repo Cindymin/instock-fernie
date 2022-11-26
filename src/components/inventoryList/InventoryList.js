@@ -14,6 +14,7 @@ const InventoryList = (props) => {
   const [warehouse, setWarehouse] = useState([]);
   const [inventoryToDelete, setInventoryToDelete] = useState("");
   const [inventoryIdToDelete, setInventoryIdToDelete] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const getWarehouseDetail = () => {
@@ -73,7 +74,9 @@ const InventoryList = (props) => {
               type="text"
               placeholder="Search..."
               className="invList-top-search__bar"
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
+
             <img
               src={searchIcon}
               alt="searchIcon"
@@ -90,11 +93,11 @@ const InventoryList = (props) => {
         <div className="invList__item">
           <div className="invList__item-bar">
             <div className="invList__item-bar-wrap">
-              <span class="invList__item-bar-text title-inv">
+              <span className="invList__item-bar-text title-inv">
                 INVENTORY ITEM
               </span>
               <img
-                class="invList__item-bar-icon invList__item-bar-icon__inventory"
+                className="invList__item-bar-icon invList__item-bar-icon__inventory"
                 src={sortIcon}
                 alt="sort-icon"
               />
@@ -102,7 +105,7 @@ const InventoryList = (props) => {
             <div className="invList__item-bar-wrap">
               <span className="invList__item-bar-text title-cat">CATEGORY</span>
               <img
-                class="invList__item-bar-icon invList__item-bar-icon__category"
+                className="invList__item-bar-icon invList__item-bar-icon__category"
                 src={sortIcon}
                 alt="sort-icon"
               />
@@ -110,7 +113,7 @@ const InventoryList = (props) => {
             <div className="invList__item-bar-wrap status">
               <span className="invList__item-bar-text title-sta">STATUS</span>
               <img
-                class="invList__item-bar-icon invList__item-bar-icon__status"
+                className="invList__item-bar-icon invList__item-bar-icon__status"
                 src={sortIcon}
                 alt="sort"
               />
@@ -118,7 +121,7 @@ const InventoryList = (props) => {
             <div className="invList__item-bar-wrap  quantity">
               <span className="invList__item-bar-text title-qty">QTY</span>
               <img
-                class="invList__item-bar-icon invList__item-bar-icon__qty"
+                className="invList__item-bar-icon invList__item-bar-icon__qty"
                 src={sortIcon}
                 alt="sort"
               />
@@ -128,7 +131,7 @@ const InventoryList = (props) => {
                 WAREHOUSE
               </span>
               <img
-                class="invList__item-bar-icon invList__item-bar-icon__warehouse"
+                className="invList__item-bar-icon invList__item-bar-icon__warehouse"
                 src={sortIcon}
                 alt="sort"
               />
@@ -206,7 +209,9 @@ const InventoryList = (props) => {
               <div className="invList__item-info">
                 <div className="invList__item-info-wrap" key={item.id}>
                   <div className="invList__item-info-contanier">
-                    <span class="invList__item-info-tag">INVENTORY ITEM</span>
+                    <span className="invList__item-info-tag">
+                      INVENTORY ITEM
+                    </span>
                     <div className="invList__item-info-nameWrap">
                       <Link to={`/inventory/${item.id}`}>
                         <span className="invList__item-info-name">
@@ -222,7 +227,7 @@ const InventoryList = (props) => {
                   </div>
 
                   <div className="invList__item-info-contanier">
-                    <span class="invList__item-info-tag">STATUS</span>
+                    <span className="invList__item-info-tag">STATUS</span>
                     {item.status === "In Stock" && (
                       <div className="invList__item-info-status">
                         <span className="invList__item-info-status--inStock">
@@ -242,7 +247,7 @@ const InventoryList = (props) => {
 
                 <div className="invList__item-info-wrap">
                   <div className="invList__item-info-contanier">
-                    <span class="invList__item-info-tag">CATEGORY</span>
+                    <span className="invList__item-info-tag">CATEGORY</span>
 
                     <span className="invList__item-info-category">
                       {item.category}
@@ -250,7 +255,7 @@ const InventoryList = (props) => {
                   </div>
 
                   <div className="invList__item-info-contanier">
-                    <span class="invList__item-info-tag">QTY</span>
+                    <span className="invList__item-info-tag">QTY</span>
                     <span className="invList__item-info-num">
                       {item.quantity}
                     </span>
@@ -260,7 +265,7 @@ const InventoryList = (props) => {
                 <div className="invList__item-info-wrap">
                   <div className="invList__item-info-contanier"></div>
                   <div className="invList__item-info-contanier">
-                    <span class="invList__item-info-tag">WAREHOUSE</span>
+                    <span className="invList__item-info-tag">WAREHOUSE</span>
                     <span className="invList__item-info-num">
                       {found(item.warehouse_id)}
                     </span>
