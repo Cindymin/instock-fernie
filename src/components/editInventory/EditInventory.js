@@ -104,7 +104,7 @@ export default function EditInventory() {
     };
     getWarehouseData();
   };
-
+  console.log(convertedWhId);
   return (
     <>
       <form
@@ -269,7 +269,7 @@ export default function EditInventory() {
                           className="editInventoryForm__select"
                           defaultValue={warehouseName}
                           onChange={(e) => {
-                            setStatus(e.target.value);
+                            convertNameToId(e.target.value);
                           }}
                         >
                           <option value="Manhattan">Manhattan</option>
