@@ -8,11 +8,10 @@
   width: 23.5rem;
   height: 41.6rem;
   display: none;
-  position: absolute; 
+  position: absolute;
   top: 34%;
   left: 12%;
   background-color: white;
-
 
   &__icon {
     display: flex;
@@ -65,11 +64,11 @@
   .delete {
     width: 42rem;
     height: 16.375rem;
-     display: none;
-  position: absolute; 
-  top: 34%;
-  left: 12%;
-  background-color: white;
+    display: none;
+    position: absolute;
+    top: 34%;
+    left: 12%;
+    background-color: white;
 
     &__title {
       padding: 0 3rem;

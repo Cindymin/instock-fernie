@@ -54,8 +54,11 @@ const InventoryList = (props) => {
             className="invList-top-search__img"
           />
         </div>
+
         <div className="invList-top-form invList-top-btn">
-          <button className="invList-top-btn--blue">+ Add New Item</button>
+          <Link to="/inventory/add">
+            <button className="invList-top-btn--blue">+ Add New Item</button>
+          </Link>
         </div>
       </section>
 
@@ -82,7 +85,7 @@ const InventoryList = (props) => {
           <div className="invList__item-bar-wrap status">
             <span className="invList__item-bar-text title-sta">STATUS</span>
             <img
-              class="invList__item-bar-icon invList__item-bar-icon__status"
+              className="invList__item-bar-icon invList__item-bar-icon__status"
               src={sortIcon}
               alt="sort"
             />
@@ -153,14 +156,12 @@ const InventoryList = (props) => {
                 {found(item.warehouse_id)}
               </span>
               <div className="invList__item-info-actions">
-                <Link to="/delete-inventory">
-                  <img
-                    className="invList__item-info-actions-imge"
-                    src={deleteIcon}
-                    alt="delete"
-                  />
-                </Link>
-                <Link to={`/inventory/${item.id}`}>
+                <img
+                  className="invList__item-info-actions-imge"
+                  src={deleteIcon}
+                  alt="delete"
+                />
+                <Link to={`/inventory/${item.id}/edit`}>
                   <img
                     className="invList__item-info-actions-imge"
                     src={editIcon}
@@ -238,14 +239,12 @@ const InventoryList = (props) => {
                   </div>
                 </div>
                 <div className="invList__item-info-actions">
-                  <Link to="/delete-inventory">
-                    <img
-                      className="invList__item-info-actions-imge"
-                      src={deleteIcon}
-                      alt="delete"
-                    />
-                  </Link>
-                  <Link to={`/inventory/${item.id}`}>
+                  <img
+                    className="invList__item-info-actions-imge"
+                    src={deleteIcon}
+                    alt="delete"
+                  />
+                  <Link to={`/inventory/${item.id}/edit`}>
                     <img
                       className="invList__item-info-actions-imge"
                       src={editIcon}

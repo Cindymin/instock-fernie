@@ -1,11 +1,6 @@
 import InventoryList from "../../inventoryList/InventoryList";
-import Header from "../../header/Header";
-import Footer from "../../footer/Footer";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import DeleteInventory from "../../delteInventory/DeleteInventory";
-import InventoryDetails from "../../inventoryDetails/InventoryDetails";
-import EditInventory from "../../editInventory/EditInventory";
 
 export default function Inventory() {
   const [inventory, setInventory] = useState([]);
