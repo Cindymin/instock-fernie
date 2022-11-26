@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import "./AddInventory.scss"
 
 const AddInventory = () => {
@@ -27,6 +26,7 @@ const AddInventory = () => {
     "Seattle",
     "Miami",
   ];
+
   function statusHandler(e) {
     if (e.target.value === "In Stock") {
       setStatus(true);
@@ -35,6 +35,7 @@ const AddInventory = () => {
       setStatus(false);
     }
   }
+
   function getWarehouseId(name) {
     axios.get("http://localhost:8080/warehouses").then((res) => {
       const selectedWarehouse = res.data.find((w) => w.name === name);
@@ -42,7 +43,6 @@ const AddInventory = () => {
     });
   }
   const newInventoryItemData = {
-    id: uuidv4(),
     warehouse_id: warehouse_id,
     warehouseName: itemWarehouse,
     item_name: item_name,
@@ -65,6 +65,7 @@ const AddInventory = () => {
     setStatus(true);
     setQuantity(0);
     setItemWarehouse("");
+
   }
   return (
     <form className="addInventoryForm" onSubmit={postNewInventoryItem}>
@@ -85,7 +86,7 @@ const AddInventory = () => {
                 type="text"
                 value={item_name}
                 onChange={(e) => setItemName(e.target.value)}
-                required
+                // required
               />
             </div>
 
@@ -135,8 +136,8 @@ const AddInventory = () => {
                     className="addInventoryForm__input-radio"
                     type="radio"
                     name="radio"
-                    defaultChecked
-                    required
+                    // defaultChecked
+                    // required
                     value="In Stock"
                     id="inStock"
                     checked={status}
@@ -154,7 +155,7 @@ const AddInventory = () => {
                     required
                     value="Out Of Stock"
                     id="outOfStock"
-                    checked={!status}
+                    // checked={!status}
                     onChange={(e) => statusHandler(e)}
                   />
                   <label className="addInventoryForm__label-radio">
