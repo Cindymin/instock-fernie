@@ -73,6 +73,7 @@ export default function EditInventory() {
     };
 
     const updateData = () => {
+      console.log(status);
       axios
         .put(`http://localhost:8080/inventories/${id}`, editData)
         .catch((error) => {
@@ -218,9 +219,6 @@ export default function EditInventory() {
                               type="radio"
                               name="radio"
                               value="In Stock"
-                              onChange={(e) => {
-                                setStatus(e.target.value);
-                              }}
                             />
                             <label className="editInventoryForm__label-radio">
                               In stock
@@ -292,9 +290,6 @@ export default function EditInventory() {
                         <select
                           className="editInventoryForm__select"
                           defaultValue={warehouseName}
-                          onChange={(e) => {
-                            convertNameToId(e.target.value);
-                          }}
                         >
                           <option value="Manhattan">Manhattan</option>
                           <option value="Washington">Washington</option>
