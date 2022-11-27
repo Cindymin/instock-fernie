@@ -8,12 +8,12 @@
   @include bk.small {
     position: absolute;
     top: 9rem;
-    left: 15vw;
+    left: 8vw;
   }
   @include bk.medium {
     position: absolute;
     top: 9rem;
-    left: 15vw;
+    left: 10vw;
   }
   @include bk.large {
     position: absolute;
@@ -55,7 +55,7 @@
       line-height: 36px;
       color: #13182c;
       @include bk.small {
-        width: 75%;
+        width: 80%;
       }
       @include bk.medium {
         width: 85%;
@@ -168,7 +168,13 @@
       &-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 1.25rem;
+        gap: 1.5rem;
+        @include bk.medium {
+          gap: 2.5rem;
+        }
+        @include bk.large {
+          gap: 3rem;
+        }
       }
 
       &__category {
@@ -192,13 +198,15 @@
 
       &__status {
         @include bk.small {
-          width: 80%;
+          width: 70%;
         }
         @include bk.medium {
           margin-right: 3rem;
+          width: 80%;
         }
         @include bk.large {
           margin-right: 3rem;
+          width: 80%;
         }
         &Text {
           font-weight: 400;

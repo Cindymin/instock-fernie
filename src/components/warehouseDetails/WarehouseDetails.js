@@ -3,6 +3,7 @@ import sort from "../../assets/icons/sort-24px.svg";
 import arrowRight from "../../assets/icons/chevron_right-24px.svg";
 import trash from "../../assets/icons/delete_outline-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
+import close from "../../assets/icons/close-24px.svg";
 import "./Warehousedetail.scss";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -21,6 +22,7 @@ const { id } = useParams();
 const [warehouseInventory, setWarehouseInventory] = useState([]);
 const [warehouse, setWarehouse] = useState([]);
 const [inventoryToDelete, setInventoryToDelete] = useState("");
+ const [inventoryIdToDelete, setInventoryIdToDelete] = useState("");
   
   useEffect(() => {
     const fetchData = async () => {
@@ -39,14 +41,26 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
   }, [id]);
 
   // let the delete component pop up
-  function showDeleteConfirm(name) {
+  function showDeleteConfirm(name, id) {
     document.getElementById("delete").style.display = "block";
+    document.getElementById("background").style.display = "block";
     setInventoryToDelete(name);
-
-     document.getElementById("App").style.backgroundColor =
-       "rgba(19,24,44,0.3)";
+    setInventoryIdToDelete(id);
   }
 
+  // click cancel icon
+  function hideDeleteComponent() {
+    document.getElementById("delete").style.display = "none";
+    document.getElementById("background").style.display = "none";
+  }
+
+  // click delete icon
+  function ConfirmDelete() {
+    axios
+      .delete(`http://localhost:8080/inventories/${inventoryIdToDelete}`)
+      .then((response) => console.log(response.data));
+    window.location = `http://localhost:8080/warehouses/${id}`;
+  }
 
  
   return (
@@ -138,7 +152,8 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
             </div>
 
             <div className="warehouseDetail__item-bar-wrap  quantity">
-              <span className="warehouseDetail__item-bar-text">QUANTITY</span>
+              <span className="warehouseDetail__item-bar-textTable">QUANTITY</span>
+              <span className="warehouseDetail__item-bar-textDesk">QTY</span>
               <img class="warehouseDetail__item-bar-icon" src={sort} alt="" />
             </div>
 
@@ -193,7 +208,9 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
                     className="warehouseDetail__item-info-actions-imge"
                     src={trash}
                     alt="delete"
-                    onClick={() => showDeleteConfirm(inventory.item_name)}
+                    onClick={() =>
+                      showDeleteConfirm(inventory.item_name, inventory.id)
+                    }
                   />
                   {/* </Link> */}
                   <Link to={"/warehouse/" + id + "/edit"}>
@@ -264,12 +281,14 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
 
                 <div className="warehouseDetail__item-info-actions">
                   {/* <Link to={"/warehouse/" + id + "/delete"}> */}
-                    <img
-                      className="warehouseDetail__item-info-actions-imge"
-                      src={trash}
-                      alt="delete"
-                      onClick={() => showDeleteConfirm(inventory.item_name)}
-                    />
+                  <img
+                    className="warehouseDetail__item-info-actions-imge"
+                    src={trash}
+                    alt="delete"
+                    onClick={() =>
+                      showDeleteConfirm(inventory.item_name, inventory.id)
+                    }
+                  />
                   {/* </Link> */}
                   <Link to={"/warehouse/" + id + "/edit"}>
                     <img
@@ -285,25 +304,40 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
         </div>
       </form>
 
-      <section className="delete" id= "delete">
-        <div className="delete__icon-wrapper">
-          <img className="delete__icon" src={trash} alt="delete-icon" />
-        </div>
-        <div className="delete__title-wrapper">
-          <h1 className="delete__title">Delete {inventoryToDelete} item?</h1>
-        </div>
-        <div className="delete__text-wrapper">
-          <p className="delete__text">
-            Please confirm that you’d like to delete {inventoryToDelete} from
-            the inventory list. You won’t be able to undo this action.
-          </p>
-        </div>
-        <div className="delete__btn-wrapper">
-          <button className="delete__btn delete__btn delete__btn--cancel">
-            Cancel
-          </button>
-          <button className="delete__btn delete__btn--delete">Delete</button>
-        </div>
+      <section id="background" className="background">
+        <section className="delete" id="delete">
+          <div className="delete__icon-wrapper">
+            <img
+              className="delete__icon"
+              src={close}
+              alt="close-icon"
+              onClick={() => hideDeleteComponent()}
+            />
+          </div>
+          <div className="delete__title-wrapper">
+            <h1 className="delete__title">Delete {inventoryToDelete} item?</h1>
+          </div>
+          <div className="delete__text-wrapper">
+            <p className="delete__text">
+              Please confirm that you’d like to delete {inventoryToDelete} from
+              the inventory list. You won’t be able to undo this action.
+            </p>
+          </div>
+          <div className="delete__btn-wrapper">
+            <button
+              className="delete__btn delete__btn delete__btn--cancel"
+              onClick={() => hideDeleteComponent()}
+            >
+              Cancel
+            </button>
+            <button
+              className="delete__btn delete__btn--delete"
+              onClick={() => ConfirmDelete()}
+            >
+              Delete
+            </button>
+          </div>
+        </section>
       </section>
     </>
   );
