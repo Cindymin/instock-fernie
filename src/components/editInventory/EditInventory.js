@@ -245,7 +245,7 @@ export default function EditInventory() {
                               name="radio"
                               defaultChecked
                               value="Out of Stock"
-                              
+                               
                             />
                             <label className="editInventoryForm__label-radio">
                               Out of stock
