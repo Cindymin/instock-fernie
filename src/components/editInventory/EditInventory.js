@@ -17,7 +17,6 @@ export default function EditInventory() {
   const [status, setStatus] = useState("");
   const [qty, setQty] = useState("");
   const [convertedWhId, setConvertedWhId] = useState("");
-
   const getInventoryItem = () => {
     axios
       .get(`http://localhost:8080/inventories/${id}`)
@@ -33,21 +32,19 @@ export default function EditInventory() {
           setQty(invtItem.quantity);
         });
       })
-
       .catch((error) => {
         console.log(error);
       });
   };
+
   useEffect(() => {
     getInventoryItem();
   }, []);
-  
 
-  
+ 
 
   const submitHandler = (e) => {
     e.preventDefault();
-
     const editData = {
       id: id,
       warehouse_id: convertedWhId,
@@ -113,10 +110,6 @@ export default function EditInventory() {
  
     getwarehouseName();
   
-  
-  console.log(warehouseName);
-  
-
 
   return (
     <>
@@ -151,7 +144,10 @@ export default function EditInventory() {
                       name="text"
                       defaultValue={invItem?.item_name}
                       onChange={(e) => {
-                        setItem(e.target.value);
+                        !e.target.value
+                          ? setItem(invItem?.item_name)
+                          : setItem(e.target.value);
+                      
                       }}
                     />
                   </div>
@@ -164,7 +160,10 @@ export default function EditInventory() {
                       type="textarea"
                       defaultValue={invItem?.description}
                       onChange={(e) => {
-                        setDescription(e.target.value);
+                        !e.target.value
+                          ? setDescription(invItem?.description)
+                          : setDescription(e.target.value);
+                  
                       }}
                     />
                   </div>
@@ -174,7 +173,10 @@ export default function EditInventory() {
                       className="editInventoryForm__select"
                       defaultValue={invItem?.category}
                       onChange={(e) => {
-                        setCategory(e.target.value);
+                        !e.target.value
+                          ? setCategory(e.target.value)
+                          : setCategory(invItem?.category);
+                  
                       }}
                     >
                       <option value="Electronics">Electronics</option>
@@ -201,7 +203,11 @@ export default function EditInventory() {
                               name="radio"
                               value="In Stock"
                               defaultChecked
-                              
+                              onChange={(e) => {
+                                setStatus(e.target.value);
+                        
+                              }}
+
                             />
                             <label className="editInventoryForm__label-radio">
                               In stock
@@ -215,6 +221,7 @@ export default function EditInventory() {
                               value="Out of Stock"
                               onChange={(e) => {
                                 setStatus(e.target.value);
+                      
                               }}
                             />
                             <label className="editInventoryForm__label-radio">
@@ -234,6 +241,7 @@ export default function EditInventory() {
                               value="In Stock"
                               onChange={(e) => {
                                 setStatus(e.target.value);
+                          
                               }}
                             />
                             <label className="editInventoryForm__label-radio">
@@ -247,7 +255,12 @@ export default function EditInventory() {
                               name="radio"
                               defaultChecked
                               value="Out of Stock"
-                               
+
+                              onChange={(e) => {
+                                setStatus(e.target.value);
+                        
+                              }}
+
                             />
                             <label className="editInventoryForm__label-radio">
                               Out of stock
@@ -268,7 +281,13 @@ export default function EditInventory() {
                           className="editInventoryForm__input"
                           defaultValue={invItem?.quantity}
                           onChange={(e) => {
+
+                            e.target.value == null || undefined || " "
+                              ? setQty(invItem?.quantity)
+                              : setQty(e.target.value);
+                          
                             setQty(e.target.value);
+
                           }}
                         />
                       </div>
@@ -281,7 +300,9 @@ export default function EditInventory() {
                         <select
                           className="editInventoryForm__select"
                           onChange={(e) => {
-                            convertNameToId(e.target.value);
+                            !e.target.value
+                              ? convertNameToId(warehouseName)
+                              : convertNameToId(e.target.value);
                           }}
                         >
                           <option value={warehouseName} selected> {warehouseName}</option>
@@ -307,7 +328,9 @@ export default function EditInventory() {
                           className="editInventoryForm__select"
 
                           onChange={(e) => {
-                            convertNameToId(e.target.value);
+                            !e.target.value
+                              ? convertNameToId(warehouseName)
+                              : convertNameToId(e.target.value);
                           }}
                         >
                           <option value={warehouseName} selected> {warehouseName}</option>
