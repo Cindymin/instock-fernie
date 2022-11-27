@@ -6,16 +6,23 @@
 .invList {
   display: flex;
   flex-direction: column;
-  width: 21.4375rem;
+  position: absolute;
+  top: 9rem;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
   background-color: #ffffff;
+  // width: 80%;
+  // height: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
 
   @include bk.medium {
-    width: 44rem;
+    width: 80%;
+    height: 100%;
   }
   @include bk.large {
-    width: 63.75rem;
+    width: 90%;
+    height: 100%;
   }
 
   &-top {
@@ -53,7 +60,11 @@
       }
     }
     &-title {
-      margin-left: 0;
+      padding-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      @include bk.large {
+        padding-left: 0;
+      }
       &-img {
         background-image: url("../../assets//icons/sort-24px.svg");
         width: 100%;
@@ -89,11 +100,11 @@
         position: absolute;
         left: 17.5rem;
         @include bk.medium {
-          left: 34rem;
+          left: 72.5%;
         }
 
         @include bk.large {
-          left: 58rem;
+          left: 81%;
         }
       }
     }
@@ -132,14 +143,6 @@
 
 @include bk.small {
   .invList {
-    margin: 0 1rem;
-    background: #ffffff;
-    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-    border-radius: 3px;
-    position: absolute;
-    top: 9rem;
-    left: 2.5rem;
-
     &__nameContainer {
       display: flex;
       justify-content: space-between;
@@ -226,7 +229,12 @@
       border-bottom: 1px solid #bdc5d5;
       &-info {
         border-bottom: 1px solid #bdc5d5;
-        padding: 2rem 1rem 0 1rem;
+        padding: 1.5rem 1.5rem 0 1.5rem;
+        &-wrap {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 0.5rem;
+        }
       }
 
       &-bar {
@@ -234,12 +242,6 @@
         height: 0;
         width: 0;
       }
-    }
-
-    &__item-info-wrap {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 1rem;
     }
 
     &__item-info-contanier {
@@ -328,7 +330,8 @@
     &__item-info-actions {
       display: flex;
       justify-content: space-between;
-      padding-bottom: 2rem;
+      padding-bottom: 1rem;
+      align-items: baseline;
     }
   }
   .invList__item-info-Tablet {
@@ -342,12 +345,6 @@
 
 @include bk.medium {
   .invList {
-    margin: 0 2rem;
-
-    background: #ffffff;
-    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-    border-radius: 3px;
-
     &__nameContainer {
       display: flex;
       justify-content: space-between;
@@ -513,6 +510,7 @@
       justify-content: space-between;
       padding-bottom: 0.5rem;
       width: 9%;
+      align-items: baseline;
     }
   }
 
@@ -532,11 +530,6 @@
 
 @include bk.large {
   .invList {
-    margin: 0 8.125rem;
-
-    background: #ffffff;
-    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-    border-radius: 3px;
     &-top {
       padding: 1.5rem 3rem;
     }
@@ -771,6 +764,8 @@
       justify-content: space-between;
       padding-bottom: 0.5rem;
       width: 11%;
+
+      align-items: baseline;
     }
   }
 
