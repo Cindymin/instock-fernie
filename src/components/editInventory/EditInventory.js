@@ -104,7 +104,7 @@ export default function EditInventory() {
     };
     getWarehouseData();
   };
-  console.log(convertedWhId);
+
   return (
     <>
       <form
@@ -217,7 +217,7 @@ export default function EditInventory() {
                               className="editInventoryForm__input-radio"
                               type="radio"
                               name="radio"
-                              value="Out of Stock"
+                              value="In Stock"
                               onChange={(e) => {
                                 setStatus(e.target.value);
                               }}
@@ -232,7 +232,7 @@ export default function EditInventory() {
                               type="radio"
                               name="radio"
                               defaultChecked
-                              value="In Stock"
+                              value="Out of Stock"
                               onChange={(e) => {
                                 setStatus(e.target.value);
                               }}
