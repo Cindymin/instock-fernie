@@ -117,6 +117,7 @@ export default function EditInventory() {
   console.log(warehouseName);
   
 
+
   return (
     <>
    
@@ -133,6 +134,7 @@ export default function EditInventory() {
               <p className="editInventoryForm__title-text">
                 Edit Inventory Item
               </p>
+
             </div>
 
             <div className="editInventoryForm__content">
