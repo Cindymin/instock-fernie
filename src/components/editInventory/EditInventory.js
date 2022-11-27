@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 export default function EditInventory() {
   const navigate = useNavigate();
   const { id } = useParams();
+  const [whId, setWhID] = useState("");
   const [inventoryItem, setInventoryItem] = useState([]);
-  const [whId, setWhID] = useState([]);
   const [warehouseName, setWarehouseName] = useState("");
+  // const [whId, setWhID] = useState([]);
   const [item, setItem] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -25,11 +26,11 @@ export default function EditInventory() {
         invtItemArray?.map((invtItem) => {
           setWhID(invtItem.warehouse_id);
           setInventoryItem(res.data);
-          setItem(res.data.inventoriesData[0].item_name);
-          setCategory(res.data.inventoriesData[0].category);
-          setDescription(res.data.inventoriesData[0].description);
-          setStatus(res.data.inventoriesData[0].status);
-          setQty(res.data.inventoriesData[0].quantity);
+          setItem(invtItem.item_name);
+          setCategory(invtItem.category);
+          setDescription(invtItem.description);
+          setStatus(invtItem.status);
+          setQty(invtItem.quantity);
         });
       })
 
@@ -40,24 +41,9 @@ export default function EditInventory() {
   useEffect(() => {
     getInventoryItem();
   }, []);
-  const invItemArray = inventoryItem["inventoriesData"];
+  
 
-  const getwarehouseName = () => {
-    axios
-      .get(`http://localhost:8080/warehouses/${whId}`)
-      .then((res) => {
-        const warehouseItemArray = res.data["warehouseData"];
-        warehouseItemArray?.map((warehouseItem) => {
-          setWarehouseName(warehouseItem.warehouse_name);
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    return warehouseName;
-  };
-
-  getwarehouseName();
+  
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -87,15 +73,17 @@ export default function EditInventory() {
     const name = e;
     const getWarehouseData = () => {
       axios
-        .get(`http://localhost:8080/warehouses/`)
+        .get(`http://localhost:8080/warehouses`)
         .then((res) => {
           const result = res.data
             .filter((info) => info.warehouse_name === name)
             .map((x) => x.id);
           return result;
+        
         })
         .then((result) => {
           setConvertedWhId(result);
+          
         })
         .catch((error) => {
           console.log(error);
@@ -105,8 +93,33 @@ export default function EditInventory() {
     getWarehouseData();
   };
 
+  const invItemArray = inventoryItem["inventoriesData"];
+  
+  const getwarehouseName = () => {
+    axios
+      .get(`http://localhost:8080/warehouses/${whId}`)
+      .then((res) => {
+        const warehouseItemArray = res.data["warehouseData"];
+        warehouseItemArray?.map((warehouseItem) => {
+          setWarehouseName(warehouseItem.warehouse_name);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    return warehouseName;
+  };
+  
+ 
+    getwarehouseName();
+  
+  
+  console.log(warehouseName);
+  
+
   return (
     <>
+   
       <form
         className="editInventoryForm"
         onSubmit={(e) => {
@@ -115,6 +128,7 @@ export default function EditInventory() {
       >
         {invItemArray?.map((invItem) => (
           <div key={invItem.id}>
+            
             <div className="editInventoryForm__title">
               <p className="editInventoryForm__title-text">
                 Edit Inventory Item
@@ -175,7 +189,7 @@ export default function EditInventory() {
                 <div className="editInventoryForm__container">
                   <div className="editInventoryForm__detail">
                     <label className="editInventoryForm__label">Status</label>
-                    {invItem.status === "In Stock" ? (
+                     {invItem.status === "In Stock" ? (
                       <>
                         <div className="editInventoryForm__input-radioContainer">
                           <div className="editInventoryForm__input-radioStock">
@@ -185,9 +199,7 @@ export default function EditInventory() {
                               name="radio"
                               value="In Stock"
                               defaultChecked
-                              onChange={(e) => {
-                                setStatus(e.target.value);
-                              }}
+                              
                             />
                             <label className="editInventoryForm__label-radio">
                               In stock
@@ -233,9 +245,7 @@ export default function EditInventory() {
                               name="radio"
                               defaultChecked
                               value="Out of Stock"
-                              onChange={(e) => {
-                                setStatus(e.target.value);
-                              }}
+                               
                             />
                             <label className="editInventoryForm__label-radio">
                               Out of stock
@@ -243,7 +253,7 @@ export default function EditInventory() {
                           </div>
                         </div>
                       </>
-                    )}
+                    )} 
                   </div>
 
                   {invItem.status === "In Stock" ? (
@@ -256,7 +266,7 @@ export default function EditInventory() {
                           className="editInventoryForm__input"
                           defaultValue={invItem?.quantity}
                           onChange={(e) => {
-                            setStatus(e.target.value);
+                            setQty(e.target.value);
                           }}
                         />
                       </div>
@@ -265,13 +275,14 @@ export default function EditInventory() {
                         <label className="editInventoryForm__label">
                           Warehouse
                         </label>
+                        
                         <select
                           className="editInventoryForm__select"
-                          defaultValue={warehouseName}
                           onChange={(e) => {
                             convertNameToId(e.target.value);
                           }}
                         >
+                          <option value={warehouseName} selected> {warehouseName}</option>
                           <option value="Manhattan">Manhattan</option>
                           <option value="Washington">Washington</option>
                           <option value="Jersey">Jersey</option>
@@ -289,13 +300,15 @@ export default function EditInventory() {
                         <label className="editInventoryForm__label">
                           Warehouse
                         </label>
-                        <select
+                        
+                          <select
                           className="editInventoryForm__select"
-                          defaultValue={warehouseName}
+
                           onChange={(e) => {
                             convertNameToId(e.target.value);
                           }}
                         >
+                          <option value={warehouseName} selected> {warehouseName}</option>
                           <option value="Manhattan">Manhattan</option>
                           <option value="Washington">Washington</option>
                           <option value="Jersey">Jersey</option>
