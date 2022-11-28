@@ -6,13 +6,16 @@ import { Link,useNavigate } from "react-router-dom";
 
 const AddInventory = () => {
   const [item_name, setItemName] = useState("");
-  const [isItem_name, setIsItem_name] = useState(false); 
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState(true);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(0); 
+  const [isItem_name, setIsItem_name] = useState(false); 
+  const [isDescription, setIsDescription]=useState(false);
+  const [isCategory, setIsCategory]=useState(false);
   const [itemWarehouse, setItemWarehouse] = useState("");
   const [isItemWarehouse, setisItemWarehouse] = useState(false);
+
   const [warehouse_id, setWarehouseID] = useState("");
   const categories = [
     "Electronics",
@@ -59,8 +62,14 @@ const navigate=useNavigate();
     if (!itemWarehouse) {
       setisItemWarehouse(true);
     }
+    if (!description){
+      setIsDescription(true);
+    }
+    if (!category){
+      setIsCategory(true);
+    }
 
-    if (item_name && itemWarehouse) {
+    if (item_name && itemWarehouse && description &&category) {
 
       const newInventoryItemData = {
         warehouse_id: warehouse_id,
@@ -89,9 +98,11 @@ const navigate=useNavigate();
   }
   return (
     <form className="addInventoryForm" onSubmit={postNewInventoryItem}>
-       <Link to="/inventory"><div className="addInventoryForm__title">
-        <p className="addInventoryForm__title-text">Add New Inventory Item</p>
-      </div></Link>
+      <Link to="/inventory">
+        <div className="addInventoryForm__title">
+          <p className="addInventoryForm__title-text">Add New Inventory Item</p>
+        </div>
+      </Link>
 
       <div className="addInventoryForm__content">
         <div className="addInventoryForm__itemdetails">
@@ -115,7 +126,6 @@ const navigate=useNavigate();
 
                   setItemName(value);
                 }}
-        
                 onBlur={(e) => {
                   const value = e.target.value;
                   if (value) {
@@ -124,7 +134,6 @@ const navigate=useNavigate();
                     setIsItem_name(true);
                   }
                 }}
-                // required
               />
               {isItem_name && <div>This fieId is required</div>}
             </div>
@@ -133,15 +142,31 @@ const navigate=useNavigate();
               <label className="addInventoryForm__label">
                 Item Description
               </label>
-
               <textarea
                 className="addInventoryForm__input editInventoryForm__input-description"
                 type="textarea"
                 placeholder="Please enter a brief item description..."
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsDescription(false);
+                  } else {
+                    setIsDescription(true);
+                  }
+
+                  setDescription(value);
+                }}
+                onBlur={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsDescription(false);
+                  } else {
+                    setIsDescription(true);
+                  }
+                }}
               />
+              {isDescription && <div>This fieId is required</div>}
             </div>
 
             <div className="addInventoryForm__detail">
@@ -151,7 +176,24 @@ const navigate=useNavigate();
                 className="addInventoryForm__select"
                 value={category}
                 placeholder="Please Select"
-                onChange={(e) => setCategory(e.target.value)}>
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsCategory(false);
+                  } else {
+                    setIsCategory(true);
+                  }
+
+                  setCategory(value);
+                }}
+                onBlur={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsCategory(false);
+                  } else {
+                    setIsCategory(true);
+                  }
+                }}>
                 <option className="default" value={`Please Select`}>
                   Please Select
                 </option>
@@ -161,6 +203,7 @@ const navigate=useNavigate();
                   </option>
                 ))}
               </select>
+              {isCategory && <div>This fieId is required</div>}
             </div>
           </div>
         </div>
@@ -227,7 +270,7 @@ const navigate=useNavigate();
                   console.log(e.target.value, "itemWarehouse");
 
                   const value = e.target.value;
-           
+
                   if (value) {
                     setisItemWarehouse(false);
                   } else {
