@@ -57,7 +57,7 @@ const InventoryList = (props) => {
     axios
       .delete(`http://localhost:8080/inventories/${inventoryIdToDelete}`)
       .then((response) => console.log(response.data));
-    window.location = "http://localhost:8080/inventory";
+    window.location = "/inventory";
   }
 
   return (
@@ -140,7 +140,7 @@ const InventoryList = (props) => {
           </div>
 
           {items &&
-            items.slice(0, 8).map((item) => (
+            items.map((item) => (
               <div
                 className="invList__item-info-Tablet
             "
@@ -205,7 +205,7 @@ const InventoryList = (props) => {
             ))}
 
           {items &&
-            items.slice(0, 8).map((item) => (
+            items.map((item) => (
               <div className="invList__item-info">
                 <div className="invList__item-info-wrap" key={item.id}>
                   <div className="invList__item-info-contanier">

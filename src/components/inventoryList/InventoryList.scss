@@ -11,8 +11,8 @@
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
   background-color: #ffffff;
-  // width: 80%;
-  // height: 100%;
+  width: 80%;
+  height: 100%;
   left: 50%;
   transform: translate(-50%, 0);
 
@@ -126,6 +126,7 @@
         width: 295px;
         height: 36px;
         border: 1px solid cl.$primaryMedium;
+
         @include bk.medium {
           width: 128px;
           height: 38px;
@@ -134,6 +135,9 @@
           width: 128px;
           height: 38px;
         }
+      }
+      &--blue:hover {
+        background-color: cl.$backgroundDark;
       }
     }
   }
