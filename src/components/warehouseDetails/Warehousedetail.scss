@@ -309,7 +309,7 @@ body {
           font-size: 14px;
           line-height: 22px;
           position: absolute;
-          top: 6px;
+          top: 8px;
         }
       }
     }
@@ -323,9 +323,8 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 150px;
+        width: 30%;
         text-align: left;
-        margin-right: 17%;
       }
 
       &-tag {
@@ -350,14 +349,14 @@ body {
 
       &-contanct {
         display: flex;
-        justify-content: space-between;
         padding-left: 7%;
         border-left: 1px solid #bdc5d5;
+            width: 65%;
 
         &-nameWrap {
           display: flex;
           flex-direction: column;
-          width: 140px;
+          width: 40%;
           align-items: flex-start;
         }
 
@@ -433,6 +432,7 @@ body {
     &__item-info-nameWrap {
       display: flex;
       width: 21%;
+      position: relative;
     }
 
     &__item-info-name {
@@ -447,6 +447,8 @@ body {
 
     &__item-info-image {
       width: 20px;
+      position: absolute;
+      top:12%
     }
 
     &__item-info-status-wrap {
@@ -532,7 +534,7 @@ body {
   .warehouseDetail__nameContainer-editImage {
     fill: white;
     position: absolute;
-    top: 5px;
+    top: 8px;
     left: 14px;
     width: 22px;
     height: 22px;
@@ -587,7 +589,7 @@ body {
           font-size: 14px;
           line-height: 22px;
           position: absolute;
-          top: 6px;
+          top: 8px;
         }
       }
     }
@@ -626,16 +628,16 @@ body {
         color: #13182c;
       }
 
-      &-contanct {
+       &-contanct {
         display: flex;
-        justify-content: space-between;
         padding-left: 7%;
         border-left: 1px solid #bdc5d5;
+            width: 65%;
 
         &-nameWrap {
           display: flex;
           flex-direction: column;
-          width: 140px;
+          width: 40%;
           align-items: flex-start;
         }
 
@@ -711,6 +713,7 @@ body {
     &__item-info-nameWrap {
       display: flex;
       width: 21%;
+      position: relative;
     }
 
     &__item-info-name {
@@ -725,6 +728,8 @@ body {
 
     &__item-info-image {
       width: 20px;
+       position: absolute;
+      top:12%
     }
 
     &__item-info-status-wrap {
@@ -810,7 +815,7 @@ body {
   .warehouseDetail__nameContainer-editImage {
     fill: white;
     position: absolute;
-    top: 5px;
+    top: 8px;
     left: 14px;
     width: 22px;
     height: 22px;
