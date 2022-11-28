@@ -68,7 +68,7 @@ export default function EditInventory() {
 
     const editData = {
       id: id,
-      warehouse_id: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+      warehouse_id: convertedWhId,
       item_name: item,
       description: description,
       category: category,
