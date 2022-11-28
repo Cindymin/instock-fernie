@@ -96,6 +96,13 @@
       background-color: colors.$primaryMedium;
       opacity: 1;
     }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+    }
+    &__btnsave:hover {
+    background-color: colors.$backgroundDark;
+    }
   }
 }
 
@@ -208,6 +215,13 @@
       background-color: colors.$primaryMedium;
       opacity: 1;
     }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+    }
+    &__btnsave:hover {
+    background-color: colors.$backgroundDark;
+    }
   }
 }
 @include breakpoints.large {
@@ -319,6 +333,13 @@
       color: colors.$primaryLight;
       background-color: colors.$primaryMedium;
       opacity: 1;
+    }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+    }
+    &__btnsave:hover {
+    background-color: colors.$backgroundDark;
     }
   }
 }

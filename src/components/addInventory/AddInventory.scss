@@ -131,7 +131,13 @@ select{
       background-color:$primaryMedium;
       opacity: 1;
     }
-
+    &__btncancel:hover {
+      border: 1px solid $primaryMedium;
+      color: $primaryMedium;
+    }
+    &__btnsave:hover {
+    background-color: $backgroundDark;
+    }
 
 
 
