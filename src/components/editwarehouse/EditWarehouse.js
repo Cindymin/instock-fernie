@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import backArrowIcon from "../../assets/icons/arrow_back-24px.svg";
 
 function EditWarehouse() {
   const navigate = useNavigate();
@@ -79,12 +80,23 @@ function EditWarehouse() {
       
         {whItemArray?.map((whItem) => (
           <div key={whItem.id}>
-    
+            <div className="form-top">
+            <Link to={`/warehouse`}>
+              <div className="form-top__backIcon">
+                <img
+                  src={backArrowIcon}
+                  alt="arrow-back-icon"
+                  className="form-top__backIconimg"
+                />
+              </div>
+            </Link>
+            
       <div className="form__title">
         <p className="form__title-text">Edit Warehouse</p>
       </div>
-
+          </div>
       <div className="form__content">
+      <hr className="form__hr"></hr>
         <div className="form__warehousedetails">
           <p className="form__subtitle">Warehouse Details</p>
           <div className="form__container">
