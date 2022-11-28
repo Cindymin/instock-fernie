@@ -3,15 +3,19 @@ import React, { useState } from "react";
 import "./AddInventory.scss";
 import { Link,useNavigate } from "react-router-dom";
 
+
 const AddInventory = () => {
   const [item_name, setItemName] = useState("");
-  const [isItem_name, setIsItem_name] = useState(false);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState(true);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(0); 
+  const [isItem_name, setIsItem_name] = useState(false); 
+  const [isDescription, setIsDescription]=useState(false);
+  const [isCategory, setIsCategory]=useState(false);
   const [itemWarehouse, setItemWarehouse] = useState("");
   const [isItemWarehouse, setisItemWarehouse] = useState(false);
+
   const [warehouse_id, setWarehouseID] = useState("");
   const categories = [
     "Electronics",
@@ -20,39 +24,16 @@ const AddInventory = () => {
     "Accessories",
     "Health",
   ];
-  const navigate=useNavigate()
-
   const warehouses = [
-    {
-      value: "150a36cf-f38e-4f59-8e31-39974207372d",
-      label: "Boston",
-    },
-    {
-      value: "2922c286-16cd-4d43-ab98-c79f698aeab0",
-      label: "Manhattan",
-    },
-    {
-      value: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-      label: "Washington",
-    },
-    {
-      value: "89898957-04ba-4bd0-9f5c-a7aea7447963",
-      label: "Santa Monica",
-    },
-    {
-      value: "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-      label: "Jersey",
-    },
-    {
-      value: "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
-      label: "Seattle",
-    },
-    {
-      value: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
-      label: "Miami",
-    },
+    "Manhattan",
+    "Washington",
+    "Jersey",
+    "San Fran",
+    "Santa Monica",
+    "Seattle",
+    "Miami",
   ];
-
+const navigate=useNavigate();
   function statusHandler(e) {
     if (e.target.value === "In Stock") {
       setStatus(true);
@@ -61,14 +42,19 @@ const AddInventory = () => {
       setStatus(false);
     }
   }
-
   function getWarehouseId(name) {
-    const selectedWarehouse = warehouses.find((w) => w.label === name);
-    setWarehouseID(selectedWarehouse.value || "");
+    axios.get("http://localhost:8080/warehouses").then((res) => {
+      const selectedWarehouse = res.data.find((w) => w.warehouse_name === name);
+      setWarehouseID(selectedWarehouse.id);
+    });
   }
+  
 
   function postNewInventoryItem(e) {
     e.preventDefault(); 
+
+
+
     if (!item_name) {
       setIsItem_name(true);
     }
@@ -76,7 +62,14 @@ const AddInventory = () => {
     if (!itemWarehouse) {
       setisItemWarehouse(true);
     }
-    if (item_name && itemWarehouse) {
+    if (!description){
+      setIsDescription(true);
+    }
+    if (!category){
+      setIsCategory(true);
+    }
+
+    if (item_name && itemWarehouse && description &&category) {
 
       const newInventoryItemData = {
         warehouse_id: warehouse_id,
@@ -88,27 +81,28 @@ const AddInventory = () => {
       };
       window.console.log(newInventoryItemData, "value");
 
-
       axios
-        .post(`http://localhost:8080/inventories`, newInventoryItemData)
+        .post("http://localhost:8080/inventories", newInventoryItemData)
         .then(navigate("/inventory"))
-          // setItemName("");
-          // setDescription("");
-          // setCategory("");
-          // setStatus(true);
-          // setQuantity(0);
-          // setItemWarehouse("");
-     
-          .catch((error)=>{
-            console.log("error",error)
-          });    
-        }
+        // setItemName("");
+        // setDescription("");
+        // setCategory("");
+        // setStatus(true);
+        // setQuantity(0);
+        // setItemWarehouse("");
+
+        .catch((error) => {
+          console.log("error", error);
+        });
+    }
   }
   return (
     <form className="addInventoryForm" onSubmit={postNewInventoryItem}>
-      <div className="addInventoryForm__title">
-        <p className="addInventoryForm__title-text">Add New Inventory Item</p>
-      </div>
+      <Link to="/inventory">
+        <div className="addInventoryForm__title">
+          <p className="addInventoryForm__title-text">Add New Inventory Item</p>
+        </div>
+      </Link>
 
       <div className="addInventoryForm__content">
         <div className="addInventoryForm__itemdetails">
@@ -132,7 +126,6 @@ const AddInventory = () => {
 
                   setItemName(value);
                 }}
-                //  失去焦点
                 onBlur={(e) => {
                   const value = e.target.value;
                   if (value) {
@@ -141,7 +134,6 @@ const AddInventory = () => {
                     setIsItem_name(true);
                   }
                 }}
-                // required
               />
               {isItem_name && <div>This fieId is required</div>}
             </div>
@@ -150,15 +142,31 @@ const AddInventory = () => {
               <label className="addInventoryForm__label">
                 Item Description
               </label>
-
               <textarea
                 className="addInventoryForm__input editInventoryForm__input-description"
                 type="textarea"
                 placeholder="Please enter a brief item description..."
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsDescription(false);
+                  } else {
+                    setIsDescription(true);
+                  }
+
+                  setDescription(value);
+                }}
+                onBlur={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsDescription(false);
+                  } else {
+                    setIsDescription(true);
+                  }
+                }}
               />
+              {isDescription && <div>This fieId is required</div>}
             </div>
 
             <div className="addInventoryForm__detail">
@@ -168,7 +176,24 @@ const AddInventory = () => {
                 className="addInventoryForm__select"
                 value={category}
                 placeholder="Please Select"
-                onChange={(e) => setCategory(e.target.value)}>
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsCategory(false);
+                  } else {
+                    setIsCategory(true);
+                  }
+
+                  setCategory(value);
+                }}
+                onBlur={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsCategory(false);
+                  } else {
+                    setIsCategory(true);
+                  }
+                }}>
                 <option className="default" value={`Please Select`}>
                   Please Select
                 </option>
@@ -178,6 +203,7 @@ const AddInventory = () => {
                   </option>
                 ))}
               </select>
+              {isCategory && <div>This fieId is required</div>}
             </div>
           </div>
         </div>
@@ -244,13 +270,13 @@ const AddInventory = () => {
                   console.log(e.target.value, "itemWarehouse");
 
                   const value = e.target.value;
-                  // 判断是否选择
+
                   if (value) {
                     setisItemWarehouse(false);
                   } else {
                     setisItemWarehouse(true);
                   }
-                  // 每次当下拉框的值发送改变 就是去拿 WarehouseId
+
                   getWarehouseId(value);
 
                   setItemWarehouse(value);
@@ -259,8 +285,8 @@ const AddInventory = () => {
                   Please Select
                 </option>
                 {warehouses.map((category, i) => (
-                  <option value={category.label} key={i}>
-                    {category.label}
+                  <option value={category} key={i}>
+                    {category}
                   </option>
                 ))}
               </select>

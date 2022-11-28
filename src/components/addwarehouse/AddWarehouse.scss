@@ -3,6 +3,7 @@
 @use "../../styles/partials/fonts";
 
 
+// form validation 
 
 .warehousename-Valid{
  position: relative;
@@ -21,6 +22,128 @@
   }
 }
 
+
+.address-Valid{
+ position: relative;
+  display: none;
+&__img{
+  position: relative;
+  top: 4px;
+  width: 16px;
+}
+  &__text{
+ color: red;
+ font-family:"TitilliumWeb";
+ font-size: .75rem;
+ font-weight: 400;
+ padding-left: 0.2rem;
+  }
+}
+
+.city-Valid{
+ position: relative;
+  display: none;
+&__img{
+  position: relative;
+  top: 4px;
+  width: 16px;
+}
+  &__text{
+ color: red;
+ font-family:"TitilliumWeb";
+ font-size: .75rem;
+ font-weight: 400;
+ padding-left: 0.2rem;
+  }
+}
+
+.country-Valid{
+ position: relative;
+  display: none;
+&__img{
+  position: relative;
+  top: 4px;
+  width: 16px;
+}
+  &__text{
+ color: red;
+ font-family:"TitilliumWeb";
+ font-size: .75rem;
+ font-weight: 400;
+ padding-left: 0.2rem;
+  }
+}
+
+.contactname-Valid{
+ position: relative;
+  display: none;
+&__img{
+  position: relative;
+  top: 4px;
+  width: 16px;
+}
+  &__text{
+ color: red;
+ font-family:"TitilliumWeb";
+ font-size: .75rem;
+ font-weight: 400;
+ padding-left: 0.2rem;
+  }
+}
+
+.position-Valid{
+ position: relative;
+  display: none;
+&__img{
+  position: relative;
+  top: 4px;
+  width: 16px;
+}
+  &__text{
+ color: red;
+ font-family:"TitilliumWeb";
+ font-size: .75rem;
+ font-weight: 400;
+ padding-left: 0.2rem;
+  }
+}
+
+
+.phonenumber-Valid{
+ position: relative;
+  display: none;
+&__img{
+  position: relative;
+  top: 4px;
+  width: 16px;
+}
+  &__text{
+ color: red;
+ font-family:"TitilliumWeb";
+ font-size: .75rem;
+ font-weight: 400;
+ padding-left: 0.2rem;
+  }
+}
+
+.email-Valid{
+ position: relative;
+  display: none;
+&__img{
+  position: relative;
+  top: 4px;
+  width: 16px;
+}
+  &__text{
+ color: red;
+ font-family:"TitilliumWeb";
+ font-size: .75rem;
+ font-weight: 400;
+ padding-left: 0.2rem;
+  }
+}
+
+// component style
 
 @include breakpoints.small {
   .addform {
