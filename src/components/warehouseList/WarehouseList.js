@@ -71,7 +71,9 @@ export default function WarehouseList({ WHList }) {
             <h3 className="warehouseList__subheading">CONTACT INFORMATION</h3>
             <img src={sortIcon} className="sortIcon" alt="sort-icon" />
           </div>
-          <h3 className="warehouseList__subheading warehouseList__subheading-actions">ACTIONS</h3>
+          <h3 className="warehouseList__subheading warehouseList__subheading-actions">
+            ACTIONS
+          </h3>
         </div>
         {WHList?.map((warehouse) => (
           <div key={warehouse.id}>
@@ -81,18 +83,18 @@ export default function WarehouseList({ WHList }) {
                   <div className="list__item">
                     <h3 className="list__item-heading">WAREHOUSE</h3>
                     <Link to={"/warehouse/" + warehouse.id}>
-                    <div className="list__item-infoContainer">
-                      <h3 className="list__item-info list__item-info--blue">
-                        {warehouse.warehouse_name}
-                      </h3>
-                      
+                      <div className="list__item-infoContainer">
+                        <h3 className="list__item-info list__item-info--blue">
+                          {warehouse.warehouse_name}
+                        </h3>
+
                         <img
                           className="chevronRightIcon"
                           src={chevronRight}
                           alt="chevron right icon"
                         />
                       </div>
-                      </Link>
+                    </Link>
                   </div>
                   <div className="list__item">
                     <h3 className="list__item-heading">ADDRESS</h3>
@@ -116,7 +118,6 @@ export default function WarehouseList({ WHList }) {
               </div>
 
               <div className="list__item-containersIcons">
-                
                 <img
                   className="deleteIcon"
                   src={deleteIcon}
@@ -125,7 +126,7 @@ export default function WarehouseList({ WHList }) {
                     showDeleteConfirm(warehouse.warehouse_name, warehouse.id)
                   }
                 />
-                
+
                 <Link to={"/warehouse/" + warehouse.id + "/edit"}>
                   <img className="editIcon" src={editIcon} alt="edit icon" />
                 </Link>
@@ -136,17 +137,17 @@ export default function WarehouseList({ WHList }) {
               <div className="list__item">
                 <h3 className="list__item-heading">WAREHOUSE</h3>
                 <Link to={"/warehouse/" + warehouse.id}>
-                <div className="list__item-infoContainer">
-                  <h3 className="list__item-info list__item-info--blue">
-                    {warehouse.warehouse_name}
-                  </h3>
+                  <div className="list__item-infoContainer">
+                    <h3 className="list__item-info list__item-info--blue">
+                      {warehouse.warehouse_name}
+                    </h3>
 
                     <img
                       className="chevronRightIcon"
                       src={chevronRight}
                       alt="chevron right icon"
                     />
-                </div>
+                  </div>
                 </Link>
               </div>
               <div className="list__item">
@@ -184,7 +185,6 @@ export default function WarehouseList({ WHList }) {
             </div>
           </div>
         ))}
-        ;
       </section>
 
       <section id="background" className="background">

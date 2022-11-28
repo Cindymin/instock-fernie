@@ -76,23 +76,14 @@ const InventoryList = (props) => {
               className="invList-top-search__bar"
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-
-            <img
-              src={searchIcon}
-              alt="searchIcon"
-              className="invList-top-search__img"
-            />
           </div>
-
-          <div className="invList-top-form invList-top-btn">
-            <Link to="/inventory/add">
-              <button className="invList-top-btn--blue">+ Add New Item</button>
-            </Link>
-          </div>
+          <Link to="/inventory/add">
+            <button className="invList-top-btn--blue">+ Add New Item</button>
+          </Link>
         </section>
         <div className="invList__item">
           <div className="invList__item-bar">
-            <div className="invList__item-bar-wrap">
+            <div className="invList__item-bar-wrap invItem">
               <span className="invList__item-bar-text title-inv">
                 INVENTORY ITEM
               </span>
@@ -102,7 +93,7 @@ const InventoryList = (props) => {
                 alt="sort-icon"
               />
             </div>
-            <div className="invList__item-bar-wrap">
+            <div className="invList__item-bar-wrap category">
               <span className="invList__item-bar-text title-cat">CATEGORY</span>
               <img
                 className="invList__item-bar-icon invList__item-bar-icon__category"
@@ -118,7 +109,7 @@ const InventoryList = (props) => {
                 alt="sort"
               />
             </div>
-            <div className="invList__item-bar-wrap  quantity">
+            <div className="invList__item-bar-wrap quantity">
               <span className="invList__item-bar-text title-qty">QTY</span>
               <img
                 className="invList__item-bar-icon invList__item-bar-icon__qty"
@@ -136,7 +127,9 @@ const InventoryList = (props) => {
                 alt="sort"
               />
             </div>
-            <span className="invList__item-bar-text">ACTIONS</span>
+            <div className="invList__item-bar-wrap actions">
+              <span className="invList__item-bar-text">ACTIONS</span>
+            </div>
           </div>
 
           {items &&
