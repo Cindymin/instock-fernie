@@ -1,21 +1,33 @@
 import axios from "axios";
 import "./AddWarehouse.scss";
 import { useState } from "react";
-
+import error from "../../assets/icons/error-24px.svg"
 function AddWarehouse() {
 
-  const [validated, setValidated] = useState(false);
 
-  const handleSubmit = (event) => {
+const handleSubmit = (event) => {
 const form=event.currentTarget
-if (form.checkValidity()===false){
-  event.preventDefault()
-  event.stopPropagation()
+
+
+// form validation
+
+const isWarehouseNameValid = form.warehousename.value;
+const isAdressValid = form.address.value;
+const isCityValid = form.city.value;
+const isCountryValid = form.country.value;
+const isContactNameValid = form.contactname.value;
+const isPositionValid = form.position.value;
+const isPhonenumberValid = form.phonenumber.value;
+const isEmailValid = form.email.value;
+
+
+if (!isWarehouseNameValid) {
+ form.warehousename.style.border = "1px solid red";
+ document.getElementById("warehousename-Valid").style.display = "block";
 }
-setValidated(true)
 
 
-    event.preventDefault();
+event.preventDefault();
     const newWarehouse = {
       warehouse_name: event.target.warehousename.value,
       address: event.target.address.value,
@@ -30,18 +42,19 @@ setValidated(true)
     axios
       .post(`http://localhost:8080/warehouses`, newWarehouse)
       .then((response) => console.log(response.data));
-    window.location = "/";
+    // window.location = "/";
     event.target.reset();
-
-     
-
   };
 
 
 
 
   return (
-    <form className="addform" noValidate Validated={validated} onSubmit={handleSubmit}>
+    <form
+      className="addform"
+      noValidate
+      onSubmit={handleSubmit}
+    >
       <div className="addform__title">
         <p>Add New Warehouse</p>
       </div>
@@ -55,28 +68,41 @@ setValidated(true)
               <input
                 className="addform__input"
                 placeholder="Warehouse Name"
-                name="warehousename" type="text" feedbackValid="saysomething" required ></input>
+                name="warehousename"
+                type="text"
+                feedbackValid="saysomething"
+                required
+              ></input>
             </div>
+
+            <div className="warehousename-Valid" id="warehousename-Valid">
+              <img className="warehousename-Valid__img" src={error} alt="error" />
+              <span className="warehousename-Valid__text">This field is required</span>
+            </div>
+
             <div className="addform__detail">
               <label className="addform__label">Street Address</label>
               <input
                 className="addform__input"
                 placeholder="Street Address"
-                name="address"></input>
+                name="address"
+              ></input>
             </div>
             <div className="addform__detail">
               <label className="addform__label">City</label>
               <input
                 className="addform__input"
                 placeholder="City"
-                name="city"></input>
+                name="city"
+              ></input>
             </div>
             <div className="addform__detail">
               <label className="addform__label">Country</label>
               <input
                 className="addform__input"
                 placeholder="Country"
-                name="country"></input>
+                name="country"
+              ></input>
             </div>
           </div>
         </div>
@@ -89,28 +115,32 @@ setValidated(true)
               <input
                 className="addform__input"
                 placeholder="Contact Name"
-                name="contactname"></input>
+                name="contactname"
+              ></input>
             </div>
             <div className="addform__detail">
               <label className="addform__label">Position</label>
               <input
                 className="addform__input"
                 placeholder="Position"
-                name="position"></input>
+                name="position"
+              ></input>
             </div>
             <div className="addform__detail">
               <label className="addform__label">Phone Number</label>
               <input
                 className="addform__input"
                 placeholder="Phone Number"
-                name="phonenumber"></input>
+                name="phonenumber"
+              ></input>
             </div>
             <div className="addform__detail">
               <label className="addform__label">Email</label>
               <input
                 className="addform__input"
                 placeholder="Email"
-                name="email"></input>
+                name="email"
+              ></input>
             </div>
           </div>
         </div>

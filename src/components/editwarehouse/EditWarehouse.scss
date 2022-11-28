@@ -242,7 +242,8 @@
     &__btnsave:hover {
       background-color: colors.$backgroundDark;
   }
-}
+}}
+
 @include breakpoints.large {
   .form {
     font-family: "TitilliumWeb";
@@ -356,5 +357,4 @@
       background-color: colors.$backgroundDark;
   }
   }
-}
 }
