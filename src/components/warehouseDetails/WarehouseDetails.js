@@ -59,7 +59,7 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
     axios
       .delete(`http://localhost:8080/inventories/${inventoryIdToDelete}`)
       .then((response) => console.log(response.data));
-    window.location = `http://localhost:8080/warehouses/${id}`;
+    window.location = `/warehouse/${id}`;
   }
 
  
