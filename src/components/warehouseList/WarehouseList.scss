@@ -64,7 +64,26 @@
     background-color: $backgroundDark;
   }
 }
+.warehouseList {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 9rem;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: #ffffff;
+  width: 80%;
 
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  @include breakpoint.medium {
+    width: 80%;
+  }
+  @include breakpoint.large {
+    width: 90%;
+  }
+}
 .warehouseList__subheader {
   display: none;
 }
