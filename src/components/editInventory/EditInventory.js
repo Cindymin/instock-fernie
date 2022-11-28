@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import error from "../../assets/icons/error-24px.svg";
 export default function EditInventory() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -16,6 +16,9 @@ export default function EditInventory() {
   const [status, setStatus] = useState("");
   const [qty, setQty] = useState("");
   const [convertedWhId, setConvertedWhId] = useState("");
+  const [qtyTyped, setQtyTyped] = useState(false);
+  const [desTyped, setDesTyped] = useState(false);
+  const [itemTyped, setItemTyped] = useState(false);
 
   const getInventoryItem = () => {
     axios
@@ -39,7 +42,7 @@ export default function EditInventory() {
 
   useEffect(() => {
     getInventoryItem();
-  });
+  }, []);
 
   const getWarehouseData = (name) => {
     axios
@@ -61,10 +64,11 @@ export default function EditInventory() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    getWarehouseData();
 
     const editData = {
       id: id,
-      warehouse_id: convertedWhId,
+      warehouse_id: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
       item_name: item,
       description: description,
       category: category,
@@ -81,7 +85,6 @@ export default function EditInventory() {
     };
 
     updateData();
-
     navigate("/inventory");
   };
 
@@ -103,7 +106,6 @@ export default function EditInventory() {
     return warehouseName;
   };
   getwarehouseName();
-  getWarehouseData();
 
   return (
     <>
@@ -129,18 +131,34 @@ export default function EditInventory() {
                     <label className="editInventoryForm__label">
                       Item Name
                     </label>
+
                     <input
                       className="editInventoryForm__input"
                       type="text"
-                      name="text"
-                      defaultValue={invItem?.item_name}
+                      name="itemName"
+                      placeholder={invItem?.item_name}
                       onChange={(e) => {
-                        !e.target.value
-                          ? setItem(invItem?.item_name)
-                          : setItem(e.target.value);
+                        setItem(e.target.value);
                       }}
                     />
                   </div>
+
+                  <div
+                    className={`editInventory${
+                      desTyped === false ? "-inValid" : "-Valid"
+                    }`}
+                    id="edit-Inventory-Valid"
+                  >
+                    <img
+                      className="editInventory-Valid__img"
+                      src={error}
+                      alt="error"
+                    />
+                    <span className="editInventory-Valid__text">
+                      This field is required
+                    </span>
+                  </div>
+
                   <div className="editInventoryForm__detail">
                     <label className="editInventoryForm__label">
                       Description
@@ -148,15 +166,30 @@ export default function EditInventory() {
                     <textarea
                       className="editInventoryForm__input editInventoryForm__input-description"
                       type="textarea"
-                      defaultValue={invItem?.description}
+                      placeholder={invItem?.description}
+                      name="description"
                       onChange={(e) => {
-                        !e.target.value
-                          ? setDescription(invItem?.description)
-                          : setDescription(e.target.value);
-                        console.log(description);
+                        setDescription(e.target.value);
                       }}
                     />
                   </div>
+
+                  <div
+                    className={`editInventory${
+                      desTyped === false ? "-inValid" : "-Valid"
+                    }`}
+                    id="edit-Inventory-Valid"
+                  >
+                    <img
+                      className="editInventory-Valid__img"
+                      src={error}
+                      alt="error"
+                    />
+                    <span className="editInventory-Valid__text">
+                      This field is required
+                    </span>
+                  </div>
+
                   <div className="editInventoryForm__detail">
                     <label className="editInventoryForm__label">Category</label>
                     <select
@@ -232,9 +265,6 @@ export default function EditInventory() {
                                   ? setStatus("In Stock")
                                   : setStatus("Out of Stock");
                                 setStatus(e.target.value);
-
-                                console.log("3st status:");
-                                console.log(e.target.checked);
                               }}
                             />
                             <label className="editInventoryForm__label-radio">
@@ -271,13 +301,27 @@ export default function EditInventory() {
                         </label>
                         <input
                           className="editInventoryForm__input"
-                          defaultValue={invItem?.quantity}
+                          placeholder={invItem?.quantity}
                           onChange={(e) => {
-                            !e.target.value
-                              ? setQty(invItem?.quantity)
-                              : setQty(e.target.value);
+                            setQty(e.target.value);
                           }}
                         />
+                      </div>
+
+                      <div
+                        className={`editInventory${
+                          qtyTyped === false ? "-inValid" : "-Valid"
+                        }`}
+                        id="edit-Inventory-Valid"
+                      >
+                        <img
+                          className="editInventory-Valid__img"
+                          src={error}
+                          alt="error"
+                        />
+                        <span className="editInventory-Valid__text">
+                          This field is required
+                        </span>
                       </div>
 
                       <div className="editInventoryForm__detail">
@@ -287,16 +331,12 @@ export default function EditInventory() {
 
                         <select
                           className="editInventoryForm__select"
-                          defaultValue={invItem.warehouse_id}
+                          placeholder={invItem.warehouse_id}
+                          defaultValue={warehouseName}
                           onChange={(e) => {
-                            !e.target.value || ""
-                              ? convertedWhId(invItem.warehouse_id)
-                              : getWarehouseData(e.target.value);
+                            getWarehouseData(e.target.value);
                           }}
                         >
-                          <option value={warehouseName} selected>
-                            {warehouseName}
-                          </option>
                           <option value="Manhattan">Manhattan</option>
                           <option value="Washington">Washington</option>
                           <option value="Jersey">Jersey</option>
