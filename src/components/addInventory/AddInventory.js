@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import "./AddInventory.scss";
 import { Link,useNavigate } from "react-router-dom";
 
+
 const AddInventory = () => {
   const [item_name, setItemName] = useState("");
-  const [isItem_name, setIsItem_name] = useState(false);
+  const [isItem_name, setIsItem_name] = useState(false); 
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState(true);
@@ -20,39 +21,16 @@ const AddInventory = () => {
     "Accessories",
     "Health",
   ];
-  const navigate=useNavigate()
-
   const warehouses = [
-    {
-      value: "150a36cf-f38e-4f59-8e31-39974207372d",
-      label: "Boston",
-    },
-    {
-      value: "2922c286-16cd-4d43-ab98-c79f698aeab0",
-      label: "Manhattan",
-    },
-    {
-      value: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-      label: "Washington",
-    },
-    {
-      value: "89898957-04ba-4bd0-9f5c-a7aea7447963",
-      label: "Santa Monica",
-    },
-    {
-      value: "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-      label: "Jersey",
-    },
-    {
-      value: "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
-      label: "Seattle",
-    },
-    {
-      value: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
-      label: "Miami",
-    },
+    "Manhattan",
+    "Washington",
+    "Jersey",
+    "San Fran",
+    "Santa Monica",
+    "Seattle",
+    "Miami",
   ];
-
+const navigate=useNavigate();
   function statusHandler(e) {
     if (e.target.value === "In Stock") {
       setStatus(true);
@@ -61,14 +39,19 @@ const AddInventory = () => {
       setStatus(false);
     }
   }
-
   function getWarehouseId(name) {
-    const selectedWarehouse = warehouses.find((w) => w.label === name);
-    setWarehouseID(selectedWarehouse.value || "");
+    axios.get("http://localhost:8080/warehouses").then((res) => {
+      const selectedWarehouse = res.data.find((w) => w.warehouse_name === name);
+      setWarehouseID(selectedWarehouse.id);
+    });
   }
+  
 
   function postNewInventoryItem(e) {
     e.preventDefault(); 
+
+
+
     if (!item_name) {
       setIsItem_name(true);
     }
@@ -76,6 +59,7 @@ const AddInventory = () => {
     if (!itemWarehouse) {
       setisItemWarehouse(true);
     }
+
     if (item_name && itemWarehouse) {
 
       const newInventoryItemData = {
@@ -88,27 +72,26 @@ const AddInventory = () => {
       };
       window.console.log(newInventoryItemData, "value");
 
-
       axios
-        .post(`http://localhost:8080/inventories`, newInventoryItemData)
+        .post("http://localhost:8080/inventories", newInventoryItemData)
         .then(navigate("/inventory"))
-          // setItemName("");
-          // setDescription("");
-          // setCategory("");
-          // setStatus(true);
-          // setQuantity(0);
-          // setItemWarehouse("");
-     
-          .catch((error)=>{
-            console.log("error",error)
-          });    
-        }
+        // setItemName("");
+        // setDescription("");
+        // setCategory("");
+        // setStatus(true);
+        // setQuantity(0);
+        // setItemWarehouse("");
+
+        .catch((error) => {
+          console.log("error", error);
+        });
+    }
   }
   return (
     <form className="addInventoryForm" onSubmit={postNewInventoryItem}>
-      <div className="addInventoryForm__title">
+       <Link to="/inventory"><div className="addInventoryForm__title">
         <p className="addInventoryForm__title-text">Add New Inventory Item</p>
-      </div>
+      </div></Link>
 
       <div className="addInventoryForm__content">
         <div className="addInventoryForm__itemdetails">
@@ -132,7 +115,7 @@ const AddInventory = () => {
 
                   setItemName(value);
                 }}
-                //  失去焦点
+        
                 onBlur={(e) => {
                   const value = e.target.value;
                   if (value) {
@@ -244,13 +227,13 @@ const AddInventory = () => {
                   console.log(e.target.value, "itemWarehouse");
 
                   const value = e.target.value;
-                  // 判断是否选择
+           
                   if (value) {
                     setisItemWarehouse(false);
                   } else {
                     setisItemWarehouse(true);
                   }
-                  // 每次当下拉框的值发送改变 就是去拿 WarehouseId
+
                   getWarehouseId(value);
 
                   setItemWarehouse(value);
@@ -259,8 +242,8 @@ const AddInventory = () => {
                   Please Select
                 </option>
                 {warehouses.map((category, i) => (
-                  <option value={category.label} key={i}>
-                    {category.label}
+                  <option value={category} key={i}>
+                    {category}
                   </option>
                 ))}
               </select>
