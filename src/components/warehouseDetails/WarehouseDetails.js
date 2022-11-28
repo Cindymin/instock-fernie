@@ -68,11 +68,14 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
       <form className="warehouseDetail">
         <div className="warehouseDetail__nameContainer">
           <div className="warehouseDetail__nameContainer-wrapper">
-            <img
-              className="warehouseDetail__nameContainer-arrow"
-              src={arrow}
-              alt="arrow"
-            />
+            <Link to={"/warehouse/"}>
+
+              <img
+                className="warehouseDetail__nameContainer-arrow"
+                src={arrow}
+                alt="arrow"
+              />
+            </Link>
             <span className="warehouseDetail__nameContainer-name">
               {warehouse.warehouse_name}
             </span>
@@ -152,7 +155,9 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
             </div>
 
             <div className="warehouseDetail__item-bar-wrap  quantity">
-              <span className="warehouseDetail__item-bar-textTable">QUANTITY</span>
+              <span className="warehouseDetail__item-bar-textTable">
+                QUANTITY
+              </span>
               <span className="warehouseDetail__item-bar-textDesk">QTY</span>
               <img class="warehouseDetail__item-bar-icon" src={sort} alt="" />
             </div>
@@ -168,10 +173,11 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
             "
               >
                 <div className="warehouseDetail__item-info-nameWrap">
-                  <span className="warehouseDetail__item-info-name">
-                    {inventory.item_name}
-                  </span>
-                  <Link to={"/inventory/" + inventory.id}>
+                  <Link to={"/inventory/" + inventory.id}  >
+                    <span className="warehouseDetail__item-info-name">
+                      {inventory.item_name}
+                    </span>
+
                     <img
                       className="warehouseDetail__item-info-image"
                       src={arrowRight}
@@ -234,10 +240,11 @@ const [inventoryToDelete, setInventoryToDelete] = useState("");
                       INVENTORY ITEM
                     </span>
                     <div className="warehouseDetail__item-info-nameWrap">
-                      <span className="warehouseDetail__item-info-name">
-                        {inventory.item_name}
-                      </span>
                       <Link to={"/inventory/" + inventory.id}>
+                        <span className="warehouseDetail__item-info-name">
+                          {inventory.item_name}
+                        </span>
+
                         <img
                           className="warehouseDetail__item-info-image"
                           src={arrowRight}
