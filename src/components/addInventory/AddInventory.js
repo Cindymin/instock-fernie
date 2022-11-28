@@ -58,7 +58,6 @@ const navigate=useNavigate();
     if (!item_name) {
       setIsItem_name(true);
     }
-    window.console.log(itemWarehouse, "value");
     if (!itemWarehouse) {
       setisItemWarehouse(true);
     }

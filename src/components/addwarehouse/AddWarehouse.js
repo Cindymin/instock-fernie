@@ -27,6 +27,8 @@ if (!isWarehouseNameValid) {
 }
 
 
+
+
 event.preventDefault();
     const newWarehouse = {
       warehouse_name: event.target.warehousename.value,
