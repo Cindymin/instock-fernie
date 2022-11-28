@@ -2,6 +2,35 @@
 @use "../../styles/partials/breakpoints" as breakpoints;
 @use "../../styles/partials/fonts";
 
+
+.form-top {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 1.75rem 1.5rem;
+  align-items: baseline;
+  @include breakpoints.medium {
+    padding: 2rem 2.25rem 1.313rem;
+  }
+  @include breakpoints.large {
+    padding: 2rem 2.75rem 1.313rem;
+  
+}
+}
+.form-top__backIcon {
+  @include breakpoints.small {
+    flex: 0 0 10%;
+    margin-right: 0.3rem;
+  }
+  @include breakpoints.medium {
+    flex: 0 0 10%;
+    margin-right: 0.5rem;
+  }
+  @include breakpoints.large {
+    flex: 0 0 10%;
+    margin-right: 0.5rem;
+  }
+}
+
 @include breakpoints.small {
   .form {
     font-family: "TitilliumWeb";
@@ -9,17 +38,13 @@
     flex-direction: column;
     margin: 0 auto;
 
+    
     &__title {
       font-size: 1.75rem;
       font-weight: 600;
       line-height: 2.25rem;
       color: colors.$primaryDark;
-      padding-left: 3.5rem;
-      border-bottom: 1px solid colors.$secondaryLight;
-      background-image: url("../../assets/icons/arrow_back-24px.svg");
-      background-repeat: no-repeat;
-      background-size: 2rem;
-      background-position: left 1rem center;
+     
     }
 
     &__subtitle {
@@ -33,6 +58,7 @@
     &__container {
       display: flex;
       flex-direction: column;
+      
     }
     &__detail {
       display: flex;
@@ -82,6 +108,10 @@
       font-weight: 600;
       background-color: colors.$primaryLight;
     }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+  }
     &__btnsave {
       height: 2.25rem;
       width: 8.6rem;
@@ -95,6 +125,9 @@
       background-color: colors.$primaryMedium;
       opacity: 1;
     }
+    &__btnsave:hover {
+      background-color: colors.$backgroundDark;
+    }
   }
 }
 
@@ -104,28 +137,21 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-
-    &__title-text{
-      margin-bottom: 1rem;
-    }
+    
     &__title {
       font-size: 2rem;
       font-weight: 600;
       line-height: 2.5rem;
       color: colors.$primaryDark;
-      padding-left: 6rem;
-      border-bottom: 1px solid colors.$secondaryLight;
-      background-image: url("../../assets/icons/arrow_back-24px.svg");
-      background-repeat: no-repeat;
-      background-size: 2rem;
-      background-position: left 3.5rem bottom 1.2rem;
+      
+      
     }
     &__content {
       display: flex;
       flex-direction: row;
+      border-top: 1px solid colors.$secondaryLight;
     }
     &__subtitle {
-      margin-top: 1.5rem;
       margin-bottom: 2rem;
       font-size: 1.5rem;
       line-height: 2rem;
@@ -158,6 +184,7 @@
       width: 50%;
       padding-left: 2rem;
       padding-right: 2rem;
+      margin-top: 1.5rem;
     }
     &__hr {
       display: none;
@@ -168,6 +195,7 @@
       padding-left: 2rem;
       padding-right: 2rem;
       border-left: 1px solid colors.$secondaryLight;
+      margin-top: 1.5rem;
     }
     &__btns {
       display: flex;
@@ -193,6 +221,10 @@
       font-weight: 600;
       background-color: colors.$primaryLight;
     }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+  }
     &__btnsave {
       height: 2.375rem;
       width: 4.5rem;
@@ -207,6 +239,8 @@
       background-color: colors.$primaryMedium;
       opacity: 1;
     }
+    &__btnsave:hover {
+      background-color: colors.$backgroundDark;
   }
 }
 @include breakpoints.large {
@@ -215,29 +249,22 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    &__title-text {
-      margin-bottom: 1rem;
-    }
+    
+    
     &__title {
       font-size: 2rem;
       font-weight: 600;
       line-height: 2.5rem;
       color: colors.$primaryDark;
-      padding-left: 4.5rem;
-      border-bottom: 1px solid colors.$secondaryLight;
-      background-image: url("../../assets/icons/arrow_back-24px.svg");
-      background-repeat: no-repeat;
-      background-size: 2rem;
-      background-position: left 2rem bottom 1rem;
-      margin-bottom: 1rem;
+    
     }
     &__content {
       display: flex;
       flex-direction: row;
+      border-top: 1px solid colors.$secondaryLight;
     }
     &__subtitle {
       margin-bottom: 1rem;
-      margin-top: 0.5rem;
       font-size: 1.5rem;
       line-height: 2rem;
       font-weight: 600;
@@ -270,6 +297,7 @@
       width: 50%;
       padding-left: 2.5rem;
       padding-right: 2.5rem;
+      margin-top: 1.5rem;
     }
     &__hr {
       display: none;
@@ -280,6 +308,7 @@
       padding-left: 2.5rem;
       padding-right: 2.5rem;
       border-left: 1px solid colors.$secondaryLight;
+      margin-top: 1.5rem;
     }
     &__btns {
       display: flex;
@@ -305,6 +334,10 @@
       font-weight: 600;
       background-color: colors.$primaryLight;
     }
+    &__btncancel:hover {
+      border: 1px solid colors.$primaryMedium;
+      color: colors.$primaryMedium;
+  }
     &__btnsave {
       height: 2.375rem;
       width: 3.82rem;
@@ -319,5 +352,9 @@
       background-color: colors.$primaryMedium;
       opacity: 1;
     }
+    &__btnsave:hover {
+      background-color: colors.$backgroundDark;
   }
+  }
+}
 }

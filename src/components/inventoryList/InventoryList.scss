@@ -126,6 +126,7 @@
         width: 295px;
         height: 36px;
         border: 1px solid cl.$primaryMedium;
+        
         @include bk.medium {
           width: 128px;
           height: 38px;
@@ -135,6 +136,9 @@
           height: 38px;
         }
       }
+      &--blue:hover {
+        background-color: cl.$backgroundDark;
+        }
     }
   }
 }

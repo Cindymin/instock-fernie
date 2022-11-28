@@ -31,7 +31,9 @@ body {
   background-color: rgba(19, 24, 44, 0.9);
   display: none;
 }
-
+.warehouseDetail__nameContainer-edit:hover {
+  background-color: #232940;
+  }
 // for mobile
 
 @include bkp.small {
@@ -76,6 +78,7 @@ body {
           visibility: hidden;
         }
       }
+      
     }
 
     &__info {
