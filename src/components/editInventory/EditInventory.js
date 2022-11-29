@@ -16,6 +16,8 @@ export default function EditInventory() {
   const [status, setStatus] = useState("");
   const [qty, setQty] = useState("");
   const [convertedWhId, setConvertedWhId] = useState("");
+  const [warehousesOptionsName, setWarehousesOptionsName] = useState([]);
+  const [inventoryOptionsCategory, setInventoryOptionsCategory] = useState([]);
 
   const getInventoryItem = () => {
     axios
@@ -40,6 +42,45 @@ export default function EditInventory() {
   useEffect(() => {
     getInventoryItem();
   }, []);
+
+  const getInventoryOptionsCategory = () => {
+    axios
+      .get(`http://localhost:8080/inventories`)
+      .then((res) => {
+        const resultCategory = res.data
+        .map((x) => x?.category);
+        let uniqueCategory = resultCategory.filter((item, i, ar) => ar.indexOf(item) === i);
+        setInventoryOptionsCategory(uniqueCategory);
+        return uniqueCategory;
+       
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
+  useEffect(() => {
+    getInventoryOptionsCategory();
+  }, []);
+
+
+  const getWarehousesOptionsName = () => {
+    axios
+      .get(`http://localhost:8080/warehouses`)
+      .then((res) => {
+        const resultOptions = res.data
+        .map((x) => x?.warehouse_name);
+    setWarehousesOptionsName(resultOptions);
+    return resultOptions;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    getWarehousesOptionsName();
+}, []);
+
 
   const getWarehouseData = (name) => {
     axios
@@ -216,11 +257,14 @@ export default function EditInventory() {
                         setCategory(e.target.value);
                       }}
                     >
-                      <option value="Electronics">Electronics</option>
-                      <option value="Gear">Gear</option>
-                      <option value="Apparel">Apparel</option>
-                      <option value="Accessories">Accessories</option>
-                      <option value="Health">Health</option>
+                     <option value={invItem?.category} selected>
+                            {invItem?.category}
+                          </option>
+                      {inventoryOptionsCategory?.map((category) => (
+                  <option value={category} key={category}>
+                    {category}
+                  </option>
+                ))}
                     </select>
                   </div>
                 </div>
@@ -310,7 +354,7 @@ export default function EditInventory() {
                     )}
                   </div>
 
-                  {invItem.status === "In Stock" ? (
+                  {status === "In Stock" ? (
                     <>
                       <div className="editInventoryForm__detail">
                         <label className="editInventoryForm__label">
@@ -350,14 +394,14 @@ export default function EditInventory() {
                             getWarehouseData(e.target.value);
                           }}
                         >
-                          <option value="Manhattan">Manhattan</option>
-                          <option value="Washington">Washington</option>
-                          <option value="Jersey">Jersey</option>
-                          <option value="SF">SF</option>
-                          <option value="Santa Monica">Santa Monica</option>
-                          <option value="Seattle">Seattle</option>
-                          <option value="Miami">Miami</option>
-                          <option value="Boston">Boston</option>
+                           <option value={warehouseName} selected>
+                            {warehouseName}
+                          </option>
+                          {warehousesOptionsName?.map((name) => (
+                        <option value={name} key={name}>
+                          {name}
+                      </option>
+                        ))}
                         </select>
                       </div>
                     </>
@@ -380,14 +424,10 @@ export default function EditInventory() {
                           <option value={warehouseName} selected>
                             {warehouseName}
                           </option>
-                          <option value="Manhattan">Manhattan</option>
-                          <option value="Washington">Washington</option>
-                          <option value="Jersey">Jersey</option>
-                          <option value="SF">SF</option>
-                          <option value="Santa Monica">Santa Monica</option>
-                          <option value="Seattle">Seattle</option>
-                          <option value="Miami">Miami</option>
-                          <option value="Boston">Boston</option>
+                          {warehousesOptionsName?.map((name) => (
+                        <option value={name} key={name}>
+                          {name}
+                      </option>))}
                         </select>
                       </div>
                     </>
