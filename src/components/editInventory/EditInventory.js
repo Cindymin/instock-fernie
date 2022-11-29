@@ -4,6 +4,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import error from "../../assets/icons/error-24px.svg";
+import backArrowIcon from "../../assets/icons/arrow_back-24px.svg";
+
 export default function EditInventory() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -189,11 +191,22 @@ export default function EditInventory() {
       >
         {invItemArray?.map((invItem) => (
           <div key={invItem.id}>
-            <div className="editInventoryForm__title">
-              <p className="editInventoryForm__title-text">
-                Edit Inventory Item
-              </p>
-            </div>
+             <div className="editInventoryForm-top">
+            <Link to={`/inventory`}>
+              <div className="editInventoryForm-top__backIcon">
+                <img
+                  src={backArrowIcon}
+                  alt="arrow-back-icon"
+                  className="editInventoryForm-top__backIconimg"
+                />
+              </div>
+            </Link>
+            
+      <div className="form__title">
+        <p className="form__title-text">Edit inventory</p>
+      </div>
+          </div>
+            
 
             <div className="editInventoryForm__content">
               <div className="editInventoryForm__itemdetails">

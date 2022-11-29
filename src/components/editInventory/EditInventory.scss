@@ -67,7 +67,54 @@ select {
 .sample {
   display: none;
 }
+.editInventoryForm{
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: #ffffff;
 
+  @include breakpoint.small {
+    margin: 0 1rem;
+    margin-top: -67px;
+  }
+
+   @include breakpoint.medium {
+    margin: 0 2rem;
+    margin-top: -96px;
+  }
+
+  @include breakpoint.large {
+   margin: 0 8.125rem;
+   margin-top: -96px;
+  }}
+
+
+  .editInventoryForm-top {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 1.75rem 1.5rem;
+  align-items: baseline;
+  @include breakpoint.medium {
+    padding: 2rem 2.25rem 1.313rem;
+  }
+  @include breakpoint.large {
+    padding: 2rem 2.75rem 1.313rem;
+  
+}
+}
+.editInventoryForm-top__backIcon {
+  @include breakpoint.small {
+    flex: 0 0 10%;
+    margin-right: 0.3rem;
+  }
+  @include breakpoint.medium {
+    flex: 0 0 10%;
+    margin-right: 0.5rem;
+  }
+  @include breakpoint.large {
+    flex: 0 0 10%;
+    margin-right: 0.5rem;
+  }
+}
 .editInventoryForm{
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
@@ -107,6 +154,9 @@ select {
     font-weight: 600;
     color: $primaryDark;
     margin-bottom: 1.5rem;
+  }
+  &__content{
+    border-top: 1px solid $secondaryLight;
   }
   &__itemdetails {
     padding: 1rem 1.5rem 0;
@@ -223,7 +273,8 @@ select {
       &__content {
         display: flex;
         flex-direction: row;
-        margin-top: 1.5rem;
+    
+        border-top: 1px solid $secondaryLight;
       }
       &__subtitle {
         margin-bottom: 2rem;
@@ -270,6 +321,7 @@ select {
         padding-bottom: 2rem;
         padding-top: 0;
         border: none;
+        margin-top: 1.5rem;
       }
       
   
@@ -280,6 +332,7 @@ select {
         padding-bottom: 2rem;
         padding-top: 0;
         border-left: 1px solid $secondaryLight;
+        margin-top: 1.5rem;
       }
       &__btns {
         display: flex;
@@ -345,7 +398,7 @@ select {
       &__content {
         display: flex;
         flex-direction: row;
-        margin-top: 1.5rem;
+        border-top: 1px solid $secondaryLight;
       }
       &__subtitle {
         margin-bottom: 2rem;
@@ -392,6 +445,7 @@ select {
         padding-bottom: 2rem;
         padding-top: 0;
         border: none;
+        margin-top: 1.5rem;
       }
       
   
@@ -402,6 +456,7 @@ select {
         padding-bottom: 2rem;
         padding-top: 0;
         border-left: 1px solid $secondaryLight;
+        margin-top: 1.5rem;
       }
       &__btns {
         display: flex;
