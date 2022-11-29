@@ -1,13 +1,10 @@
 import axios from "axios";
 import "./AddWarehouse.scss";
 import { useState } from "react";
-import error from "../../assets/icons/error-24px.svg";
-import { Link } from "react-router-dom";
-
-
-
+import error from "../../assets/icons/error-24px.svg"
 function AddWarehouse() {
 
+ 
 
 const handleSubmit = (event) => {
  event.preventDefault();
@@ -256,10 +253,7 @@ if(isWarehouseNameValid && isAdressValid && isCityValid&&isCountryValid&&isConta
       </div>
 
       <div className="addform__btns">
-        <Link to="/warehouse">
-          {" "}
-          <button className="addform__btncancel">Cancel</button>
-        </Link>
+        <button className="addform__btncancel">Cancel</button>
         <button className="addform__btnsave" type="submit">
           Save
         </button>
