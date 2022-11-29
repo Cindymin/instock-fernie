@@ -1,33 +1,28 @@
 import axios from "axios";
 import "./AddWarehouse.scss";
 import { useState } from "react";
-import error from "../../assets/icons/error-24px.svg"
+import error from "../../assets/icons/error-24px.svg";
 function AddWarehouse() {
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
 
+    // form validation
 
-const handleSubmit = (event) => {
-const form=event.currentTarget
+    const isWarehouseNameValid = form.warehousename.value;
+    const isAdressValid = form.address.value;
+    const isCityValid = form.city.value;
+    const isCountryValid = form.country.value;
+    const isContactNameValid = form.contactname.value;
+    const isPositionValid = form.position.value;
+    const isPhonenumberValid = form.phonenumber.value;
+    const isEmailValid = form.email.value;
 
+    if (!isWarehouseNameValid) {
+      form.warehousename.style.border = "1px solid red";
+      document.getElementById("warehousename-Valid").style.display = "block";
+    }
 
-// form validation
-
-const isWarehouseNameValid = form.warehousename.value;
-const isAdressValid = form.address.value;
-const isCityValid = form.city.value;
-const isCountryValid = form.country.value;
-const isContactNameValid = form.contactname.value;
-const isPositionValid = form.position.value;
-const isPhonenumberValid = form.phonenumber.value;
-const isEmailValid = form.email.value;
-
-
-if (!isWarehouseNameValid) {
- form.warehousename.style.border = "1px solid red";
- document.getElementById("warehousename-Valid").style.display = "block";
-}
-
-
-event.preventDefault();
+    event.preventDefault();
     const newWarehouse = {
       warehouse_name: event.target.warehousename.value,
       address: event.target.address.value,
@@ -46,15 +41,8 @@ event.preventDefault();
     event.target.reset();
   };
 
-
-
-
   return (
-    <form
-      className="addform"
-      noValidate
-      onSubmit={handleSubmit}
-    >
+    <form className="addform" noValidate onSubmit={handleSubmit}>
       <div className="addform__title">
         <p>Add New Warehouse</p>
       </div>
@@ -76,8 +64,14 @@ event.preventDefault();
             </div>
 
             <div className="warehousename-Valid" id="warehousename-Valid">
-              <img className="warehousename-Valid__img" src={error} alt="error" />
-              <span className="warehousename-Valid__text">This field is required</span>
+              <img
+                className="warehousename-Valid__img"
+                src={error}
+                alt="error"
+              />
+              <span className="warehousename-Valid__text">
+                This field is required
+              </span>
             </div>
 
             <div className="addform__detail">

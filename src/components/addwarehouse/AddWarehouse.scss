@@ -2,25 +2,22 @@
 @use "../../styles/partials/breakpoints" as breakpoints;
 @use "../../styles/partials/fonts";
 
-
-
-.warehousename-Valid{
- position: relative;
-  display: none;
-&__img{
+.warehousename-Valid {
   position: relative;
-  top: 4px;
-  width: 16px;
-}
-  &__text{
- color: red;
- font-family:"TitilliumWeb";
- font-size: .75rem;
- font-weight: 400;
- padding-left: 0.2rem;
+  display: none;
+  &__img {
+    position: relative;
+    top: 4px;
+    width: 16px;
+  }
+  &__text {
+    color: red;
+    font-family: "TitilliumWeb";
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding-left: 0.2rem;
   }
 }
-
 
 @include breakpoints.small {
   .addform {
@@ -121,7 +118,7 @@
       color: colors.$primaryMedium;
     }
     &__btnsave:hover {
-    background-color: colors.$backgroundDark;
+      background-color: colors.$backgroundDark;
     }
   }
 }
@@ -171,7 +168,7 @@
       font-weight: 600;
       font-size: 0.875rem;
       line-height: 1.375rem;
-       margin-top: 1.4rem;
+      margin-top: 1.4rem;
     }
     &__input {
       width: 100%;
@@ -182,8 +179,8 @@
       padding-left: 0.8rem;
     }
     &__warehousedetails {
-       margin-top: 1.5rem;
-       margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
       width: 50%;
       padding-left: 2rem;
       padding-right: 2rem;
@@ -193,8 +190,8 @@
     }
 
     &__contactdetails {
-       margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
       width: 50%;
       padding-left: 2rem;
       padding-right: 2rem;
@@ -243,7 +240,7 @@
       color: colors.$primaryMedium;
     }
     &__btnsave:hover {
-    background-color: colors.$backgroundDark;
+      background-color: colors.$backgroundDark;
     }
   }
 }
@@ -361,7 +358,7 @@
       color: colors.$primaryMedium;
     }
     &__btnsave:hover {
-    background-color: colors.$backgroundDark;
+      background-color: colors.$backgroundDark;
     }
   }
 }
