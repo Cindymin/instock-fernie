@@ -33,16 +33,16 @@ body {
 }
 .warehouseDetail__nameContainer-edit:hover {
   background-color: #232940;
-  }
+}
 // for mobile
 
 @include bkp.small {
   .warehouseDetail {
-    margin: 0 auto;
-    padding: 0 1rem;
+    margin: 0 1rem;
     background: #ffffff;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
+    margin-top: -59px;
 
     &__nameContainer {
       display: flex;
@@ -51,9 +51,11 @@ body {
       border-bottom: 1px solid #bdc5d5;
 
       &-arrow {
-        width: 16px;
-        height: 16px;
+        width: 25px;
+        height: 25px;
         margin-right: 0.625rem;
+        position: relative;
+        top: 3px;
       }
 
       &-name {
@@ -78,7 +80,6 @@ body {
           visibility: hidden;
         }
       }
-      
     }
 
     &__info {
@@ -273,8 +274,7 @@ body {
     background: #ffffff;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
-     margin-top: -86px;
-
+    margin-top: -86px;
 
     &__nameContainer {
       display: flex;
@@ -283,9 +283,11 @@ body {
       border-bottom: 1px solid #bdc5d5;
 
       &-arrow {
-        width: 16px;
-        height: 16px;
+        width: 25px;
+        height: 25px;
         margin-right: 0.625rem;
+        position: relative;
+        top: 3px;
       }
 
       &-name {
@@ -356,7 +358,7 @@ body {
         display: flex;
         padding-left: 7%;
         border-left: 1px solid #bdc5d5;
-            width: 65%;
+        width: 65%;
 
         &-nameWrap {
           display: flex;
@@ -453,7 +455,7 @@ body {
     &__item-info-image {
       width: 20px;
       position: absolute;
-      top:12%
+      top: 12%;
     }
 
     &__item-info-status-wrap {
@@ -533,7 +535,7 @@ body {
   }
 
   .warehouseDetail__item-bar-wrap.quantity {
-   margin-right: 16%;
+    margin-right: 16%;
   }
 
   .warehouseDetail__nameContainer-editImage {
@@ -555,7 +557,7 @@ body {
     background: #ffffff;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
-        margin-top: -86px;
+    margin-top: -86px;
 
     &__nameContainer {
       display: flex;
@@ -564,9 +566,11 @@ body {
       border-bottom: 1px solid #bdc5d5;
 
       &-arrow {
-        width: 16px;
-        height: 16px;
+        width: 25px;
+        height: 25px;
         margin-right: 0.625rem;
+        position: relative;
+        top: 3px;
       }
 
       &-name {
@@ -634,11 +638,11 @@ body {
         color: #13182c;
       }
 
-       &-contanct {
+      &-contanct {
         display: flex;
         padding-left: 7%;
         border-left: 1px solid #bdc5d5;
-            width: 65%;
+        width: 65%;
 
         &-nameWrap {
           display: flex;
@@ -689,12 +693,12 @@ body {
           line-height: 18px;
         }
 
-         &-textTable {
-         display: none;
+        &-textTable {
+          display: none;
         }
 
         &-textDesk {
-           font-family: "TitilliumWeb";
+          font-family: "TitilliumWeb";
           font-style: normal;
           font-weight: 600;
           color: #5c667e;
@@ -734,8 +738,8 @@ body {
 
     &__item-info-image {
       width: 20px;
-       position: absolute;
-      top:12%
+      position: absolute;
+      top: 12%;
     }
 
     &__item-info-status-wrap {
