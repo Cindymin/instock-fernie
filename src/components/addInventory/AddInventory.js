@@ -25,6 +25,9 @@ const AddInventory = () => {
     "Accessories",
     "Health",
   ];
+  // const Style = {
+  //   border: "red"
+  // };
   const warehouses = [
     "Manhattan",
     "Washington",
@@ -69,7 +72,7 @@ const navigate=useNavigate();
       setIsQuantity(true);
     }
 
-    if (item_name && itemWarehouse && description &&category &&quantity) {
+    if (item_name && itemWarehouse && description &&category) {
 
       const newInventoryItemData = {
         warehouse_id: warehouse_id,
@@ -125,6 +128,7 @@ const navigate=useNavigate();
                   }
                   setItemName(value);
                 }}
+                // style={{isItem_name}&&{Style}}
                 // onBlur={(e) => {
                 //   const value = e.target.value;
                 //   if (value) {
@@ -249,7 +253,7 @@ const navigate=useNavigate();
                     required
                     value="Out Of Stock"
                     id="outOfStock"
-                    // checked={!status}
+                    checked={!status}
                     onChange={(e) => statusHandler(e)}
                   />
                   <label className="addInventoryForm__label-radio">
@@ -266,7 +270,6 @@ const navigate=useNavigate();
                 placeholder="0"
                 type="number"
                 disabled={!status}
-                required
                 value={quantity}
                 // onChange={(e) => setQuantity(e.target.value)}
                 onChange={(e) => {
@@ -276,15 +279,14 @@ const navigate=useNavigate();
                   } else {
                     setIsQuantity(true);
                   }
-
                   setQuantity(value);
                 }}
               />
-              {isQuantity && (
+              {/* {isQuantity && (
                 <div className="addInventoryValidation">
                   This fieid is required
                 </div>
-              )}
+              )} */}
             </div>
 
             <div className="addInventoryForm__detail">
