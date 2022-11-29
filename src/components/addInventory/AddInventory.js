@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AddInventory.scss";
 import { Link,useNavigate } from "react-router-dom";
 
@@ -16,18 +16,31 @@ const AddInventory = () => {
   const [itemWarehouse, setItemWarehouse] = useState("");
   const [isItemWarehouse, setisItemWarehouse] = useState(false);
   const [isQuantity, setIsQuantity]=useState(false);
-
+  const [inventoryOptionsCategory, setInventoryOptionsCategory] = useState([]);
   const [warehouse_id, setWarehouseID] = useState("");
-  const categories = [
-    "Electronics",
-    "Gear",
-    "Apparel",
-    "Accessories",
-    "Health",
-  ];
-  // const Style = {
-  //   border: "red"
-  // };
+
+const getInventoryOptionsCategory = () => {
+  axios
+    .get(`http://localhost:8080/inventories`)
+    .then((res) => {
+      const resultCategory = res.data.map((x) => x?.category);
+      let uniqueCategory = resultCategory.filter(
+        (item, i, ar) => ar.indexOf(item) === i
+      );
+      setInventoryOptionsCategory(uniqueCategory);
+      return uniqueCategory;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+useEffect(() => {
+  getInventoryOptionsCategory();
+}, []);
+
+
+
   const warehouses = [
     "Manhattan",
     "Washington",
@@ -208,7 +221,7 @@ const navigate=useNavigate();
                 <option className="default" value={`Please Select`}>
                   Please Select
                 </option>
-                {categories.map((category) => (
+                {inventoryOptionsCategory?.map((category) => (
                   <option value={category} key={category}>
                     {category}
                   </option>
