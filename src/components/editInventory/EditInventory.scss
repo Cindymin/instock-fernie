@@ -120,6 +120,7 @@ select {
   &__detail {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
   }
   &__label {
     font-weight: 600;
@@ -136,7 +137,6 @@ select {
     border-radius: 1.25rem;
     border: 1px solid $secondaryLight;
     margin-top: 0.25rem;
-    margin-bottom: 1rem;
     padding: 0.5rem 1rem;
     &-description {
       height: 7.5rem;
@@ -231,6 +231,7 @@ select {
     &__detail {
       display: flex;
       flex-direction: column;
+      margin-top: 1rem;
     }
     &__label {
       font-weight: 600;
@@ -247,7 +248,7 @@ select {
       border-radius: 1.25rem;
       border: 1px solid $secondaryLight;
       margin-top: 0.25rem;
-      margin-bottom: 1.4rem;
+
       padding: 0.5rem 1rem;
       &-description {
         height: 7.5rem;
@@ -361,7 +362,7 @@ select {
       border-radius: 1.25rem;
       border: 1px solid $secondaryLight;
       margin-top: 0.25rem;
-      margin-bottom: 1.4rem;
+
       padding: 0.5rem 1rem;
       &-description {
         height: 7.5rem;
@@ -434,6 +435,7 @@ select {
       &__detail {
         display: flex;
         flex-direction: column;
+        margin-top: 1rem;
       }
       &__label {
         font-weight: 600;
