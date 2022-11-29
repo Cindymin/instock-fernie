@@ -2,6 +2,15 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/fonts" as *;
 
+.addInventoryValidation{
+  color:red;
+  font-size: 0.8rem;
+  padding-left: 1.2rem;
+ background-image: url("../../assets/icons/error-24px.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem;
+margin-top: -10px;
+}
 
 select{
     width: 100%;
@@ -21,10 +30,24 @@ select{
 }
 
 .addInventoryForm{
-    font-family:TitilliumWeb;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: #ffffff;
+
+  @include breakpoint.small {
+    margin: 0 1rem;
+    margin-top: -67px;
+  }
+
+  @include breakpoint.medium {
+    margin: 0 2rem;
+    margin-top: -97px;
+  }
+
+  @include breakpoint.large {
+   margin: 0 8.125rem;
+   margin-top: -97px;
+  }
     
     &__title {
       font-size: 1.75rem;
@@ -86,7 +109,7 @@ select{
             margin-bottom: 1rem;
         }
         &-radioStock{
-            margin-right: 4.5rem;
+            margin-right: 1.5rem;
             margin-top: 0.375rem;
         }
         &-radio{
@@ -146,9 +169,6 @@ select{
 
 @include breakpoint.medium {
     .addInventoryForm {
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
   
       &__title-text{
         margin-left: 0.75rem;
@@ -270,9 +290,6 @@ select{
 
   @include breakpoint.large{
     .addInventoryForm {
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
   
       &__title-text{
         margin-left: 0.75rem;

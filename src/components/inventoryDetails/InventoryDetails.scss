@@ -4,21 +4,21 @@
 @use "../../styles/partials/global" as *;
 
 .item {
-  display: flex;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: #ffffff;
+
   @include bk.small {
-    position: absolute;
-    top: 9rem;
-    left: 8vw;
+   margin: 0 1rem;
+    margin-top: -67px;
   }
   @include bk.medium {
-    position: absolute;
-    top: 9rem;
-    left: 10vw;
+    margin: 0 2rem;
+    margin-top: -102px;
   }
   @include bk.large {
-    position: absolute;
-    top: 9rem;
-    left: 25vw;
+   margin: 0 8.125rem;
+   margin-top: -102px;
   }
   &Form {
     width: 100%;
