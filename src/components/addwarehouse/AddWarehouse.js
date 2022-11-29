@@ -84,6 +84,7 @@ if (!isEmailValid) {
 
 if(isWarehouseNameValid && isAdressValid && isCityValid&&isCountryValid&&isContactNameValid&&isPositionValid&&isPhonenumberValid&&isEmailValid){
 
+
     const newWarehouse = {
       warehouse_name: event.target.warehousename.value,
       address: event.target.address.value,
@@ -100,6 +101,7 @@ if(isWarehouseNameValid && isAdressValid && isCityValid&&isCountryValid&&isConta
       .then((response) => console.log(response.data));
     window.location = "/";
     event.target.reset();
+
   };}
 
 
