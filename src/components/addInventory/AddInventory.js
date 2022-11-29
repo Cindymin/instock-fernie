@@ -50,11 +50,8 @@ const navigate=useNavigate();
     });
   }
   
-
   function postNewInventoryItem(e) {
     e.preventDefault(); 
-
-
 
     if (!item_name) {
       setIsItem_name(true);
@@ -117,7 +114,7 @@ const navigate=useNavigate();
               <input
                 className="addInventoryForm__input"
                 placeholder="Item Name"
-                type="text" 
+                type="text"
                 value={item_name}
                 onChange={(e) => {
                   const value = e.target.value;
@@ -126,19 +123,22 @@ const navigate=useNavigate();
                   } else {
                     setIsItem_name(true);
                   }
-
                   setItemName(value);
                 }}
-                onBlur={(e) => {
-                  const value = e.target.value;
-                  if (value) {
-                    setIsItem_name(false);
-                  } else {
-                    setIsItem_name(true);
-                  }
-                }}
+                // onBlur={(e) => {
+                //   const value = e.target.value;
+                //   if (value) {
+                //     setIsItem_name(false);
+                //   } else {
+                //     setIsItem_name(true);
+                //   }
+                // }}
               />
-              {isItem_name && <div className="addInventoryValidation">This fieId is required</div>}
+              {isItem_name && (
+                <div className="addInventoryValidation">
+                  This fieid is required
+                </div>
+              )}
             </div>
 
             <div className="addInventoryForm__detail">
@@ -157,19 +157,22 @@ const navigate=useNavigate();
                   } else {
                     setIsDescription(true);
                   }
-
                   setDescription(value);
                 }}
-                onBlur={(e) => {
-                  const value = e.target.value;
-                  if (value) {
-                    setIsDescription(false);
-                  } else {
-                    setIsDescription(true);
-                  }
-                }}
+                // onBlur={(e) => {
+                //   const value = e.target.value;
+                //   if (value) {
+                //     setIsDescription(false);
+                //   } else {
+                //     setIsDescription(true);
+                //   }
+                // }}
               />
-              {isDescription && <div>This fieId is required</div>}
+              {isDescription && (
+                <div className="addInventoryValidation">
+                  This fieid is required
+                </div>
+              )}
             </div>
 
             <div className="addInventoryForm__detail">
@@ -189,14 +192,15 @@ const navigate=useNavigate();
 
                   setCategory(value);
                 }}
-                onBlur={(e) => {
-                  const value = e.target.value;
-                  if (value) {
-                    setIsCategory(false);
-                  } else {
-                    setIsCategory(true);
-                  }
-                }}>
+                // onBlur={(e) => {
+                //   const value = e.target.value;
+                //   if (value) {
+                //     setIsCategory(false);
+                //   } else {
+                //     setIsCategory(true);
+                //   }
+                // }}
+              >
                 <option className="default" value={`Please Select`}>
                   Please Select
                 </option>
@@ -206,7 +210,11 @@ const navigate=useNavigate();
                   </option>
                 ))}
               </select>
-              {isCategory && <div>This fieId is required</div>}
+              {isCategory && (
+                <div className="addInventoryValidation">
+                  This fieid is required
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -260,8 +268,23 @@ const navigate=useNavigate();
                 disabled={!status}
                 required
                 value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                // onChange={(e) => setQuantity(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value) {
+                    setIsQuantity(false);
+                  } else {
+                    setIsQuantity(true);
+                  }
+
+                  setQuantity(value);
+                }}
               />
+              {isQuantity && (
+                <div className="addInventoryValidation">
+                  This fieid is required
+                </div>
+              )}
             </div>
 
             <div className="addInventoryForm__detail">
@@ -293,7 +316,11 @@ const navigate=useNavigate();
                   </option>
                 ))}
               </select>
-              {isItemWarehouse && <div>This fieId is required</div>}
+              {isItemWarehouse && (
+                <div className="addInventoryValidation">
+                  This fieid is required
+                </div>
+              )}
             </div>
           </div>
         </div>
