@@ -16,9 +16,6 @@ export default function EditInventory() {
   const [status, setStatus] = useState("");
   const [qty, setQty] = useState("");
   const [convertedWhId, setConvertedWhId] = useState("");
-  const [qtyTyped, setQtyTyped] = useState(false);
-  const [desTyped, setDesTyped] = useState(false);
-  const [itemTyped, setItemTyped] = useState(false);
 
   const getInventoryItem = () => {
     axios
@@ -66,6 +63,38 @@ export default function EditInventory() {
     e.preventDefault();
     getWarehouseData();
 
+    const form = e.currentTarget;
+    console.log(form);
+    // form validation
+
+    const isItemValid = form.itemName.value;
+    const isDesValid = form.des.value;
+    const isQtyValid = form.qty.value;
+
+    if (!isItemValid) {
+      form.itemName.style.border = "1px solid red";
+      document.getElementById("itemName-Valid").style.display = "block";
+    } else {
+      form.itemName.style.border = "1px solid #bdc5d5";
+      document.getElementById("itemName-Valid").style.display = "none";
+    }
+
+    if (!isDesValid) {
+      form.des.style.border = "1px solid red";
+      document.getElementById("des-Valid").style.display = "block";
+    } else {
+      form.des.style.border = "1px solid #bdc5d5";
+      document.getElementById("des-Valid").style.display = "none";
+    }
+
+    if (!isQtyValid) {
+      form.qty.style.border = "1px solid red";
+      document.getElementById("qty-Valid").style.display = "block";
+    } else {
+      form.qty.style.border = "1px solid #bdc5d5";
+      document.getElementById("qty-Valid").style.display = "none";
+    }
+
     const editData = {
       id: id,
       warehouse_id: convertedWhId,
@@ -83,9 +112,10 @@ export default function EditInventory() {
           console.log(error);
         });
     };
-
-    updateData();
-    navigate("/inventory");
+    if (isItemValid && isDesValid && isQtyValid) {
+      updateData();
+      navigate("/inventory");
+    }
   };
 
   const invItemArray = inventoryItem["inventoriesData"];
@@ -111,6 +141,7 @@ export default function EditInventory() {
     <>
       <form
         className="editInventoryForm"
+        noValidate
         onSubmit={(e) => {
           submitHandler(e);
         }}
@@ -143,18 +174,13 @@ export default function EditInventory() {
                     />
                   </div>
 
-                  <div
-                    className={`editInventory${
-                      desTyped === false ? "-inValid" : "-Valid"
-                    }`}
-                    id="edit-Inventory-Valid"
-                  >
+                  <div className="itemName-Valid" id="itemName-Valid">
                     <img
-                      className="editInventory-Valid__img"
+                      className="itemName-Valid__img"
                       src={error}
                       alt="error"
                     />
-                    <span className="editInventory-Valid__text">
+                    <span className="itemName-Valid__text">
                       This field is required
                     </span>
                   </div>
@@ -167,25 +193,16 @@ export default function EditInventory() {
                       className="editInventoryForm__input editInventoryForm__input-description"
                       type="textarea"
                       placeholder={invItem?.description}
-                      name="description"
+                      name="des"
                       onChange={(e) => {
                         setDescription(e.target.value);
                       }}
                     />
                   </div>
 
-                  <div
-                    className={`editInventory${
-                      desTyped === false ? "-inValid" : "-Valid"
-                    }`}
-                    id="edit-Inventory-Valid"
-                  >
-                    <img
-                      className="editInventory-Valid__img"
-                      src={error}
-                      alt="error"
-                    />
-                    <span className="editInventory-Valid__text">
+                  <div className="des-Valid" id="des-Valid">
+                    <img className="des-Valid__img" src={error} alt="error" />
+                    <span className="des-Valid__text">
                       This field is required
                     </span>
                   </div>
@@ -302,24 +319,20 @@ export default function EditInventory() {
                         <input
                           className="editInventoryForm__input"
                           placeholder={invItem?.quantity}
+                          name="qty"
                           onChange={(e) => {
                             setQty(e.target.value);
                           }}
                         />
                       </div>
 
-                      <div
-                        className={`editInventory${
-                          qtyTyped === false ? "-inValid" : "-Valid"
-                        }`}
-                        id="edit-Inventory-Valid"
-                      >
+                      <div className="qty-Valid" id="qty-Valid">
                         <img
-                          className="editInventory-Valid__img"
+                          className="qty-Valid__img"
                           src={error}
                           alt="error"
                         />
-                        <span className="editInventory-Valid__text">
+                        <span className="qty-Valid__text">
                           This field is required
                         </span>
                       </div>
@@ -357,6 +370,7 @@ export default function EditInventory() {
 
                         <select
                           className="editInventoryForm__select"
+                          defaultValue={invItem?.warehouse_id}
                           onChange={(e) => {
                             !e.target.value
                               ? setConvertedWhId(invItem?.warehouse_id)
