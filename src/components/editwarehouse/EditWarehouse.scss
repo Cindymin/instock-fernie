@@ -3,6 +3,27 @@
 @use "../../styles/partials/fonts";
 
 
+.form{
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: #ffffff;
+
+  @include breakpoints.small {
+    margin: 0 1rem;
+    margin-top: -67px;
+  }
+
+   @include breakpoints.medium {
+    margin: 0 2rem;
+    margin-top: -96px;
+  }
+
+  @include breakpoints.large {
+   margin: 0 8.125rem;
+   margin-top: -96px;
+  }}
+
+
 .form-top {
   display: flex;
   flex-direction: row;
@@ -33,12 +54,8 @@
 
 @include breakpoints.small {
   .form {
-    font-family: "TitilliumWeb";
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+   
 
-    
     &__title {
       font-size: 1.75rem;
       font-weight: 600;
@@ -133,10 +150,6 @@
 
 @include breakpoints.medium {
   .form {
-    font-family: "TitilliumWeb";
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
     
     &__title {
       font-size: 2rem;
@@ -247,11 +260,6 @@
 
 @include breakpoints.large {
   .form {
-    font-family: "TitilliumWeb";
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    
     
     &__title {
       font-size: 2rem;
