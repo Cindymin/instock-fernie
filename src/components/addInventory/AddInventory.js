@@ -18,6 +18,8 @@ const AddInventory = () => {
   const [isQuantity, setIsQuantity]=useState(false);
   const [inventoryOptionsCategory, setInventoryOptionsCategory] = useState([]);
   const [warehouse_id, setWarehouseID] = useState("");
+ const [warehouseOptions, setwarehouseOptions] = useState([]);
+
 
 const getInventoryOptionsCategory = () => {
   axios
@@ -39,17 +41,32 @@ useEffect(() => {
   getInventoryOptionsCategory();
 }, []);
 
+ const getWarehouses = () => {
+   axios
+     .get(`http://localhost:8080/warehouses`)
+     .then((res) => {
+       const resultOptions = res.data.map((x) => x?.warehouse_name);
+       setwarehouseOptions(resultOptions);
+       return resultOptions;
+     })
+     .catch((error) => {
+       console.log(error);
+     });
+ };
+ useEffect(() => {
+   getWarehouses();
+ }, []);
 
+  // const warehouses = [
+  //   "Manhattan",
+  //   "Washington",
+  //   "Jersey",
+  //   "San Fran",
+  //   "Santa Monica",
+  //   "Seattle",
+  //   "Miami",
+  // ];
 
-  const warehouses = [
-    "Manhattan",
-    "Washington",
-    "Jersey",
-    "San Fran",
-    "Santa Monica",
-    "Seattle",
-    "Miami",
-  ];
 const navigate=useNavigate();
   function statusHandler(e) {
     if (e.target.value === "In Stock") {
@@ -309,24 +326,20 @@ const navigate=useNavigate();
                 value={itemWarehouse}
                 onChange={(e) => {
                   console.log(e.target.value, "itemWarehouse");
-
                   const value = e.target.value;
-
                   if (value) {
                     setisItemWarehouse(false);
                   } else {
                     setisItemWarehouse(true);
                   }
-
                   getWarehouseId(value);
-
                   setItemWarehouse(value);
                 }}>
                 <option className="default" value={`Please Select`}>
                   Please Select
                 </option>
-                {warehouses.map((category, i) => (
-                  <option value={category} key={i}>
+                {warehouseOptions?.map((category) => (
+                  <option value={category} key={category}>
                     {category}
                   </option>
                 ))}
