@@ -15,6 +15,7 @@ const AddInventory = () => {
   const [isCategory, setIsCategory]=useState(false);
   const [itemWarehouse, setItemWarehouse] = useState("");
   const [isItemWarehouse, setisItemWarehouse] = useState(false);
+  const [isQuantity, setIsQuantity]=useState(false);
 
   const [warehouse_id, setWarehouseID] = useState("");
   const categories = [
@@ -67,8 +68,11 @@ const navigate=useNavigate();
     if (!category){
       setIsCategory(true);
     }
+    if (!quantity){
+      setIsQuantity(true);
+    }
 
-    if (item_name && itemWarehouse && description &&category) {
+    if (item_name && itemWarehouse && description &&category &&quantity) {
 
       const newInventoryItemData = {
         warehouse_id: warehouse_id,
@@ -113,7 +117,7 @@ const navigate=useNavigate();
               <input
                 className="addInventoryForm__input"
                 placeholder="Item Name"
-                type="text"
+                type="text" 
                 value={item_name}
                 onChange={(e) => {
                   const value = e.target.value;
@@ -134,7 +138,7 @@ const navigate=useNavigate();
                   }
                 }}
               />
-              {isItem_name && <div>This fieId is required</div>}
+              {isItem_name && <div className="addInventoryValidation">This fieId is required</div>}
             </div>
 
             <div className="addInventoryForm__detail">

@@ -84,12 +84,6 @@ if (!isEmailValid) {
 
 if(isWarehouseNameValid && isAdressValid && isCityValid&&isCountryValid&&isContactNameValid&&isPositionValid&&isPhonenumberValid&&isEmailValid){
 
-<<<<<<< HEAD
-
-
-event.preventDefault();
-=======
->>>>>>> 1f579573c188ad14e5a33d33798944e4a2fb19fb
     const newWarehouse = {
       warehouse_name: event.target.warehousename.value,
       address: event.target.address.value,
