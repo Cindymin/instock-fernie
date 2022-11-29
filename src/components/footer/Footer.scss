@@ -5,11 +5,25 @@
 .footer {
   text-align: center;
   display: flex;
-  margin-top: 20vh;
-    margin-bottom: 40px;
+  margin-bottom: 40px;
   justify-content: center;
   width: 90vh;
-  
+  font-size: 0.6875rem;
+  color: #5c667e;
+  font-weight: 400;
+
+  @include breakpoints.small {
+    margin-top: 3.75rem;
+  }
+
+  @include breakpoints.medium {
+    margin-top: 20vh;
+  }
+
+  @include breakpoints.large {
+    margin-top: 20vh;
+  }
+
   &-wrap {
     display: flex;
     justify-content: center;
