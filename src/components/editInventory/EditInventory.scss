@@ -67,9 +67,30 @@ select {
 .sample {
   display: none;
 }
+.editInventoryForm{
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: #ffffff;
+
+  @include breakpoint.small {
+    margin: 0 1rem;
+    margin-top: -67px;
+  }
+
+   @include breakpoint.medium {
+    margin: 0 2rem;
+    margin-top: -96px;
+  }
+
+  @include breakpoint.large {
+   margin: 0 8.125rem;
+   margin-top: -96px;
+  }}
+
 
 .editInventoryForm {
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
   border-radius: 3px;
   background-color: #ffffff;
 
@@ -105,6 +126,9 @@ select {
     font-weight: 600;
     color: $primaryDark;
     margin-bottom: 1.5rem;
+  }
+  &__content{
+    border-top: 1px solid $secondaryLight;
   }
   &__itemdetails {
     padding: 1rem 1.5rem 0;
@@ -199,6 +223,7 @@ select {
 }
 
 @include breakpoint.medium {
+
   .editInventoryForm {
     &__title-text {
       margin-left: 0.75rem;

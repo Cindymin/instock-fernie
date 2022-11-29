@@ -4,7 +4,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import error from "../../assets/icons/error-24px.svg";
+
 import backIcon from "../../assets/icons/arrow_back-24px.svg";
+
 
 export default function EditInventory() {
   const navigate = useNavigate();
@@ -191,6 +193,7 @@ export default function EditInventory() {
       >
         {invItemArray?.map((invItem) => (
           <div key={invItem.id}>
+
             <div className="editInventoryForm__title">
               <Link to={`/inventory`}>
                 <div className="item-top__backIcon">
