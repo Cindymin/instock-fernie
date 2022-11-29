@@ -10,7 +10,7 @@ function AddWarehouse() {
 
 const handleSubmit = (event) => {
  event.preventDefault();
-const form=event.currentTarget
+const form=event.currentTarget;
 
 const isWarehouseNameValid = form.warehousename.value;
 const isAdressValid = form.address.value;
