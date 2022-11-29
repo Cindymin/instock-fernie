@@ -21,10 +21,24 @@ select{
 }
 
 .addInventoryForm{
-    font-family:TitilliumWeb;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  background-color: #ffffff;
+
+  @include breakpoint.small {
+    margin: 0 1rem;
+    margin-top: -67px;
+  }
+
+  @include breakpoint.medium {
+    margin: 0 2rem;
+    margin-top: -97px;
+  }
+
+  @include breakpoint.large {
+   margin: 0 8.125rem;
+   margin-top: -97px;
+  }
     
     &__title {
       font-size: 1.75rem;
@@ -146,9 +160,6 @@ select{
 
 @include breakpoint.medium {
     .addInventoryForm {
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
   
       &__title-text{
         margin-left: 0.75rem;
@@ -270,9 +281,6 @@ select{
 
   @include breakpoint.large{
     .addInventoryForm {
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
   
       &__title-text{
         margin-left: 0.75rem;

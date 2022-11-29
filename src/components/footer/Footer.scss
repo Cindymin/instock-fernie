@@ -5,9 +5,11 @@
 .footer {
   text-align: center;
   display: flex;
-  margin-top: 100vh;
+  margin-top: 20vh;
+    margin-bottom: 40px;
   justify-content: center;
   width: 90vh;
+  
   &-wrap {
     display: flex;
     justify-content: center;
