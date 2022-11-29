@@ -114,7 +114,6 @@ export default function EditInventory() {
 
     const isItemValid = form.itemName.value;
     const isDesValid = form.des.value;
-    const isQtyValid = form.qty.value;
 
     if (!isItemValid) {
       form.itemName.style.border = "1px solid red";
@@ -130,14 +129,6 @@ export default function EditInventory() {
     } else {
       form.des.style.border = "1px solid #bdc5d5";
       document.getElementById("des-Valid").style.display = "none";
-    }
-
-    if (!isQtyValid) {
-      form.qty.style.border = "1px solid red";
-      document.getElementById("qty-Valid").style.display = "block";
-    } else {
-      form.qty.style.border = "1px solid #bdc5d5";
-      document.getElementById("qty-Valid").style.display = "none";
     }
 
     const editData = {
@@ -157,7 +148,7 @@ export default function EditInventory() {
           console.log(error);
         });
     };
-    if (isItemValid && isDesValid && isQtyValid) {
+    if (isItemValid && isDesValid) {
       updateData();
       navigate("/inventory");
     }

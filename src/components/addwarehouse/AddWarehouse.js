@@ -111,7 +111,10 @@ if(isWarehouseNameValid && isAdressValid && isCityValid&&isCountryValid&&isConta
   return (
     <form className="addform" noValidate onSubmit={handleSubmit}>
       <div className="addform__title">
-       <Link to="/"> <img src={arrow} className="addform_arrow" alt="back"></img></Link>
+        <Link to="/">
+          {" "}
+          <img src={arrow} className="addform_arrow" alt="back"></img>
+        </Link>
         <p>Add New Warehouse</p>
       </div>
 
@@ -258,7 +261,10 @@ if(isWarehouseNameValid && isAdressValid && isCityValid&&isCountryValid&&isConta
       </div>
 
       <div className="addform__btns">
-        <button className="addform__btncancel">Cancel</button>
+        <Link to="/warehouse">
+          {" "}
+          <button className="addform__btncancel">Cancel</button>
+        </Link>
         <button className="addform__btnsave" type="submit">
           Save
         </button>
