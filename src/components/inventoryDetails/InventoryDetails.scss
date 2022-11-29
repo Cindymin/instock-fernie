@@ -9,7 +9,7 @@
   background-color: #ffffff;
 
   @include bk.small {
-   margin: 0 1rem;
+    margin: 0 1rem;
     margin-top: -67px;
   }
   @include bk.medium {
@@ -17,8 +17,8 @@
     margin-top: -102px;
   }
   @include bk.large {
-   margin: 0 8.125rem;
-   margin-top: -102px;
+    margin: 0 8.125rem;
+    margin-top: -102px;
   }
   &Form {
     width: 100%;
@@ -254,4 +254,23 @@
       }
     }
   }
+}
+
+#inStock {
+  color: cl.$inStock;
+  background: rgba(21, 132, 99, 0.07);
+  border-radius: 20px;
+  color: #158463;
+  padding: 4px 8px;
+  font-weight: 600;
+  font-size: 12px;
+}
+#outOfStock {
+  background: rgba(201, 69, 21, 0.07);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #c94515;
+  padding: 4px 8px;
 }

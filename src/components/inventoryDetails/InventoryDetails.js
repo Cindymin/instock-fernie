@@ -109,14 +109,20 @@ export default function InventoryDetails() {
                   </h3>
                   {status === "In Stock" && (
                     <div className="item-bottom__right__status">
-                      <span className="item-bottom__right__statusText item-bottom__right__statusText--inStcok">
+                      <span
+                        className="item-bottom__right__statusText item-bottom__right__statusText--inStcok"
+                        id="inStock"
+                      >
                         In Stock
                       </span>
                     </div>
                   )}
                   {status === "Out of Stock" && (
                     <div className="item-bottom__right__status">
-                      <span className="item-bottom__right__statusText  item-bottom__right__statusText--outOfStock">
+                      <span
+                        className="item-bottom__right__statusText  item-bottom__right__statusText--outOfStock"
+                        id="outOfStock"
+                      >
                         Out of Stock
                       </span>
                     </div>
