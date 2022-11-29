@@ -5,8 +5,13 @@
 
 .delete {
   padding: 1rem;
-  width: 23.5rem;
-  height: 41.6rem;
+   width:100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 99;
+
   &__icon {
     display: flex;
     flex-direction: column;
@@ -19,6 +24,7 @@
     font-size: 1.75rem;
     line-height: 2.25rem;
     font-weight: 600;
+    padding-top: 1rem;
   }
   &__text {
     font-size: 0.95rem;
@@ -37,7 +43,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding-top: 25rem;
+      padding-top: 18rem;
     }
     &--cancel {
       background-color: cl.$primaryLight;
@@ -51,13 +57,29 @@
       color: cl.$primaryLight;
       font-weight: 600;
     }
+    &--cancel:hover {
+      border: 1px solid cl.$primaryMedium;
+      color: cl.$primaryMedium;
+    }
+    &--delete:hover {
+    background-color: cl.$backgroundDark;
+    }
   }
 }
 
 @include bk.medium {
-  .warehouseDelete {
+  .delete {
     width: 42rem;
     height: 16.375rem;
+    display: none;
+    position: absolute;
+    top: 31%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+
     &__title {
       padding: 0 3rem;
     }
@@ -77,10 +99,17 @@
     }
   }
 }
+
 @include bk.large {
-  .warehouseDelete {
+  .delete {
     width: 42rem;
     height: 16.375rem;
+     top: 31%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
     &__title {
       padding: 0 3rem;
     }
